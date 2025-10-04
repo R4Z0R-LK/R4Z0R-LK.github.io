@@ -1,4 +1,4 @@
-fetch('https://www.youtube.com/c/TVDeranaLIVE/live')
+fetch('https://www.youtube.com/@HiruTVPlus/live')
 	.then((response) => {
 	  return response.text();
 	})
@@ -9,4 +9,5 @@ fetch('https://www.youtube.com/c/TVDeranaLIVE/live')
 	  console.log(hlsurl.substring(17, hlsurl.indexOf('"},"heartbeatParam')));
 	//location.replace(hlsurl.substring(17, hlsurl.indexOf('"},"heartbeatParam')))
 	
+
 	});
