@@ -6,7 +6,6 @@
     <title>R4Z0R-LK | Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.7.77/Tone.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -31,145 +30,193 @@
             cursor: default;
         }
 
-        #desktop { position: fixed; inset: 0; overflow: hidden; }
-        #hero-canvas { position: absolute; width: 100%; height: 100%; top: 0; left: 0; z-index: -1; }
+        #desktop { position: fixed; inset: 0; overflow: hidden; opacity: 0; transition: opacity 0.5s; }
+        #hero-canvas { position: absolute; width: 100%; height: 100%; top: 0; left: 0; z-index: -1; transition: opacity 0.5s; }
         
-        /* Boot Sequence */
-        #boot-loader { position: fixed; inset: 0; background: #000; z-index: 10000; font-family: 'Courier New', Courier, monospace; color: #0f0; padding: 2rem; opacity: 1; transition: opacity 1s ease-out; }
-        #boot-loader.hidden { opacity: 0; pointer-events: none; }
-        #boot-log > p { white-space: pre-wrap; opacity: 0; }
-        #boot-log .cursor::after { content: '█'; animation: boot-blink 1s step-end infinite; }
+        /* OS Branding */
+        #os-branding {
+            position: fixed;
+            top: 4rem;
+            right: 4rem;
+            font-size: 6rem;
+            font-weight: 900;
+            color: rgba(255, 255, 255, 0.1);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Widgets */
+        #widget-container {
+            position: fixed;
+            top: 10rem;
+            right: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            z-index: 1;
+        }
+        .widget {
+            background: rgba(20, 20, 20, 0.2);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1rem;
+            padding: 1rem;
+            width: 280px;
+        }
+        #clock-widget .time { font-size: 3rem; font-weight: 700; }
+        #clock-widget .date { font-size: 1rem; opacity: 0.7; }
+        .system-widget-item { display: flex; align-items: center; gap: 0.75rem; }
+        .progress-bar-bg { width: 100%; background: rgba(0,0,0,0.3); border-radius: 99px; height: 8px; }
+        .progress-bar-fill { height: 100%; border-radius: 99px; transition: width 0.5s; }
+
+        /* Boot, Shutdown, Enter Overlays */
+        .overlay { position: fixed; inset: 0; background: #000; z-index: 10000; font-family: 'Courier New', Courier, monospace; display: flex; flex-direction: column; align-items: center; justify-content: center; opacity: 1; transition: opacity 1s ease-out; color: #39ff14; }
+        .overlay.hidden { opacity: 0; pointer-events: none; }
+        #boot-log > p, #shutdown-log > p { white-space: pre-wrap; opacity: 0; }
+        #boot-log, #shutdown-log { width: 100%; max-width: 800px; padding: 2rem; }
+        .cursor::after { content: '█'; animation: boot-blink 1s step-end infinite; }
         @keyframes boot-blink { 50% { opacity: 0; } }
+        #enter-prompt { color: #0f0; font-size: 1.5rem; text-align: center; cursor: pointer; display: none; }
+        #enter-prompt:hover { text-shadow: 0 0 10px #0f0; }
 
         /* Top Menu Bar */
         #menu-bar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 28px;
-            background: var(--menu-bar-bg);
-            backdrop-filter: blur(20px);
-            z-index: 5000;
-            display: flex;
-            align-items: center;
-            padding: 0 1rem;
-            font-size: 0.875rem;
-            color: #f1f1f1;
+            position: fixed; top: 0; left: 0; right: 0; height: 28px; background: var(--menu-bar-bg);
+            backdrop-filter: blur(20px); z-index: 5000; display: flex; align-items: center;
+            padding: 0 1rem; font-size: 0.875rem; color: #f1f1f1;
         }
+        .menu-cluster { display: flex; }
         #menu-bar > * { margin-right: 1.5rem; }
-        .apple-logo { font-weight: 900; }
-        .menu-item { font-weight: 500; }
+        .menu-item { font-weight: 500; position: relative; cursor: pointer; padding: 4px 8px; border-radius: 4px; }
+        .menu-item:hover { background: rgba(255,255,255,0.2); }
+        #clock, #volume-control { margin-left: auto; margin-right: 0; }
+        #volume-control { cursor: pointer; margin-left: 1rem; }
 
+        /* Dropdown Menu */
+        .dropdown-menu {
+            position: absolute; top: 28px; left: 0; background: rgba(40, 40, 40, 0.7);
+            backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px;
+            padding: 4px; min-width: 200px; z-index: 5001; opacity: 0;
+            transform: translateY(-10px); transition: opacity 0.2s, transform 0.2s; pointer-events: none;
+        }
+        .menu-item.active .dropdown-menu { opacity: 1; transform: translateY(0); pointer-events: auto; }
+        .dropdown-item { padding: 6px 12px; border-radius: 4px; cursor: pointer; white-space: nowrap; }
+        .dropdown-item:hover { background: #007aff; }
+        .dropdown-divider { height: 1px; background: rgba(255,255,255,0.1); margin: 4px 0; }
+        
         /* Window Styling */
         .window {
-            position: absolute;
-            width: 640px;
-            max-width: 90vw;
-            height: 480px;
-            max-height: calc(100vh - 8rem);
-            background-color: var(--window-bg);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
-            display: flex;
-            flex-direction: column;
-            resize: both;
-            overflow: hidden;
-            opacity: 0;
-            transform: scale(0.95);
+            position: absolute; width: 640px; max-width: 90vw; height: 480px; max-height: calc(100vh - 8rem);
+            background-color: var(--window-bg); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4); display: flex;
+            flex-direction: column; resize: both; overflow: hidden; opacity: 0; transform: scale(0.95);
             transition: opacity 0.3s, transform 0.3s;
         }
-        .window.minimized {
-            opacity: 0 !important;
-            transform: scale(0) !important;
-            pointer-events: none;
-        }
-        .window-header {
-            display: flex;
-            align-items: center;
-            padding: 0.75rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            cursor: move;
-            flex-shrink: 0;
-        }
-        .window-title {
-            font-weight: 600;
-            color: #f1f1f1;
-            text-align: center;
-            flex-grow: 1;
-        }
+        .window.minimized { opacity: 0 !important; transform: scale(0) !important; pointer-events: none; }
+        .window-header { display: flex; align-items: center; padding: 0.75rem; border-bottom: 1px solid rgba(255, 255, 255, 0.1); cursor: move; flex-shrink: 0; }
+        .window-title { font-weight: 600; color: #f1f1f1; text-align: center; flex-grow: 1; }
         .window-controls { display: flex; gap: 0.5rem; position: absolute; left: 0.75rem; }
         .window-control { width: 12px; height: 12px; border-radius: 50%; border: 1px solid rgba(0,0,0,0.2); }
         .window-control.close { background-color: #ff5f56; }
         .window-control.minimize { background-color: #ffbd2e; }
         .window-control.maximize { background-color: #27c93f; }
-
         .window-content { padding: 1.5rem; flex-grow: 1; overflow-y: auto; }
         .window-content::-webkit-scrollbar { width: 8px; }
         .window-content::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.3); border-radius: 4px; }
         
         /* Dock */
         #dock {
-            position: fixed;
-            bottom: 0.5rem;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            align-items: flex-end;
-            gap: 0.75rem;
-            padding: 0.5rem;
-            height: 80px;
-            background: rgba(20, 20, 20, 0.2);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 1.25rem;
-            z-index: 5000;
+            position: fixed; bottom: 0.5rem; left: 50%; transform: translateX(-50%); display: flex; align-items: flex-end;
+            gap: 0.75rem; padding: 0.5rem; height: 80px; background: rgba(20, 20, 20, 0.2);
+            backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 1.25rem; z-index: 5000;
+            transition: opacity 0.5s, transform 0.5s;
         }
-        .dock-item {
-            width: 64px;
-            height: 64px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 0.75rem;
-            cursor: pointer;
-            transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), margin 0.2s;
-            will-change: transform;
-        }
-        .dock-item img { width: 100%; height: 100%; }
+        .dock-item { width: 64px; height: 64px; display: flex; align-items: center; justify-content: center;
+            border-radius: 0.75rem; cursor: pointer; transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), margin 0.2s; will-change: transform; }
         
         /* General Styles */
         .terminal { background: transparent; box-shadow: none; border: none; font-family: 'Courier New', Courier, monospace; }
-        .terminal-output { height: 100%; }
-        .terminal-input-line { padding: 1rem; border-top: 1px solid #374151; }
-        .terminal-input { background: transparent; border: none; outline: none; color: #e2e8f0; flex-grow: 1; }
     </style>
 </head>
 <body>
-    <div id="boot-loader">
+    <div id="boot-loader" class="overlay">
         <div id="boot-log"></div>
+        <div id="enter-prompt" class="cursor">
+            <p>R4Z0R-OS Initialized</p>
+            <p class="text-base mt-2 opacity-70">[ Click to Enter ]</p>
+        </div>
+    </div>
+    <div id="shutdown-overlay" class="overlay hidden">
+        <div id="shutdown-log" class="flex items-center justify-center h-full text-2xl"></div>
     </div>
     
     <div id="desktop">
-        <div id="menu-bar">
-            <span class="apple-logo">R</span>
-            <span class="menu-item font-bold">R4Z0R-LK</span>
-            <span class="menu-item">File</span>
-            <span class="menu-item">Edit</span>
-            <span class="menu-item">View</span>
-            <span class="menu-item">Window</span>
-            <span class="menu-item">Help</span>
+        <div id="os-branding">R4Z0R-OS</div>
+        <div id="widget-container">
+            <div id="clock-widget" class="widget">
+                <div id="widget-time" class="time">12:00</div>
+                <div id="widget-date" class="date">Sunday, Oct 5</div>
+            </div>
+            <div id="system-widget" class="widget space-y-3">
+                <div class="system-widget-item">
+                    <span class="font-bold text-sm">CPU</span>
+                    <div class="progress-bar-bg">
+                        <div id="cpu-bar" class="progress-bar-fill bg-cyan-400" style="width: 40%;"></div>
+                    </div>
+                </div>
+                <div class="system-widget-item">
+                    <span class="font-bold text-sm">RAM</span>
+                    <div class="progress-bar-bg">
+                        <div id="ram-bar" class="progress-bar-fill bg-pink-500" style="width: 60%;"></div>
+                    </div>
+                </div>
+            </div>
         </div>
+
+        <div id="menu-bar">
+            <div class="menu-cluster">
+                 <div class="menu-item font-bold" data-menu-id="apple-menu">
+                    R
+                    <div class="dropdown-menu">
+                        <div class="dropdown-item" data-action="open-profile">About This OS</div>
+                    </div>
+                </div>
+                <div class="menu-item" data-menu-id="file-menu">
+                    File
+                    <div class="dropdown-menu">
+                        <div class="dropdown-item" data-action="shutdown">Shut Down...</div>
+                    </div>
+                </div>
+                <div class="menu-item" data-menu-id="view-menu">
+                    View
+                     <div class="dropdown-menu">
+                        <div class="dropdown-item" data-action="toggle-dock">Toggle Dock</div>
+                        <div class="dropdown-item" data-action="toggle-particles">Toggle Particles</div>
+                    </div>
+                </div>
+                <div class="menu-item" data-menu-id="window-menu">
+                    Window
+                    <div class="dropdown-menu">
+                        <div id="open-windows-list">
+                            <div class="dropdown-item text-gray-500">No Open Windows</div>
+                        </div>
+                        <div class="dropdown-divider"></div>
+                        <div class="dropdown-item" data-action="close-all-windows">Close All Windows</div>
+                    </div>
+                </div>
+            </div>
+            <div id="clock"></div>
+             <div id="volume-control">
+                <svg id="volume-on" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M7 3a1 1 0 000 2h6a1 1 0 100-2H7zM4 7a1 1 0 011-1h10a1 1 0 110 2H5a1 1 0 01-1-1zM2 11a2 2 0 012-2h12a2 2 0 012 2v4a2 2 0 01-2 2H4a2 2 0 01-2-2v-4z"></path></svg>
+                <svg id="volume-off" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 hidden" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M9.383 3.076A1 1 0 0110 4v12a1 1 0 01-1.707.707L4.586 13H2a1 1 0 01-1-1V8a1 1 0 011-1h2.586l3.707-3.707a1 1 0 011.09-.217zM12.293 7.293a1 1 0 011.414 0L15 8.586l1.293-1.293a1 1 0 111.414 1.414L16.414 10l1.293 1.293a1 1 0 01-1.414 1.414L15 11.414l-1.293 1.293a1 1 0 01-1.414-1.414L13.586 10l-1.293-1.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+            </div>
+        </div>
+
         <canvas id="hero-canvas"></canvas>
         <div id="window-container"></div>
     </div>
 
-    <div id="dock">
-        <!-- Dock items will be injected by JS -->
-    </div>
-
+    <div id="dock"></div>
     <div id="window-templates" class="hidden">
         <div id="profile-window-template" class="window">
             <div class="window-header">
@@ -217,364 +264,99 @@
             </div>
         </div>
     </div>
+    <audio id="bg-music" loop src="https://cdn.pixabay.com/download/audio/2022/02/07/audio_35279b29b6.mp3"></audio>
 
     <script>
     document.addEventListener('DOMContentLoaded', () => {
-        const sounds = {
-            boot: new Tone.PolySynth(Tone.Synth, { oscillator: { type: 'square' }, envelope: { attack: 0.005, decay: 0.1, sustain: 0, release: 0.1 } }).toDestination(),
-            click: new Tone.PluckSynth().toDestination(),
-            windowOpen: new Tone.MembraneSynth({ pitchDecay: 0.01, octaves: 5 }).toDestination()
-        };
-        let soundEnabled = false;
-        document.body.addEventListener('click', () => { if (!soundEnabled) { Tone.start(); soundEnabled = true; } }, { once: true });
-        
         const bootLoader = document.getElementById('boot-loader');
         const bootLog = document.getElementById('boot-log');
-        const bootMessages = [
-            "R4Z0R-LK BIOS v2.5.1 Initializing...",
-            "Checking system memory... 16384MB OK",
-            "Detecting storage devices...",
-            "  - KIOXIA_EXCERIA_PRO_2TB (SYSTEM)",
-            "  - KIOXIA_EXCERIA_PRO_1TB (DATA)",
-            "Initializing GPU... MSI GTX 1080 GAMING X",
-            "Loading particle plexus background...",
-            "Establishing neural link...",
-            "Booting R4Z0R-OS...",
-            "Welcome, user."
-        ];
+        const enterPrompt = document.getElementById('enter-prompt');
+        const bgMusic = document.getElementById('bg-music');
 
+        const bootMessages = [
+            "R4Z0R-LK BIOS v2.5.1 Initializing...", "Checking system memory... 16384MB OK",
+            "Detecting storage devices...", "  - KIOXIA_EXCERIA_PRO_2TB (SYSTEM)", "  - KIOXIA_EXCERIA_PRO_1TB (DATA)",
+            "Initializing GPU... MSI GTX 1080 GAMING X", "Loading particle plexus background...", "Establishing neural link...",
+            "Booting R4Z0R-OS...", "System Initialized."
+        ];
         let messageIndex = 0;
+        
         function showBootMessage() {
             if (messageIndex < bootMessages.length) {
                 const p = document.createElement('p');
                 p.textContent = bootMessages[messageIndex];
-                if(messageIndex === bootMessages.length - 1) {
-                    p.className = 'cursor';
-                }
                 bootLog.appendChild(p);
                 anime({ targets: p, opacity: 1, duration: 100 });
-                sounds.boot.triggerAttackRelease(200 + messageIndex * 20, "32n");
                 messageIndex++;
-                setTimeout(showBootMessage, 200 + Math.random() * 200);
+                setTimeout(showBootMessage, 150 + Math.random() * 150);
             } else {
                 setTimeout(() => {
-                    bootLoader.classList.add('hidden');
-                    initDesktop();
-                }, 1500);
+                    bootLog.style.display = 'none';
+                    enterPrompt.style.display = 'block';
+                    anime({ targets: enterPrompt, opacity: [0, 1], duration: 1000 });
+                }, 500);
             }
         }
+
+        enterPrompt.addEventListener('click', () => {
+            bgMusic.volume = 0.2;
+            bgMusic.play().catch(e => console.log("Audio playback failed, user interaction needed."));
+            
+            anime({
+                targets: bootLoader,
+                opacity: 0,
+                duration: 1000,
+                easing: 'easeInOutQuad',
+                complete: () => {
+                    bootLoader.classList.add('hidden');
+                    document.getElementById('desktop').style.opacity = 1;
+                    initDesktop();
+                }
+            });
+        }, { once: true });
+
         showBootMessage();
 
         function initDesktop() {
             const dock = document.getElementById('dock');
+            const menuBar = document.getElementById('menu-bar');
+            const volumeControl = document.getElementById('volume-control');
+            const volOn = document.getElementById('volume-on');
+            const volOff = document.getElementById('volume-off');
             const windowContainer = document.getElementById('window-container');
             let highestZ = 100;
-            
-            const apps = [
-                { id: 'profile', title: 'System Profile', icon: 'https://placehold.co/128x128/f0f0f0/000000?text=👤' },
-                { id: 'arsenal', title: 'Core Arsenal', icon: 'https://placehold.co/128x128/f0f0f0/000000?text=🛠️' },
-                { id: 'trajectory', title: 'Career Trajectory', icon: 'https://placehold.co/128x128/f0f0f0/000000?text=📈' },
-                { id: 'deployments', title: 'Deployments', icon: 'https://placehold.co/128x128/f0f0f0/000000?text=🚀' },
-                { id: 'comms', title: 'Terminal', icon: 'https://placehold.co/128x128/f0f0f0/000000?text=/>_' }
-            ];
 
-            // Populate Dock
-            dock.innerHTML = apps.map(app => `
-                <div class="dock-item" data-app-id="${app.id}" title="${app.title}">
-                    <img src="${app.icon}" alt="${app.title}">
-                </div>
-            `).join('');
-            
-            dock.addEventListener('click', e => {
-                const dockItem = e.target.closest('.dock-item');
-                if (dockItem) {
-                    const appId = dockItem.dataset.appId;
-                    createWindow(appId);
-                }
+            volumeControl.addEventListener('click', () => {
+                bgMusic.muted = !bgMusic.muted;
+                volOn.classList.toggle('hidden', bgMusic.muted);
+                volOff.classList.toggle('hidden', !bgMusic.muted);
             });
-
-            // Dock Magnification
-            const dockItems = dock.querySelectorAll('.dock-item');
-            const DOCK_ITEM_WIDTH = 64;
-            dock.addEventListener('mousemove', e => {
-                const dockRect = dock.getBoundingClientRect();
-                const mouseX = e.clientX - dockRect.left;
-                
-                dockItems.forEach(item => {
-                    const itemRect = item.getBoundingClientRect();
-                    const itemCenterX = itemRect.left - dockRect.left + DOCK_ITEM_WIDTH / 2;
-                    const distance = Math.abs(mouseX - itemCenterX);
-                    
-                    const scale = Math.max(1, 1.8 - distance / 100);
-                    
-                    item.style.transform = `scale(${scale})`;
-                    item.style.margin = `0 ${scale * 4}px`;
-                });
-            });
-
-            dock.addEventListener('mouseleave', () => {
-                 dockItems.forEach(item => {
-                    item.style.transform = 'scale(1)';
-                    item.style.margin = '0';
-                });
-            });
-
-            function createWindow(appId) {
-                const existingWindow = document.getElementById(`${appId}-window`);
-                if (existingWindow) {
-                    if(existingWindow.classList.contains('minimized')) {
-                         existingWindow.classList.remove('minimized');
-                         anime({
-                            targets: existingWindow,
-                            top: `${50 + (Math.random() * 200 - 100)}px`,
-                            left: `${100 + (Math.random() * 400 - 200)}px`,
-                            width: '640px',
-                            height: '480px',
-                            opacity: 1,
-                            duration: 300,
-                            easing: 'easeOutCubic'
-                         });
-                    }
-                    existingWindow.style.zIndex = ++highestZ;
-                    anime({ targets: existingWindow, scale: [1.1, 1], duration: 300 });
-                    return;
-                }
-                
-                const template = document.getElementById(`${appId}-window-template`);
-                if (!template) return;
-                
-                const newWindow = template.cloneNode(true);
-                newWindow.id = `${appId}-window`;
-                newWindow.style.top = `${50 + (Math.random() * 100)}px`;
-                newWindow.style.left = `${100 + (Math.random() * 200)}px`;
-                newWindow.style.zIndex = ++highestZ;
-
-                if (appId === 'arsenal') populateArsenal(newWindow);
-                if (appId === 'trajectory') populateTrajectory(newWindow);
-                if (appId === 'deployments') populateDeployments(newWindow);
-                if (appId === 'comms') initTerminal(newWindow);
-
-                windowContainer.appendChild(newWindow);
-
-                anime({
-                    targets: newWindow,
-                    opacity: [0, 1],
-                    scale: [0.95, 1],
-                    duration: 300,
-                    easing: 'easeOutExpo'
-                });
-                sounds.windowOpen.triggerAttackRelease('C2', '8n');
-
-                makeDraggable(newWindow);
-                
-                newWindow.addEventListener('mousedown', () => {
-                    newWindow.style.zIndex = ++highestZ;
-                }, {capture: true});
-                
-                newWindow.querySelector('.close').addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    anime({
-                        targets: newWindow, opacity: 0, scale: 0.95, duration: 200, easing: 'easeInExpo',
-                        complete: () => newWindow.remove()
-                    });
-                });
-
-                newWindow.querySelector('.minimize').addEventListener('click', (e) => {
-                     e.stopPropagation();
-                     const dockIcon = dock.querySelector(`[data-app-id="${appId}"]`);
-                     const iconRect = dockIcon.getBoundingClientRect();
-                     
-                     anime({
-                        targets: newWindow,
-                        top: iconRect.top,
-                        left: iconRect.left,
-                        width: iconRect.width,
-                        height: iconRect.height,
-                        opacity: 0,
-                        duration: 300,
-                        easing: 'easeInCubic',
-                        complete: () => newWindow.classList.add('minimized')
-                     });
-                });
-            }
-
-            function makeDraggable(element) {
-                const header = element.querySelector('.window-header');
-                let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-                header.onmousedown = dragMouseDown;
-
-                function dragMouseDown(e) {
-                    e = e || window.event;
-                    e.preventDefault();
-                    pos3 = e.clientX;
-                    pos4 = e.clientY;
-                    document.onmouseup = closeDragElement;
-                    document.onmousemove = elementDrag;
-                }
-
-                function elementDrag(e) {
-                    e = e || window.event;
-                    e.preventDefault();
-                    pos1 = pos3 - e.clientX;
-                    pos2 = pos4 - e.clientY;
-                    pos3 = e.clientX;
-                    pos4 = e.clientY;
-                    element.style.top = (element.offsetTop - pos2) + "px";
-                    element.style.left = (element.offsetLeft - pos1) + "px";
-                }
-
-                function closeDragElement() {
-                    document.onmouseup = null;
-                    document.onmousemove = null;
-                }
-            }
-
-            function populateArsenal(win) {
-                const skills = [
-                    { name: 'MongoDB', mastery: 90, color: '#86efac' }, { name: 'Express.js', mastery: 85, color: '#f4f4f5' },
-                    { name: 'React', mastery: 95, color: '#60a5fa' }, { name: 'Node.js', mastery: 80, color: '#86efac' },
-                    { name: 'Tailwind CSS', mastery: 98, color: '#00f6ff' }, { name: 'JavaScript', mastery: 92, color: '#facc15' }
-                ];
-                const content = win.querySelector('.window-content');
-                content.innerHTML = skills.map(skill => `
-                    <div>
-                        <div class="flex justify-between mb-1">
-                            <span class="text-base font-medium">${skill.name}</span>
-                            <span class="text-sm font-medium">${skill.mastery}%</span>
-                        </div>
-                        <div class="w-full bg-gray-700 rounded-full h-2.5">
-                            <div class="h-2.5 rounded-full" style="width: ${skill.mastery}%; background-color: ${skill.color};"></div>
-                        </div>
-                    </div>
-                `).join('');
-            }
-
-            function populateTrajectory(win) {
-                 const events = [
-                    { year: 2020, title: 'Genesis Block', text: 'Initiated protocol. Began assimilation of foundational web languages—HTML, CSS, and JavaScript—establishing the core logic for future development.' },
-                    { year: 2022, title: 'Full-Stack Synthesis', text: 'Achieved full operational capacity with the MERN stack. Engineered end-to-end applications, integrating dynamic frontends with robust server-side logic.' },
-                    { year: 2024, title: 'Ecosystem Integration', text: 'Began contributing to the global developer ecosystem. Merged first pull request on GitHub, enhancing collaborative protocols and code quality standards.' }
-                ];
-                const content = win.querySelector('.window-content');
-                content.innerHTML = `<div class="relative border-l-2 border-gray-700 ml-3">${events.map(event => `
-                    <div class="mb-10 ml-6">
-                        <span class="absolute flex items-center justify-center w-6 h-6 bg-gray-700 rounded-full -left-3 ring-8 ring-gray-900">
-                             <svg class="w-3 h-3 text-cyan-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path></svg>
-                        </span>
-                        <h3 class="flex items-center mb-1 text-lg font-semibold text-white">${event.title} <span class="bg-cyan-900 text-cyan-300 text-sm font-medium mr-2 px-2.5 py-0.5 rounded ml-3">${event.year}</span></h3>
-                        <p class="text-base font-normal text-gray-400">${event.text}</p>
-                    </div>`).join('')}</div>`;
-            }
-
-            function populateDeployments(win) {
-                const projects = [
-                    { title: "Project Chimera", description: "This dynamic, single-page application serves as a central hub for my work, utilizing advanced CSS and JavaScript for a futuristic, interactive user experience.", tags: ["Anime.js", "Tailwind"], color: "cyan" },
-                    { title: "Project Nova", description: "A proof-of-concept frontend architecture for a high-traffic retail platform, built with React for modularity and performance.", tags: ["React", "Scalability"], color: "purple" },
-                    { title: "Project Insight", description: "A real-time data visualization interface designed to translate complex datasets into actionable business intelligence. Engineered for clarity and speed.", tags: ["Vue.js", "Data-Viz"], color: "pink" }
-                ];
-                 const content = win.querySelector('.window-content');
-                 content.innerHTML = projects.map(p => `
-                    <div class="bg-black/20 p-4 rounded-lg border border-gray-700 hover:border-cyan-400 transition-colors">
-                        <h3 class="font-bold text-lg text-white mb-2">${p.title}</h3>
-                        <p class="text-sm text-gray-400 mb-4">${p.description}</p>
-                        <div class="flex flex-wrap gap-2">
-                           ${p.tags.map(tag => `<span class="bg-${p.color}-500/20 text-${p.color}-300 text-xs font-semibold px-2.5 py-0.5 rounded-full">${tag}</span>`).join('')}
-                        </div>
-                    </div>
-                 `).join('');
-            }
-
-            function initTerminal(win) {
-                const terminalOutput = win.querySelector('#terminal-output');
-                const terminalInput = win.querySelector('#terminal-input');
-                const terminalForm = win.querySelector('#terminal-form');
-                
-                const welcomeMessage = [ "Welcome. Comms link established.", "Type `help` for a list of available commands.", " " ];
-                welcomeMessage.forEach((line, index) => { setTimeout(() => { const p = document.createElement('p'); p.className = 'terminal-line'; p.innerHTML = line.replace(/`([^`]+)`/g, '<span class="text-cyan-400">"$1"</span>'); terminalOutput.appendChild(p); }, index * 100); });
-
-                terminalForm.onsubmit = (e) => {
-                    e.preventDefault();
-                    const command = terminalInput.value.trim().toLowerCase();
-                    if (!command) return;
-                    const commandLine = document.createElement('p');
-                    commandLine.innerHTML = `<span class="text-green-400">user@R4Z0R-LK:~$</span> ${command}`;
-                    terminalOutput.appendChild(commandLine);
-                    handleCommand(command, terminalOutput);
-                    terminalInput.value = '';
-                    terminalOutput.scrollTop = terminalOutput.scrollHeight;
-                };
-            }
-
-            function handleCommand(cmd, outputEl) {
-                const output = document.createElement('p');
-                let response = '';
-                switch(cmd) {
-                    case 'help': response = `Command List: <br> - <span class="text-cyan-400">'open profile'</span><br> - <span class="text-cyan-400">'open arsenal'</span><br> - <span class="text-cyan-400">'open deployments'</span><br> - <span class="text-cyan-400">'contact'</span><br> - <span class="text-cyan-400">'clear'</span>`; break;
-                    case 'open profile': response = "Opening System Profile..."; createWindow('profile'); break;
-                    case 'open arsenal': response = "Opening Core Arsenal..."; createWindow('arsenal'); break;
-                    case 'open deployments': response = "Listing deployments..."; createWindow('deployments'); break;
-                    case 'contact': response = `Secure comms channel available. Execute <span class="text-cyan-400">'email'</span>.`; break;
-                    case 'email': window.location.href = "mailto:contact@example.com"; response = "Initializing mail client..."; break;
-                    case 'clear': outputEl.innerHTML = ''; return;
-                    default: response = `ERR: Command not found: '${cmd}'.`;
-                }
-                output.innerHTML = response;
-                outputEl.appendChild(output);
-            }
             
-            const canvas = document.getElementById('hero-canvas');
-            const ctx = canvas.getContext('2d');
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-            let particlesArray;
-            const mouse = { x: null, y: null, radius: (canvas.height / 120) * (canvas.width / 120) };
-            window.addEventListener('mousemove', event => { mouse.x = event.x; mouse.y = event.y; });
-            class Particle {
-                constructor(x, y, directionX, directionY, size, color) { this.x = x; this.y = y; this.directionX = directionX; this.directionY = directionY; this.size = size; this.color = color; }
-                draw() { ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false); ctx.fillStyle = 'rgba(0, 246, 255, 0.5)'; ctx.fill(); }
-                update() {
-                    if (this.x > canvas.width || this.x < 0) this.directionX = -this.directionX;
-                    if (this.y > canvas.height || this.y < 0) this.directionY = -this.directionY;
-                    let dx = mouse.x - this.x; let dy = mouse.y - this.y; let distance = Math.sqrt(dx * dx + dy * dy);
-                    if (distance < mouse.radius + this.size) {
-                        if (mouse.x < this.x && this.x < canvas.width - this.size * 10) this.x += 3;
-                        if (mouse.x > this.x && this.x > this.size * 10) this.x -= 3;
-                        if (mouse.y < this.y && this.y < canvas.height - this.size * 10) this.y += 3;
-                        if (mouse.y > this.y && this.y > this.size * 10) this.y -= 3;
-                    }
-                    this.x += this.directionX; this.y += this.directionY; this.draw();
-                }
-            }
-            function initPlexus() {
-                particlesArray = [];
-                let numberOfParticles = (canvas.height * canvas.width) / 9000;
-                for (let i = 0; i < numberOfParticles; i++) {
-                    let size = (Math.random() * 2) + 1;
-                    let x = (Math.random() * ((innerWidth - size * 2) - (size * 2)) + size * 2);
-                    let y = (Math.random() * ((innerHeight - size * 2) - (size * 2)) + size * 2);
-                    let directionX = (Math.random() * 0.4) - 0.2;
-                    let directionY = (Math.random() * 0.4) - 0.2;
-                    particlesArray.push(new Particle(x, y, directionX, directionY, size, 'rgba(0, 246, 255, 0.8)'));
-                }
-            }
-            function connect() {
-                let opacityValue = 1;
-                for (let a = 0; a < particlesArray.length; a++) {
-                    for (let b = a; b < particlesArray.length; b++) {
-                        let distance = ((particlesArray[a].x - particlesArray[b].x) * (particlesArray[a].x - particlesArray[b].x)) + ((particlesArray[a].y - particlesArray[b].y) * (particlesArray[a].y - particlesArray[b].y));
-                        if (distance < (canvas.width / 7) * (canvas.height / 7)) {
-                            opacityValue = 1 - (distance / 20000);
-                            ctx.strokeStyle = `rgba(167, 139, 250, ${opacityValue})`;
-                            ctx.lineWidth = 1;
-                            ctx.beginPath(); ctx.moveTo(particlesArray[a].x, particlesArray[a].y); ctx.lineTo(particlesArray[b].x, particlesArray[b].y); ctx.stroke();
-                        }
-                    }
-                }
-            }
-            function animatePlexus() { requestAnimationFrame(animatePlexus); ctx.clearRect(0,0,innerWidth,innerHeight); particlesArray.forEach(p=>p.update()); connect(); }
-            initPlexus(); animatePlexus();
-            window.addEventListener('resize', () => { canvas.width = innerWidth; canvas.height=innerHeight; mouse.radius = (canvas.height/120)*(canvas.width/120); initPlexus(); });
-
+            const apps = [{id:"profile",title:"System Profile",icon:`<svg xmlns="http://www.w3.org/2000/svg" class="w-full h-full p-2 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>`},{id:"arsenal",title:"Core Arsenal",icon:`<svg xmlns="http://www.w3.org/2000/svg" class="w-full h-full p-2 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>`},{id:"trajectory",title:"Career Trajectory",icon:`<svg xmlns="http://www.w3.org/2000/svg" class="w-full h-full p-2 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg>`},{id:"deployments",title:"Deployments",icon:`<svg xmlns="http://www.w3.org/2000/svg" class="w-full h-full p-2 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" /></svg>`},{id:"comms",title:"Terminal",icon:`<svg xmlns="http://www.w3.org/2000/svg" class="w-full h-full p-2 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 7.5l3 3-3 3" /><path stroke-linecap="round" stroke-linejoin="round" d="M12.75 15h4.5" /></svg>`}];
+            dock.innerHTML=apps.map(e=>`<div class="dock-item" data-app-id="${e.id}" title="${e.title}">${e.icon}</div>`).join("");
+            const clockEl=document.getElementById("clock"),widgetTime=document.getElementById("widget-time"),widgetDate=document.getElementById("widget-date"),cpuBar=document.getElementById("cpu-bar"),ramBar=document.getElementById("ram-bar");
+            function updateClock(){const e=new Date,t={weekday:"short",month:"short",day:"numeric",hour:"2-digit",minute:"2-digit"};clockEl.textContent=e.toLocaleDateString("en-US",t).replace(",",""),widgetTime.textContent=e.toLocaleTimeString("en-US",{hour:"2-digit",minute:"2-digit"}),widgetDate.textContent=e.toLocaleDateString("en-US",{weekday:"long",month:"long",day:"numeric"})}
+            function updateSystemStatus(){cpuBar.style.width=`${10+50*Math.random()}%`,ramBar.style.width=`${50+30*Math.random()}%`}
+            setInterval(updateClock,1e3),setInterval(updateSystemStatus,2e3),updateClock(),updateSystemStatus();
+            const menuItems=document.querySelectorAll(".menu-item[data-menu-id]");
+            menuItems.forEach(e=>{e.addEventListener("click",t=>{if(t.target.closest("[data-action]"))return;t.stopPropagation();const n=e.classList.contains("active");menuItems.forEach(e=>e.classList.remove("active")),n||e.classList.add("active")})}),document.addEventListener("click",()=>menuItems.forEach(e=>e.classList.remove("active"))),menuBar.addEventListener("click",e=>{const t=e.target.closest("[data-action]");if(!t)return;const n=t.dataset.action;switch(n){case"open-profile":createWindow("profile");break;case"shutdown":shutdownSystem();break;case"toggle-dock":dock.style.opacity="0"===dock.style.opacity?"1":"0";break;case"toggle-particles":document.getElementById("hero-canvas").style.opacity="0"===document.getElementById("hero-canvas").style.opacity?"1":"0";break;case"close-all-windows":document.querySelectorAll(".window").forEach(e=>e.querySelector(".close").click())}menuItems.forEach(e=>e.classList.remove("active"))});
+            function shutdownSystem(){const e=document.getElementById("shutdown-overlay"),t=document.getElementById("shutdown-log");e.classList.remove("hidden"),t.innerHTML='<p class="cursor">R4Z0R-OS is shutting down...</p>',anime({targets:"#desktop > *:not(#shutdown-overlay, #boot-loader)",opacity:0,duration:1e3,easing:"easeInExpo"})}
+            function updateOpenWindowsMenu(){const t=document.getElementById("open-windows-list"),e=document.querySelectorAll(".window:not(.minimized)");if(0===e.length)return void(t.innerHTML='<div class="dropdown-item text-gray-500">No Open Windows</div>');t.innerHTML="",e.forEach(n=>{const o=n.querySelector(".window-title").textContent,i=document.createElement("div");i.className="dropdown-item",i.textContent=o,i.onclick=()=>{n.style.zIndex=++highestZ,anime({targets:n,scale:[1.05,1],duration:300})},t.appendChild(i)})}
+            dock.addEventListener("click",e=>{const t=e.target.closest(".dock-item");t&&createWindow(t.dataset.appId)});const dockItems=dock.querySelectorAll(".dock-item");
+            dock.addEventListener("mousemove",e=>{const t=dock.getBoundingClientRect(),n=e.clientX-t.left;dockItems.forEach(e=>{const o=e.getBoundingClientRect(),i=o.left-t.left+o.width/2,a=Math.abs(n-i),d=Math.max(1,1.8-a/100);e.style.transform=`scale(${d})`,e.style.margin=`0 ${4*d}px`})}),dock.addEventListener("mouseleave",()=>dockItems.forEach(e=>{e.style.transform="scale(1)",e.style.margin="0"}));
+            function createWindow(t){const e=document.getElementById(`${t}-window`);if(e){if(e.classList.contains("minimized")){e.classList.remove("minimized"),anime({targets:e,top:`${50+100*Math.random()}px`,left:`${100+200*Math.random()}px`,width:"640px",height:"480px",opacity:1,duration:300,easing:"easeOutCubic"}),setTimeout(updateOpenWindowsMenu,350)}return e.style.zIndex=++highestZ,void anime({targets:e,scale:[1.05,1],duration:200})}const n=document.getElementById(`${t}-window-template`);if(n){const o=n.cloneNode(!0);o.id=`${t}-window`,o.style.top=`${50+100*Math.random()}px`,o.style.left=`${100+200*Math.random()}px`,o.style.zIndex=++highestZ,"arsenal"===t&&populateArsenal(o),"trajectory"===t&&populateTrajectory(o),"deployments"===t&&populateDeployments(o),"comms"===t&&initTerminal(o),windowContainer.appendChild(o),anime({targets:o,opacity:[0,1],scale:[.95,1],duration:300,easing:"easeOutExpo"}),makeDraggable(o),o.addEventListener("mousedown",()=>{o.style.zIndex=++highestZ,updateOpenWindowsMenu()},{capture:!0}),o.querySelector(".close").addEventListener("click",e=>{e.stopPropagation(),anime({targets:o,opacity:0,scale:.95,duration:200,easing:"easeInExpo",complete:()=>{o.remove(),updateOpenWindowsMenu()}})}),o.querySelector(".minimize").addEventListener("click",e=>{e.stopPropagation();const n=dock.querySelector(`[data-app-id="${t}"]`).getBoundingClientRect();anime({targets:o,top:n.top,left:n.left,width:n.width,height:n.height,opacity:0,duration:300,easing:"easeInCubic",complete:()=>{o.classList.add("minimized"),updateOpenWindowsMenu()}})}),updateOpenWindowsMenu()}}
+            function makeDraggable(n){const o=n.querySelector(".window-header");let i=0,a=0,d=0,r=0;function e(e){e.preventDefault(),d=e.clientX,r=e.clientY,document.onmouseup=t,document.onmousemove=l}function l(e){e.preventDefault(),i=d-e.clientX,a=r-e.clientY,d=e.clientX,r=e.clientY,n.style.top=n.offsetTop-a+"px",n.style.left=n.offsetLeft-i+"px"}function t(){document.onmouseup=null,document.onmousemove=null}o.onmousedown=e}
+            function populateArsenal(e){const t=[{name:"MongoDB",mastery:90,color:"#86efac"},{name:"Express.js",mastery:85,color:"#f4f4f5"},{name:"React",mastery:95,color:"#60a5fa"},{name:"Node.js",mastery:80,color:"#86efac"},{name:"Tailwind CSS",mastery:98,color:"#00f6ff"},{name:"JavaScript",mastery:92,color:"#facc15"}];e.querySelector(".window-content").innerHTML=t.map(e=>`<div><div class="flex justify-between mb-1"><span class="text-base font-medium">${e.name}</span><span class="text-sm font-medium">${e.mastery}%</span></div><div class="w-full bg-gray-700 rounded-full h-2.5"><div class="h-2.5 rounded-full" style="width: ${e.mastery}%; background-color: ${e.color};"></div></div></div>`).join("")}
+            function populateTrajectory(e){const t=[{year:2020,title:"Genesis Block",text:"Initiated protocol. Began assimilation of foundational web languages—HTML, CSS, and JavaScript—establishing the core logic for future development."},{year:2022,title:"Full-Stack Synthesis",text:"Achieved full operational capacity with the MERN stack. Engineered end-to-end applications, integrating dynamic frontends with robust server-side logic."},{year:2024,title:"Ecosystem Integration",text:"Began contributing to the global developer ecosystem. Merged first pull request on GitHub, enhancing collaborative protocols and code quality standards."}];e.querySelector(".window-content").innerHTML=`<div class="relative border-l-2 border-gray-700 ml-3">${t.map(e=>`<div class="mb-10 ml-6"><span class="absolute flex items-center justify-center w-6 h-6 bg-gray-700 rounded-full -left-3 ring-8 ring-gray-900"><svg class="w-3 h-3 text-cyan-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path></svg></span><h3 class="flex items-center mb-1 text-lg font-semibold text-white">${e.title} <span class="bg-cyan-900 text-cyan-300 text-sm font-medium mr-2 px-2.5 py-0.5 rounded ml-3">${e.year}</span></h3><p class="text-base font-normal text-gray-400">${e.text}</p></div>`).join("")}</div>`}
+            function populateDeployments(e){const t=[{title:"Project Chimera",description:"This dynamic, single-page application serves as a central hub for my work, utilizing advanced CSS and JavaScript for a futuristic, interactive user experience.",tags:["Anime.js","Tailwind"],color:"cyan"},{title:"Project Nova",description:"A proof-of-concept frontend architecture for a high-traffic retail platform, built with React for modularity and performance.",tags:["React","Scalability"],color:"purple"},{title:"Project Insight",description:"A real-time data visualization interface designed to translate complex datasets into actionable business intelligence. Engineered for clarity and speed.",tags:["Vue.js","Data-Viz"],color:"pink"}];e.querySelector(".window-content").innerHTML=t.map(t=>`<div class="bg-black/20 p-4 rounded-lg border border-gray-700 hover:border-cyan-400 transition-colors"><h3 class="font-bold text-lg text-white mb-2">${t.title}</h3><p class="text-sm text-gray-400 mb-4">${t.description}</p><div class="flex flex-wrap gap-2">${t.tags.map(e=>`<span class="bg-${t.color}-500/20 text-${t.color}-300 text-xs font-semibold px-2.5 py-0.5 rounded-full">${e}</span>`).join("")}</div></div>`).join("")}
+            function initTerminal(e){const n=e.querySelector("#terminal-output"),o=e.querySelector("#terminal-input"),t=e.querySelector("#terminal-form");["Welcome. Comms link established.","Type `help` for a list of available commands."," "].forEach((t,e)=>{setTimeout(()=>{const o=document.createElement("p");o.className="terminal-line",o.innerHTML=t.replace(/`([^`]+)`/g,'<span class="text-cyan-400">"$1"</span>'),n.appendChild(o)},100*e)}),t.onsubmit=e=>{e.preventDefault();const t=o.value.trim().toLowerCase();if(!t)return;const a=document.createElement("p");a.innerHTML=`<span class="text-green-400">user@R4Z0R-LK:~$</span> ${t}`,n.appendChild(a),handleCommand(t,n),o.value="",n.scrollTop=n.scrollHeight}}
+            function handleCommand(e,t){const n=document.createElement("p");let o="";switch(e){case"help":o='Command List: <br> - <span class="text-cyan-400">\'open profile\'</span><br> - <span class="text-cyan-400">\'open arsenal\'</span><br> - <span class="text-cyan-400">\'open deployments\'</span><br> - <span class="text-cyan-400">\'contact\'</span><br> - <span class="text-cyan-400">\'clear\'</span>';break;case"open profile":o="Opening System Profile...",createWindow("profile");break;case"open arsenal":o="Opening Core Arsenal...",createWindow("arsenal");break;case"open deployments":o="Listing deployments...",createWindow("deployments");break;case"contact":o='Secure comms channel available. Execute <span class="text-cyan-400">\'email\'</span>.';break;case"email":window.location.href="mailto:contact@example.com",o="Initializing mail client...";break;case"clear":return void(t.innerHTML="");default:o=`ERR: Command not found: '${e}'.`}n.innerHTML=o,t.appendChild(n)}
+            const canvas=document.getElementById("hero-canvas"),ctx=canvas.getContext("2d");canvas.width=window.innerWidth,canvas.height=window.innerHeight;let particlesArray;const mouse={x:null,y:null,radius:canvas.height/120*(canvas.width/120)};window.addEventListener("mousemove",e=>{mouse.x=e.x,mouse.y=e.y});
+            class Particle{constructor(e,t,n,o,i,a){this.x=e,this.y=t,this.directionX=n,this.directionY=o,this.size=i,this.color=a}draw(){ctx.beginPath(),ctx.arc(this.x,this.y,this.size,0,2*Math.PI,!1),ctx.fillStyle="rgba(0,246,255,0.5)",ctx.fill()}update(){this.x>canvas.width||this.x<0?this.directionX=-this.directionX:0,this.y>canvas.height||this.y<0?this.directionY=-this.directionY:0;var e=mouse.x-this.x,t=mouse.y-this.y,n=Math.sqrt(e*e+t*t);n<mouse.radius+this.size&&(mouse.x<this.x&&this.x<canvas.width-10*this.size?this.x+=3:0,mouse.x>this.x&&this.x>10*this.size?this.x-=3:0,mouse.y<this.y&&this.y<canvas.height-10*this.size?this.y+=3:0,mouse.y>this.y&&this.y>10*this.size?this.y-=3:0),this.x+=this.directionX,this.y+=this.directionY,this.draw()}}
+            function initPlexus(){particlesArray=[];let e=canvas.height*canvas.width/9e3;for(let t=0;t<e;t++){let e=2*Math.random()+1,n=Math.random()*(innerWidth-2*e-2*e)+2*e,o=Math.random()*(innerHeight-2*e-2*e)+2*e,i=.4*Math.random()-.2,a=.4*Math.random()-.2;particlesArray.push(new Particle(n,o,i,a,e,"rgba(0,246,255,0.8)"))}}
+            function connect(){let t=1;for(let o=0;o<particlesArray.length;o++)for(let i=o;i<particlesArray.length;i++){let e=(particlesArray[o].x-particlesArray[i].x)*(particlesArray[o].x-particlesArray[i].x)+(particlesArray[o].y-particlesArray[i].y)*(particlesArray[o].y-particlesArray[i].y);e<canvas.width/7*(canvas.height/7)&&(t=1-e/2e4,ctx.strokeStyle=`rgba(167,139,250,${t})`,ctx.lineWidth=1,ctx.beginPath(),ctx.moveTo(particlesArray[o].x,particlesArray[o].y),ctx.lineTo(particlesArray[i].x,particlesArray[i].y),ctx.stroke())}}
+            function animatePlexus(){requestAnimationFrame(animatePlexus),ctx.clearRect(0,0,innerWidth,innerHeight),particlesArray.forEach(e=>e.update()),connect()}
+            initPlexus(),animatePlexus(),window.addEventListener("resize",()=>{canvas.width=innerWidth,canvas.height=innerHeight,mouse.radius=canvas.height/120*(canvas.width/120),initPlexus()});
         }
     });
     </script>
