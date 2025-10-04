@@ -1,512 +1,582 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>R4Z0R-LK | Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.7.77/Tone.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary-glow: #00f6ff;
+            --secondary-glow: #ff00c1;
+            --dark-bg: #030712;
+            --menu-bar-bg: rgba(20, 20, 20, 0.3);
+            --window-bg: rgba(30, 30, 30, 0.5);
+        }
+        
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #030712; /* A very dark blue-gray */
-            overflow-x: hidden;
-        }
-        .text-glow {
-            text-shadow: 0 0 10px rgba(59, 130, 246, 0.5), 0 0 24px rgba(59, 130, 246, 0.3);
-        }
-        .gradient-text {
-            background: linear-gradient(to right, #38bdf8, #a78bfa, #f472b6);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-size: 200% auto;
-            animation: gradient-animation 5s ease-in-out infinite;
-        }
-        .card-bg {
-            background-color: rgba(17, 24, 39, 0.8);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(55, 65, 81, 0.4);
-            position: relative;
-            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            transform-style: preserve-3d;
-            will-change: transform; /* Performance hint */
-        }
-        .card-bg:hover {
-            transform: perspective(1000px) rotateY(10deg) rotateX(5deg) scale3d(1.05, 1.05, 1.05);
-        }
-        .card-bg .card-image {
-            transition: transform 0.4s ease;
-        }
-        .card-bg:hover .card-image {
-            transform: scale(1.1);
+            background-color: var(--dark-bg);
+            background-image: 
+                radial-gradient(circle at 1px 1px, rgba(0, 246, 255, 0.1) 1px, transparent 0),
+                radial-gradient(circle at 1rem 1rem, rgba(0, 246, 255, 0.05) 1px, transparent 0);
+            background-size: 2rem 2rem;
+            overflow: hidden;
+            color: #e2e8f0;
+            cursor: default;
         }
 
-        /* Card glow effect */
-        .card-bg::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            border-radius: 0.5rem; /* rounded-lg */
-            padding: 1px;
-            background: linear-gradient(var(--angle), #38bdf8, #a78bfa, #f472b6);
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-            opacity: 0;
-            transition: opacity 0.3s;
-            animation: 5s rotate linear infinite;
-        }
-        .card-bg:hover::before {
-            opacity: 1;
-        }
-        @property --angle {
-          syntax: '<angle>';
-          initial-value: 0deg;
-          inherits: false;
-        }
-        @keyframes rotate {
-          to { --angle: 360deg; }
-        }
+        #desktop { position: fixed; inset: 0; overflow: hidden; }
+        #hero-canvas { position: absolute; width: 100%; height: 100%; top: 0; left: 0; z-index: -1; }
         
-        .hero-bg {
-            position: relative;
-            overflow: hidden;
-        }
-        #particles-js {
-            position: absolute;
-            width: 100%;
-            height: 100%;
+        /* Boot Sequence */
+        #boot-loader { position: fixed; inset: 0; background: #000; z-index: 10000; font-family: 'Courier New', Courier, monospace; color: #0f0; padding: 2rem; opacity: 1; transition: opacity 1s ease-out; }
+        #boot-loader.hidden { opacity: 0; pointer-events: none; }
+        #boot-log > p { white-space: pre-wrap; opacity: 0; }
+        #boot-log .cursor::after { content: '█'; animation: boot-blink 1s step-end infinite; }
+        @keyframes boot-blink { 50% { opacity: 0; } }
+
+        /* Top Menu Bar */
+        #menu-bar {
+            position: fixed;
             top: 0;
             left: 0;
-            z-index: 0;
+            right: 0;
+            height: 28px;
+            background: var(--menu-bar-bg);
+            backdrop-filter: blur(20px);
+            z-index: 5000;
+            display: flex;
+            align-items: center;
+            padding: 0 1rem;
+            font-size: 0.875rem;
+            color: #f1f1f1;
         }
-        .content-z {
-            position: relative;
-            z-index: 1;
-        }
-        /* Base state for scroll animations (now controlled by JS) */
-        .scroll-reveal, .skill-item, .project-card, .timeline-item {
-            opacity: 0;
-            transform: translateY(30px);
-        }
-        
-        @keyframes gradient-animation {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
+        #menu-bar > * { margin-right: 1.5rem; }
+        .apple-logo { font-weight: 900; }
+        .menu-item { font-weight: 500; }
 
-        /* Typing cursor for hero subtitle */
-        #typing-text::after {
-            content: '|';
-            animation: blink 1s step-end infinite;
-        }
-
-        @keyframes blink {
-            from, to { color: transparent }
-            50% { color: #a78bfa; }
-        }
-
-        /* Animated underline for Nav links */
-        .nav-link {
-            position: relative;
-            transition: color 0.3s;
-        }
-        .nav-link:hover {
-            color: #38bdf8;
-        }
-        .nav-link::after {
-            content: '';
+        /* Window Styling */
+        .window {
             position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -4px;
+            width: 640px;
+            max-width: 90vw;
+            height: 480px;
+            max-height: calc(100vh - 8rem);
+            background-color: var(--window-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+            display: flex;
+            flex-direction: column;
+            resize: both;
+            overflow: hidden;
+            opacity: 0;
+            transform: scale(0.95);
+            transition: opacity 0.3s, transform 0.3s;
+        }
+        .window.minimized {
+            opacity: 0 !important;
+            transform: scale(0) !important;
+            pointer-events: none;
+        }
+        .window-header {
+            display: flex;
+            align-items: center;
+            padding: 0.75rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            cursor: move;
+            flex-shrink: 0;
+        }
+        .window-title {
+            font-weight: 600;
+            color: #f1f1f1;
+            text-align: center;
+            flex-grow: 1;
+        }
+        .window-controls { display: flex; gap: 0.5rem; position: absolute; left: 0.75rem; }
+        .window-control { width: 12px; height: 12px; border-radius: 50%; border: 1px solid rgba(0,0,0,0.2); }
+        .window-control.close { background-color: #ff5f56; }
+        .window-control.minimize { background-color: #ffbd2e; }
+        .window-control.maximize { background-color: #27c93f; }
+
+        .window-content { padding: 1.5rem; flex-grow: 1; overflow-y: auto; }
+        .window-content::-webkit-scrollbar { width: 8px; }
+        .window-content::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.3); border-radius: 4px; }
+        
+        /* Dock */
+        #dock {
+            position: fixed;
+            bottom: 0.5rem;
             left: 50%;
             transform: translateX(-50%);
-            background-color: #38bdf8;
-            transition: width 0.3s ease-out;
+            display: flex;
+            align-items: flex-end;
+            gap: 0.75rem;
+            padding: 0.5rem;
+            height: 80px;
+            background: rgba(20, 20, 20, 0.2);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1.25rem;
+            z-index: 5000;
         }
-        .nav-link:hover::after {
-            width: 100%;
+        .dock-item {
+            width: 64px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 0.75rem;
+            cursor: pointer;
+            transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), margin 0.2s;
+            will-change: transform;
         }
+        .dock-item img { width: 100%; height: 100%; }
         
-        /* Animated underline for Section headers */
-        .section-underline {
-            transform: scaleX(0);
-            transition: transform 0.6s ease-in-out;
-            transform-origin: center;
-        }
-        .is-visible .section-underline {
-            transform: scaleX(1);
-        }
-
-        /* Timeline styles - now animated by JS */
-        .timeline-item-inner {
-            position: relative;
-            padding-left: 2.5rem;
-            padding-bottom: 2rem;
-            border-left: 2px solid #374151; /* gray-700 */
-        }
-        .timeline-item:last-child .timeline-item-inner {
-            border-left: 2px solid transparent;
-        }
-        .timeline-line-fill {
-            position: absolute;
-            background-color: #38bdf8;
-            width: 2px;
-            top: 4px;
-            left: -2px;
-            height: 100%;
-            transform: scaleY(0);
-            transform-origin: top;
-        }
-        .timeline-dot {
-            position: absolute;
-            left: -9px;
-            top: 4px;
-            height: 1rem;
-            width: 1rem;
-            background-color: #38bdf8;
-            border-radius: 50%;
-            border: 2px solid #030712;
-            transform: scale(0);
-        }
-        
-        /* Hero title letter animation */
-        .hero-title .letter {
-            display: inline-block;
-            opacity: 0;
-            transform: translateY(20px);
-        }
+        /* General Styles */
+        .terminal { background: transparent; box-shadow: none; border: none; font-family: 'Courier New', Courier, monospace; }
+        .terminal-output { height: 100%; }
+        .terminal-input-line { padding: 1rem; border-top: 1px solid #374151; }
+        .terminal-input { background: transparent; border: none; outline: none; color: #e2e8f0; flex-grow: 1; }
     </style>
 </head>
-<body class="text-gray-200">
-
-    <!-- Header / Navbar -->
-    <header class="bg-gray-900/80 backdrop-blur-sm sticky top-0 z-50 border-b border-gray-800">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-2xl font-black gradient-text">R4Z0R-LK</a>
-            <div class="hidden md:flex space-x-8 items-center text-sm font-medium">
-                <a href="#about" class="nav-link">About</a>
-                <a href="#skills" class="nav-link">Skills</a>
-                <a href="#experience" class="nav-link">Experience</a>
-                <a href="#projects" class="nav-link">Projects</a>
-                <a href="#contact" class="nav-link">Contact</a>
-            </div>
-            <button id="mobile-menu-button" class="md:hidden p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-inset focus:ring-sky-500">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
-                </svg>
-            </button>
-        </nav>
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-2">
-            <a href="#about" class="block hover:text-sky-400 transition-colors duration-300 py-2">About</a>
-            <a href="#skills" class="block hover:text-sky-400 transition-colors duration-300 py-2">Skills</a>
-            <a href="#experience" class="block hover:text-sky-400 transition-colors duration-300 py-2">Experience</a>
-            <a href="#projects" class="block hover:text-sky-400 transition-colors duration-300 py-2">Projects</a>
-            <a href="#contact" class="block hover:text-sky-400 transition-colors duration-300 py-2">Contact</a>
+<body>
+    <div id="boot-loader">
+        <div id="boot-log"></div>
+    </div>
+    
+    <div id="desktop">
+        <div id="menu-bar">
+            <span class="apple-logo">R</span>
+            <span class="menu-item font-bold">R4Z0R-LK</span>
+            <span class="menu-item">File</span>
+            <span class="menu-item">Edit</span>
+            <span class="menu-item">View</span>
+            <span class="menu-item">Window</span>
+            <span class="menu-item">Help</span>
         </div>
-    </header>
+        <canvas id="hero-canvas"></canvas>
+        <div id="window-container"></div>
+    </div>
 
-    <main>
-        <!-- Hero Section -->
-        <section id="home" class="min-h-screen flex items-center justify-center text-center hero-bg">
-            <div id="particles-js"></div>
-            <div class="container mx-auto px-6 content-z">
-                <h1 class="hero-title text-5xl md:text-7xl lg:text-8xl font-black text-white mb-4">
-                    <span class="gradient-text text-glow">R4Z0R-LK</span>
-                </h1>
-                <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto h-14 opacity-0" id="hero-subtitle">
-                    <span id="typing-text"></span>
-                </p>
-                <a href="#projects" id="hero-cta" class="opacity-0 bg-sky-500 text-white font-bold py-3 px-8 rounded-full hover:bg-sky-600 transition-all duration-300 text-lg transform hover:scale-105 shadow-lg shadow-sky-500/30">
-                    View My Work
-                </a>
+    <div id="dock">
+        <!-- Dock items will be injected by JS -->
+    </div>
+
+    <div id="window-templates" class="hidden">
+        <div id="profile-window-template" class="window">
+            <div class="window-header">
+                <div class="window-controls"><div class="window-control close"></div><div class="window-control minimize"></div><div class="window-control maximize"></div></div>
+                <span class="window-title">System Profile</span>
             </div>
-        </section>
-
-        <!-- About Section -->
-        <section id="about" class="py-24 bg-gray-900/50">
-            <div class="container mx-auto px-6 text-center scroll-reveal">
-                <h2 class="text-4xl font-bold mb-4 text-white">About Me</h2>
-                <div class="w-24 h-1 bg-sky-500 mx-auto mb-12 section-underline"></div>
-                <div class="max-w-4xl mx-auto text-lg text-gray-300 space-y-6 text-left md:text-center">
-                    <p>
-                        Hello! I'm a self-driven developer with a strong passion for building clean, efficient, and user-friendly applications. My journey into the world of code started with a curiosity for how things work, and it has evolved into a full-fledged passion for creating impactful technology.
-                    </p>
-                    <p>
-                        I specialize in front-end development but am always eager to dive into new technologies and expand my skillset. I believe in the power of collaboration and continuous learning to solve complex problems and deliver high-quality results. When I'm not coding, I enjoy exploring the latest tech trends and contributing to open-source projects.
-                    </p>
-                </div>
+            <div class="window-content text-sm font-mono">
+                <p><span class="text-cyan-400">OPERATOR:</span> R4Z0R-LK</p>
+                <p><span class="text-cyan-400">STATUS:</span> <span class="text-green-400">ONLINE</span></p>
+                <p><span class="text-cyan-400">PRIMARY DIRECTIVE:</span> Engineering High-Performance Digital Solutions</p>
+                <br>
+                <p class="text-cyan-400"># CORE ARCHITECTURE</p>
+                <p> - <span class="text-gray-400">CPU:</span> Intel Core i5-11400F</p>
+                <p> - <span class="text-gray-400">GPU:</span> MSI GAMING X GTX 1080 8GB</p>
+                <p> - <span class="text-gray-400">RAM:</span> 16GB Corsair Vengeance RGB PRO DDR4 @ 3200MHz</p>
+                <p> - <span class="text-gray-400">MOBO:</span> ASUS TUF GAMING B560M-PLUS WIFI</p>
+                <p> - <span class="text-gray-400">STORAGE:</span> 3TB NVMe SSD (Kioxia Exceria Pro)</p>
+                <br>
+                <p class="text-cyan-400"># MISSION STATEMENT</p>
+                <p class="whitespace-pre-wrap text-gray-300">My passion for technology extends from silicon to software. Just as I optimize a physical rig for maximum performance, I architect clean, efficient code for impactful digital experiences. The drive is the same: precision, power, and flawless execution. I specialize in engineering robust, full-stack applications, transforming complex problems into elegant, high-performance solutions.</p>
             </div>
-        </section>
-
-        <!-- Skills Section -->
-        <section id="skills" class="py-24">
-            <div class="container mx-auto px-6 text-center scroll-reveal">
-                <h2 class="text-4xl font-bold text-white mb-4">My Skills</h2>
-                <div class="w-24 h-1 bg-sky-500 mx-auto mb-12 section-underline"></div>
-                <div id="skills-grid" class="max-w-4xl mx-auto grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-8">
-                    <div class="skill-item flex flex-col items-center justify-center p-4 transition-transform duration-300 hover:scale-110 group">
-                        <img src="https://www.vectorlogo.zone/logos/w3_html5/w3_html5-icon.svg" alt="HTML5" class="h-16 w-16 mb-2 group-hover:[filter:drop-shadow(0_0_8px_#f472b6)] transition-all duration-300">
-                        <p class="text-sm font-medium">HTML5</p>
-                    </div>
-                    <div class="skill-item flex flex-col items-center justify-center p-4 transition-transform duration-300 hover:scale-110 group">
-                        <img src="https://www.vectorlogo.zone/logos/w3_css/w3_css-icon.svg" alt="CSS3" class="h-16 w-16 mb-2 group-hover:[filter:drop-shadow(0_0_8px_#38bdf8)] transition-all duration-300">
-                        <p class="text-sm font-medium">CSS3</p>
-                    </div>
-                    <div class="skill-item flex flex-col items-center justify-center p-4 transition-transform duration-300 hover:scale-110 group">
-                        <img src="https://www.vectorlogo.zone/logos/javascript/javascript-icon.svg" alt="JavaScript" class="h-16 w-16 mb-2 group-hover:[filter:drop-shadow(0_0_8px_#facc15)] transition-all duration-300">
-                        <p class="text-sm font-medium">JavaScript</p>
-                    </div>
-                    <div class="skill-item flex flex-col items-center justify-center p-4 transition-transform duration-300 hover:scale-110 group">
-                        <img src="https://www.vectorlogo.zone/logos/reactjs/reactjs-icon.svg" alt="React" class="h-16 w-16 mb-2 group-hover:[filter:drop-shadow(0_0_8px_#60a5fa)] transition-all duration-300">
-                        <p class="text-sm font-medium">React</p>
-                    </div>
-                    <div class="skill-item flex flex-col items-center justify-center p-4 transition-transform duration-300 hover:scale-110 group">
-                        <img src="https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg" alt="Tailwind CSS" class="h-16 w-16 mb-2 group-hover:[filter:drop-shadow(0_0_8px_#38bdf8)] transition-all duration-300">
-                        <p class="text-sm font-medium">Tailwind CSS</p>
-                    </div>
-                     <div class="skill-item flex flex-col items-center justify-center p-4 transition-transform duration-300 hover:scale-110 group">
-                        <img src="https://www.vectorlogo.zone/logos/nodejs/nodejs-icon.svg" alt="Node.js" class="h-16 w-16 mb-2 group-hover:[filter:drop-shadow(0_0_8px_#86efac)] transition-all duration-300">
-                        <p class="text-sm font-medium">Node.js</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Experience Timeline Section -->
-        <section id="experience" class="py-24 bg-gray-900/50">
-            <div class="container mx-auto px-6 scroll-reveal">
-                <h2 class="text-4xl font-bold text-center mb-4 text-white">My Journey</h2>
-                <div class="w-24 h-1 bg-sky-500 mx-auto mb-12 section-underline"></div>
-                <div id="timeline" class="max-w-2xl mx-auto">
-                    <div class="timeline-item">
-                        <div class="timeline-item-inner">
-                            <div class="timeline-line-fill"></div>
-                            <div class="timeline-dot"></div>
-                            <h3 class="text-xl font-bold text-white mb-1">Started my Coding Journey</h3>
-                            <p class="text-sm text-gray-400 mb-2">2020</p>
-                            <p class="text-gray-300">Began exploring the fundamentals of web development with HTML, CSS, and JavaScript, building my first simple websites.</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-item-inner">
-                            <div class="timeline-line-fill"></div>
-                            <div class="timeline-dot"></div>
-                            <h3 class="text-xl font-bold text-white mb-1">Diving into Frameworks</h3>
-                            <p class="text-sm text-gray-400 mb-2">2022</p>
-                            <p class="text-gray-300">Fell in love with the component-based architecture of React.js and started building more complex, interactive applications.</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-item-inner">
-                            <div class="timeline-line-fill"></div>
-                            <div class="timeline-dot"></div>
-                            <h3 class="text-xl font-bold text-white mb-1">First Open Source Contribution</h3>
-                            <p class="text-sm text-gray-400 mb-2">2024</p>
-                            <p class="text-gray-300">Made my first contribution to a public project on GitHub, learning valuable lessons about collaborative development and code quality.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Projects Section -->
-        <section id="projects" class="py-24">
-            <div class="container mx-auto px-6 scroll-reveal">
-                <h2 class="text-4xl font-bold text-center mb-4 text-white">My Projects</h2>
-                <div class="w-24 h-1 bg-sky-500 mx-auto mb-12 section-underline"></div>
-                <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-                    <!-- Project Cards will be injected here by JS -->
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="py-24 bg-gray-900/50">
-            <div class="container mx-auto px-6 text-center scroll-reveal">
-                <h2 class="text-4xl font-bold mb-4 text-white">Get In Touch</h2>
-                <div class="w-24 h-1 bg-sky-500 mx-auto mb-12 section-underline"></div>
-                <p class="max-w-2xl mx-auto text-lg text-gray-300 mb-8">
-                    I'm currently open to new opportunities and collaborations. Whether you have a question or just want to say hi, feel free to reach out. I'll do my best to get back to you!
-                </p>
-                <a href="mailto:contact@example.com" class="bg-sky-500 text-white font-bold py-3 px-8 rounded-full hover:bg-sky-600 transition-all duration-300 text-lg transform hover:scale-105 shadow-lg shadow-sky-500/30">
-                    Say Hello
-                </a>
-                <div class="flex justify-center space-x-6 mt-12">
-                    <a href="https://github.com/R4Z0R-LK" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-transform duration-300 transform hover:scale-110">
-                         <svg class="w-8 h-8" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-                    </a>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="bg-gray-900 border-t border-gray-800">
-        <div class="container mx-auto px-6 py-6 text-center text-gray-500">
-            <p>&copy; 2025 R4Z0R-LK. All Rights Reserved.</p>
         </div>
-    </footer>
+        <div id="arsenal-window-template" class="window">
+            <div class="window-header"><div class="window-controls"><div class="window-control close"></div><div class="window-control minimize"></div><div class="window-control maximize"></div></div><span class="window-title">Core Arsenal</span></div>
+            <div class="window-content space-y-4"></div>
+        </div>
+        <div id="trajectory-window-template" class="window">
+            <div class="window-header"><div class="window-controls"><div class="window-control close"></div><div class="window-control minimize"></div><div class="window-control maximize"></div></div><span class="window-title">Career Log</span></div>
+            <div class="window-content"></div>
+        </div>
+        <div id="deployments-window-template" class="window" style="width: 800px;">
+            <div class="window-header"><div class="window-controls"><div class="window-control close"></div><div class="window-control minimize"></div><div class="window-control maximize"></div></div><span class="window-title">Deployments</span></div>
+            <div class="window-content grid grid-cols-1 md:grid-cols-2 gap-6"></div>
+        </div>
+        <div id="comms-window-template" class="window">
+            <div class="window-header"><div class="window-controls"><div class="window-control close"></div><div class="window-control minimize"></div><div class="window-control maximize"></div></div><span class="window-title">Terminal</span></div>
+            <div class="window-content !p-0 flex flex-col">
+                <div class="terminal flex-grow flex flex-col">
+                    <div id="terminal-output" class="terminal-output flex-grow p-4"></div>
+                    <form id="terminal-form" class="terminal-input-line">
+                        <span class="text-green-400">user@R4Z0R-LK:~$</span>
+                        <input type="text" id="terminal-input" class="terminal-input ml-2" autocomplete="off" placeholder="Type 'help'">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
+    document.addEventListener('DOMContentLoaded', () => {
+        const sounds = {
+            boot: new Tone.PolySynth(Tone.Synth, { oscillator: { type: 'square' }, envelope: { attack: 0.005, decay: 0.1, sustain: 0, release: 0.1 } }).toDestination(),
+            click: new Tone.PluckSynth().toDestination(),
+            windowOpen: new Tone.MembraneSynth({ pitchDecay: 0.01, octaves: 5 }).toDestination()
+        };
+        let soundEnabled = false;
+        document.body.addEventListener('click', () => { if (!soundEnabled) { Tone.start(); soundEnabled = true; } }, { once: true });
+        
+        const bootLoader = document.getElementById('boot-loader');
+        const bootLog = document.getElementById('boot-log');
+        const bootMessages = [
+            "R4Z0R-LK BIOS v2.5.1 Initializing...",
+            "Checking system memory... 16384MB OK",
+            "Detecting storage devices...",
+            "  - KIOXIA_EXCERIA_PRO_2TB (SYSTEM)",
+            "  - KIOXIA_EXCERIA_PRO_1TB (DATA)",
+            "Initializing GPU... MSI GTX 1080 GAMING X",
+            "Loading particle plexus background...",
+            "Establishing neural link...",
+            "Booting R4Z0R-OS...",
+            "Welcome, user."
+        ];
 
-            // --- Mobile Menu Toggle ---
-            const mobileMenuButton = document.getElementById('mobile-menu-button');
-            const mobileMenu = document.getElementById('mobile-menu');
-            mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
-            mobileMenu.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
-            });
-
-            // --- Hero Section Animation ---
-            const heroTitle = document.querySelector('.hero-title span');
-            heroTitle.innerHTML = heroTitle.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
-            
-            const heroTimeline = anime.timeline({
-                easing: 'easeOutExpo',
-                duration: 750
-            });
-
-            heroTimeline
-                .add({
-                    targets: '.hero-title .letter',
-                    opacity: [0, 1],
-                    translateY: [20, 0],
-                    delay: anime.stagger(50)
-                })
-                .add({
-                    targets: '#hero-subtitle',
-                    opacity: [0, 1],
-                    translateY: [20, 0],
-                    offset: '-=500', // Start before previous animation ends
-                    complete: () => type() // Start typing animation after subtitle appears
-                })
-                .add({
-                    targets: '#hero-cta',
-                    opacity: [0, 1],
-                    translateY: [20, 0],
-                    offset: '-=600'
-                });
-
-            // --- Typing Animation ---
-            const typingText = document.getElementById('typing-text');
-            const phrases = [
-                "A Passionate Developer...",
-                "A Tech Enthusiast...",
-                "Crafting Modern Web Solutions."
-            ];
-            let phraseIndex = 0, charIndex = 0, isDeleting = false;
-
-            function type() {
-                const fullPhrase = phrases[phraseIndex];
-                let currentPhrase = '';
-                if (isDeleting) {
-                    currentPhrase = fullPhrase.substring(0, charIndex - 1);
-                    charIndex--;
-                } else {
-                    currentPhrase = fullPhrase.substring(0, charIndex + 1);
-                    charIndex++;
+        let messageIndex = 0;
+        function showBootMessage() {
+            if (messageIndex < bootMessages.length) {
+                const p = document.createElement('p');
+                p.textContent = bootMessages[messageIndex];
+                if(messageIndex === bootMessages.length - 1) {
+                    p.className = 'cursor';
                 }
-
-                typingText.textContent = currentPhrase;
-                let typeSpeed = 150;
-                if (isDeleting) typeSpeed /= 2;
-
-                if (!isDeleting && charIndex === fullPhrase.length) {
-                    typeSpeed = 2000;
-                    isDeleting = true;
-                } else if (isDeleting && charIndex === 0) {
-                    isDeleting = false;
-                    phraseIndex = (phraseIndex + 1) % phrases.length;
-                    typeSpeed = 500;
-                }
-                setTimeout(type, typeSpeed);
+                bootLog.appendChild(p);
+                anime({ targets: p, opacity: 1, duration: 100 });
+                sounds.boot.triggerAttackRelease(200 + messageIndex * 20, "32n");
+                messageIndex++;
+                setTimeout(showBootMessage, 200 + Math.random() * 200);
+            } else {
+                setTimeout(() => {
+                    bootLoader.classList.add('hidden');
+                    initDesktop();
+                }, 1500);
             }
+        }
+        showBootMessage();
 
-            // --- Particles.js Background ---
-            particlesJS('particles-js', { /* config unchanged */
-                "particles":{ "number":{ "value":80,"density":{ "enable":true,"value_area":800 } },"color":{ "value":"#ffffff" },"shape":{ "type":"circle" },"opacity":{ "value":0.5,"random":false },"size":{ "value":3,"random":true },"line_linked":{ "enable":true,"distance":150,"color":"#808080","opacity":0.4,"width":1 },"move":{ "enable":true,"speed":2,"direction":"none","out_mode":"out" } },"interactivity":{ "detect_on":"canvas","events":{ "onhover":{ "enable":true,"mode":"repulse" },"onclick":{ "enable":true,"mode":"push" } },"modes":{ "repulse":{ "distance":100 },"push":{ "particles_nb":4 } } },"retina_detect":true
-            });
-
-            // --- General Scroll Reveal & Stagger Animations ---
-            const scrollObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('is-visible');
-
-                        // Stagger animations for specific sections
-                        const targetId = entry.target.id;
-                        if (targetId === 'skills-grid' || targetId === 'projects-grid' || targetId === 'timeline') {
-                            const items = entry.target.querySelectorAll('.skill-item, .project-card, .timeline-item');
-                            anime({
-                                targets: items,
-                                opacity: [0, 1],
-                                translateY: [30, 0],
-                                delay: anime.stagger(100, { start: 100 }),
-                                easing: 'easeOutExpo',
-                                duration: 800
-                            });
-                        }
-                        
-                        // Timeline line fill animation
-                        if (targetId === 'timeline') {
-                             anime({
-                                targets: '.timeline-item .timeline-line-fill',
-                                scaleY: [0, 1],
-                                delay: anime.stagger(200),
-                                easing: 'easeInOutQuad'
-                            });
-                            anime({
-                                targets: '.timeline-item .timeline-dot',
-                                scale: [0, 1],
-                                delay: anime.stagger(200, {start: 300}),
-                                easing: 'easeOutBack'
-                            });
-                        }
-
-                        scrollObserver.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.2 });
-
-            document.querySelectorAll('.scroll-reveal').forEach(el => scrollObserver.observe(el));
-            document.querySelectorAll('#skills-grid, #projects-grid, #timeline').forEach(el => scrollObserver.observe(el));
-
-            // --- Dynamically Create Project Cards ---
-            const projects = [
-                { title: "Portfolio Website", description: "The very site you're on! A responsive personal portfolio built with modern design principles.", tags: ["HTML", "Tailwind CSS", "JavaScript"], image: "https://placehold.co/600x400/030712/38bdf8?text=Portfolio", github: "https://github.com/R4Z0R-LK", color: "sky" },
-                { title: "E-commerce Frontend", description: "A sleek and modern user interface for an online store, focusing on great user experience.", tags: ["React", "Vite", "Tailwind CSS"], image: "https://placehold.co/600x400/030712/a78bfa?text=E-commerce", github: "https://github.com/R4Z0R-LK", color: "purple" },
-                { title: "Data Visualization Dashboard", description: "An interactive dashboard for visualizing complex datasets with charts and graphs.", tags: ["Vue.js", "D3.js", "Node.js"], image: "https://placehold.co/600x400/030712/10b981?text=Dashboard", github: "https://github.com/R4Z0R-LK", color: "emerald" }
+        function initDesktop() {
+            const dock = document.getElementById('dock');
+            const windowContainer = document.getElementById('window-container');
+            let highestZ = 100;
+            
+            const apps = [
+                { id: 'profile', title: 'System Profile', icon: 'https://placehold.co/128x128/f0f0f0/000000?text=👤' },
+                { id: 'arsenal', title: 'Core Arsenal', icon: 'https://placehold.co/128x128/f0f0f0/000000?text=🛠️' },
+                { id: 'trajectory', title: 'Career Trajectory', icon: 'https://placehold.co/128x128/f0f0f0/000000?text=📈' },
+                { id: 'deployments', title: 'Deployments', icon: 'https://placehold.co/128x128/f0f0f0/000000?text=🚀' },
+                { id: 'comms', title: 'Terminal', icon: 'https://placehold.co/128x128/f0f0f0/000000?text=/>_' }
             ];
 
-            const projectContainer = document.getElementById('projects-grid');
-            projectContainer.innerHTML = projects.map(p => `
-                <div class="project-card card-bg rounded-lg overflow-hidden flex flex-col">
-                    <div class="overflow-hidden">
-                        <img src="${p.image}" alt="${p.title}" class="card-image w-full h-48 object-cover">
-                    </div>
-                    <div class="p-6 flex flex-col flex-grow">
-                        <h3 class="text-2xl font-bold mb-2 text-white">${p.title}</h3>
-                        <p class="text-gray-400 mb-4 flex-grow">${p.description}</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            ${p.tags.map(tag => `<span class="bg-${p.color}-500/20 text-${p.color}-300 text-xs font-semibold px-2.5 py-0.5 rounded-full">${tag}</span>`).join('')}
-                        </div>
-                        <div class="flex space-x-4 mt-auto">
-                            <a href="${p.github}" class="text-gray-300 hover:text-${p.color}-400 transition-colors" target="_blank" rel="noopener noreferrer">
-                                <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-                            </a>
-                        </div>
-                    </div>
+            // Populate Dock
+            dock.innerHTML = apps.map(app => `
+                <div class="dock-item" data-app-id="${app.id}" title="${app.title}">
+                    <img src="${app.icon}" alt="${app.title}">
                 </div>
             `).join('');
-        });
+            
+            dock.addEventListener('click', e => {
+                const dockItem = e.target.closest('.dock-item');
+                if (dockItem) {
+                    const appId = dockItem.dataset.appId;
+                    createWindow(appId);
+                }
+            });
+
+            // Dock Magnification
+            const dockItems = dock.querySelectorAll('.dock-item');
+            const DOCK_ITEM_WIDTH = 64;
+            dock.addEventListener('mousemove', e => {
+                const dockRect = dock.getBoundingClientRect();
+                const mouseX = e.clientX - dockRect.left;
+                
+                dockItems.forEach(item => {
+                    const itemRect = item.getBoundingClientRect();
+                    const itemCenterX = itemRect.left - dockRect.left + DOCK_ITEM_WIDTH / 2;
+                    const distance = Math.abs(mouseX - itemCenterX);
+                    
+                    const scale = Math.max(1, 1.8 - distance / 100);
+                    
+                    item.style.transform = `scale(${scale})`;
+                    item.style.margin = `0 ${scale * 4}px`;
+                });
+            });
+
+            dock.addEventListener('mouseleave', () => {
+                 dockItems.forEach(item => {
+                    item.style.transform = 'scale(1)';
+                    item.style.margin = '0';
+                });
+            });
+
+            function createWindow(appId) {
+                const existingWindow = document.getElementById(`${appId}-window`);
+                if (existingWindow) {
+                    if(existingWindow.classList.contains('minimized')) {
+                         existingWindow.classList.remove('minimized');
+                         anime({
+                            targets: existingWindow,
+                            top: `${50 + (Math.random() * 200 - 100)}px`,
+                            left: `${100 + (Math.random() * 400 - 200)}px`,
+                            width: '640px',
+                            height: '480px',
+                            opacity: 1,
+                            duration: 300,
+                            easing: 'easeOutCubic'
+                         });
+                    }
+                    existingWindow.style.zIndex = ++highestZ;
+                    anime({ targets: existingWindow, scale: [1.1, 1], duration: 300 });
+                    return;
+                }
+                
+                const template = document.getElementById(`${appId}-window-template`);
+                if (!template) return;
+                
+                const newWindow = template.cloneNode(true);
+                newWindow.id = `${appId}-window`;
+                newWindow.style.top = `${50 + (Math.random() * 100)}px`;
+                newWindow.style.left = `${100 + (Math.random() * 200)}px`;
+                newWindow.style.zIndex = ++highestZ;
+
+                if (appId === 'arsenal') populateArsenal(newWindow);
+                if (appId === 'trajectory') populateTrajectory(newWindow);
+                if (appId === 'deployments') populateDeployments(newWindow);
+                if (appId === 'comms') initTerminal(newWindow);
+
+                windowContainer.appendChild(newWindow);
+
+                anime({
+                    targets: newWindow,
+                    opacity: [0, 1],
+                    scale: [0.95, 1],
+                    duration: 300,
+                    easing: 'easeOutExpo'
+                });
+                sounds.windowOpen.triggerAttackRelease('C2', '8n');
+
+                makeDraggable(newWindow);
+                
+                newWindow.addEventListener('mousedown', () => {
+                    newWindow.style.zIndex = ++highestZ;
+                }, {capture: true});
+                
+                newWindow.querySelector('.close').addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    anime({
+                        targets: newWindow, opacity: 0, scale: 0.95, duration: 200, easing: 'easeInExpo',
+                        complete: () => newWindow.remove()
+                    });
+                });
+
+                newWindow.querySelector('.minimize').addEventListener('click', (e) => {
+                     e.stopPropagation();
+                     const dockIcon = dock.querySelector(`[data-app-id="${appId}"]`);
+                     const iconRect = dockIcon.getBoundingClientRect();
+                     
+                     anime({
+                        targets: newWindow,
+                        top: iconRect.top,
+                        left: iconRect.left,
+                        width: iconRect.width,
+                        height: iconRect.height,
+                        opacity: 0,
+                        duration: 300,
+                        easing: 'easeInCubic',
+                        complete: () => newWindow.classList.add('minimized')
+                     });
+                });
+            }
+
+            function makeDraggable(element) {
+                const header = element.querySelector('.window-header');
+                let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+                header.onmousedown = dragMouseDown;
+
+                function dragMouseDown(e) {
+                    e = e || window.event;
+                    e.preventDefault();
+                    pos3 = e.clientX;
+                    pos4 = e.clientY;
+                    document.onmouseup = closeDragElement;
+                    document.onmousemove = elementDrag;
+                }
+
+                function elementDrag(e) {
+                    e = e || window.event;
+                    e.preventDefault();
+                    pos1 = pos3 - e.clientX;
+                    pos2 = pos4 - e.clientY;
+                    pos3 = e.clientX;
+                    pos4 = e.clientY;
+                    element.style.top = (element.offsetTop - pos2) + "px";
+                    element.style.left = (element.offsetLeft - pos1) + "px";
+                }
+
+                function closeDragElement() {
+                    document.onmouseup = null;
+                    document.onmousemove = null;
+                }
+            }
+
+            function populateArsenal(win) {
+                const skills = [
+                    { name: 'MongoDB', mastery: 90, color: '#86efac' }, { name: 'Express.js', mastery: 85, color: '#f4f4f5' },
+                    { name: 'React', mastery: 95, color: '#60a5fa' }, { name: 'Node.js', mastery: 80, color: '#86efac' },
+                    { name: 'Tailwind CSS', mastery: 98, color: '#00f6ff' }, { name: 'JavaScript', mastery: 92, color: '#facc15' }
+                ];
+                const content = win.querySelector('.window-content');
+                content.innerHTML = skills.map(skill => `
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="text-base font-medium">${skill.name}</span>
+                            <span class="text-sm font-medium">${skill.mastery}%</span>
+                        </div>
+                        <div class="w-full bg-gray-700 rounded-full h-2.5">
+                            <div class="h-2.5 rounded-full" style="width: ${skill.mastery}%; background-color: ${skill.color};"></div>
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            function populateTrajectory(win) {
+                 const events = [
+                    { year: 2020, title: 'Genesis Block', text: 'Initiated protocol. Began assimilation of foundational web languages—HTML, CSS, and JavaScript—establishing the core logic for future development.' },
+                    { year: 2022, title: 'Full-Stack Synthesis', text: 'Achieved full operational capacity with the MERN stack. Engineered end-to-end applications, integrating dynamic frontends with robust server-side logic.' },
+                    { year: 2024, title: 'Ecosystem Integration', text: 'Began contributing to the global developer ecosystem. Merged first pull request on GitHub, enhancing collaborative protocols and code quality standards.' }
+                ];
+                const content = win.querySelector('.window-content');
+                content.innerHTML = `<div class="relative border-l-2 border-gray-700 ml-3">${events.map(event => `
+                    <div class="mb-10 ml-6">
+                        <span class="absolute flex items-center justify-center w-6 h-6 bg-gray-700 rounded-full -left-3 ring-8 ring-gray-900">
+                             <svg class="w-3 h-3 text-cyan-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path></svg>
+                        </span>
+                        <h3 class="flex items-center mb-1 text-lg font-semibold text-white">${event.title} <span class="bg-cyan-900 text-cyan-300 text-sm font-medium mr-2 px-2.5 py-0.5 rounded ml-3">${event.year}</span></h3>
+                        <p class="text-base font-normal text-gray-400">${event.text}</p>
+                    </div>`).join('')}</div>`;
+            }
+
+            function populateDeployments(win) {
+                const projects = [
+                    { title: "Project Chimera", description: "This dynamic, single-page application serves as a central hub for my work, utilizing advanced CSS and JavaScript for a futuristic, interactive user experience.", tags: ["Anime.js", "Tailwind"], color: "cyan" },
+                    { title: "Project Nova", description: "A proof-of-concept frontend architecture for a high-traffic retail platform, built with React for modularity and performance.", tags: ["React", "Scalability"], color: "purple" },
+                    { title: "Project Insight", description: "A real-time data visualization interface designed to translate complex datasets into actionable business intelligence. Engineered for clarity and speed.", tags: ["Vue.js", "Data-Viz"], color: "pink" }
+                ];
+                 const content = win.querySelector('.window-content');
+                 content.innerHTML = projects.map(p => `
+                    <div class="bg-black/20 p-4 rounded-lg border border-gray-700 hover:border-cyan-400 transition-colors">
+                        <h3 class="font-bold text-lg text-white mb-2">${p.title}</h3>
+                        <p class="text-sm text-gray-400 mb-4">${p.description}</p>
+                        <div class="flex flex-wrap gap-2">
+                           ${p.tags.map(tag => `<span class="bg-${p.color}-500/20 text-${p.color}-300 text-xs font-semibold px-2.5 py-0.5 rounded-full">${tag}</span>`).join('')}
+                        </div>
+                    </div>
+                 `).join('');
+            }
+
+            function initTerminal(win) {
+                const terminalOutput = win.querySelector('#terminal-output');
+                const terminalInput = win.querySelector('#terminal-input');
+                const terminalForm = win.querySelector('#terminal-form');
+                
+                const welcomeMessage = [ "Welcome. Comms link established.", "Type `help` for a list of available commands.", " " ];
+                welcomeMessage.forEach((line, index) => { setTimeout(() => { const p = document.createElement('p'); p.className = 'terminal-line'; p.innerHTML = line.replace(/`([^`]+)`/g, '<span class="text-cyan-400">"$1"</span>'); terminalOutput.appendChild(p); }, index * 100); });
+
+                terminalForm.onsubmit = (e) => {
+                    e.preventDefault();
+                    const command = terminalInput.value.trim().toLowerCase();
+                    if (!command) return;
+                    const commandLine = document.createElement('p');
+                    commandLine.innerHTML = `<span class="text-green-400">user@R4Z0R-LK:~$</span> ${command}`;
+                    terminalOutput.appendChild(commandLine);
+                    handleCommand(command, terminalOutput);
+                    terminalInput.value = '';
+                    terminalOutput.scrollTop = terminalOutput.scrollHeight;
+                };
+            }
+
+            function handleCommand(cmd, outputEl) {
+                const output = document.createElement('p');
+                let response = '';
+                switch(cmd) {
+                    case 'help': response = `Command List: <br> - <span class="text-cyan-400">'open profile'</span><br> - <span class="text-cyan-400">'open arsenal'</span><br> - <span class="text-cyan-400">'open deployments'</span><br> - <span class="text-cyan-400">'contact'</span><br> - <span class="text-cyan-400">'clear'</span>`; break;
+                    case 'open profile': response = "Opening System Profile..."; createWindow('profile'); break;
+                    case 'open arsenal': response = "Opening Core Arsenal..."; createWindow('arsenal'); break;
+                    case 'open deployments': response = "Listing deployments..."; createWindow('deployments'); break;
+                    case 'contact': response = `Secure comms channel available. Execute <span class="text-cyan-400">'email'</span>.`; break;
+                    case 'email': window.location.href = "mailto:contact@example.com"; response = "Initializing mail client..."; break;
+                    case 'clear': outputEl.innerHTML = ''; return;
+                    default: response = `ERR: Command not found: '${cmd}'.`;
+                }
+                output.innerHTML = response;
+                outputEl.appendChild(output);
+            }
+            
+            const canvas = document.getElementById('hero-canvas');
+            const ctx = canvas.getContext('2d');
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            let particlesArray;
+            const mouse = { x: null, y: null, radius: (canvas.height / 120) * (canvas.width / 120) };
+            window.addEventListener('mousemove', event => { mouse.x = event.x; mouse.y = event.y; });
+            class Particle {
+                constructor(x, y, directionX, directionY, size, color) { this.x = x; this.y = y; this.directionX = directionX; this.directionY = directionY; this.size = size; this.color = color; }
+                draw() { ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false); ctx.fillStyle = 'rgba(0, 246, 255, 0.5)'; ctx.fill(); }
+                update() {
+                    if (this.x > canvas.width || this.x < 0) this.directionX = -this.directionX;
+                    if (this.y > canvas.height || this.y < 0) this.directionY = -this.directionY;
+                    let dx = mouse.x - this.x; let dy = mouse.y - this.y; let distance = Math.sqrt(dx * dx + dy * dy);
+                    if (distance < mouse.radius + this.size) {
+                        if (mouse.x < this.x && this.x < canvas.width - this.size * 10) this.x += 3;
+                        if (mouse.x > this.x && this.x > this.size * 10) this.x -= 3;
+                        if (mouse.y < this.y && this.y < canvas.height - this.size * 10) this.y += 3;
+                        if (mouse.y > this.y && this.y > this.size * 10) this.y -= 3;
+                    }
+                    this.x += this.directionX; this.y += this.directionY; this.draw();
+                }
+            }
+            function initPlexus() {
+                particlesArray = [];
+                let numberOfParticles = (canvas.height * canvas.width) / 9000;
+                for (let i = 0; i < numberOfParticles; i++) {
+                    let size = (Math.random() * 2) + 1;
+                    let x = (Math.random() * ((innerWidth - size * 2) - (size * 2)) + size * 2);
+                    let y = (Math.random() * ((innerHeight - size * 2) - (size * 2)) + size * 2);
+                    let directionX = (Math.random() * 0.4) - 0.2;
+                    let directionY = (Math.random() * 0.4) - 0.2;
+                    particlesArray.push(new Particle(x, y, directionX, directionY, size, 'rgba(0, 246, 255, 0.8)'));
+                }
+            }
+            function connect() {
+                let opacityValue = 1;
+                for (let a = 0; a < particlesArray.length; a++) {
+                    for (let b = a; b < particlesArray.length; b++) {
+                        let distance = ((particlesArray[a].x - particlesArray[b].x) * (particlesArray[a].x - particlesArray[b].x)) + ((particlesArray[a].y - particlesArray[b].y) * (particlesArray[a].y - particlesArray[b].y));
+                        if (distance < (canvas.width / 7) * (canvas.height / 7)) {
+                            opacityValue = 1 - (distance / 20000);
+                            ctx.strokeStyle = `rgba(167, 139, 250, ${opacityValue})`;
+                            ctx.lineWidth = 1;
+                            ctx.beginPath(); ctx.moveTo(particlesArray[a].x, particlesArray[a].y); ctx.lineTo(particlesArray[b].x, particlesArray[b].y); ctx.stroke();
+                        }
+                    }
+                }
+            }
+            function animatePlexus() { requestAnimationFrame(animatePlexus); ctx.clearRect(0,0,innerWidth,innerHeight); particlesArray.forEach(p=>p.update()); connect(); }
+            initPlexus(); animatePlexus();
+            window.addEventListener('resize', () => { canvas.width = innerWidth; canvas.height=innerHeight; mouse.radius = (canvas.height/120)*(canvas.width/120); initPlexus(); });
+
+        }
+    });
     </script>
 </body>
 </html>
