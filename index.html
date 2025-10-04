@@ -1,11 +1,513 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-    <script src="yt.js"></script>
-  </head>
-  <body>
-    hello
-  </body>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>R4Z0R-LK | Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #030712; /* A very dark blue-gray */
+            overflow-x: hidden;
+        }
+        .text-glow {
+            text-shadow: 0 0 10px rgba(59, 130, 246, 0.5), 0 0 24px rgba(59, 130, 246, 0.3);
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #38bdf8, #a78bfa, #f472b6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 200% auto;
+            animation: gradient-animation 5s ease-in-out infinite;
+        }
+        .card-bg {
+            background-color: rgba(17, 24, 39, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(55, 65, 81, 0.4);
+            position: relative;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transform-style: preserve-3d;
+            will-change: transform; /* Performance hint */
+        }
+        .card-bg:hover {
+            transform: perspective(1000px) rotateY(10deg) rotateX(5deg) scale3d(1.05, 1.05, 1.05);
+        }
+        .card-bg .card-image {
+            transition: transform 0.4s ease;
+        }
+        .card-bg:hover .card-image {
+            transform: scale(1.1);
+        }
+
+        /* Card glow effect */
+        .card-bg::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 0.5rem; /* rounded-lg */
+            padding: 1px;
+            background: linear-gradient(var(--angle), #38bdf8, #a78bfa, #f472b6);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0;
+            transition: opacity 0.3s;
+            animation: 5s rotate linear infinite;
+        }
+        .card-bg:hover::before {
+            opacity: 1;
+        }
+        @property --angle {
+          syntax: '<angle>';
+          initial-value: 0deg;
+          inherits: false;
+        }
+        @keyframes rotate {
+          to { --angle: 360deg; }
+        }
+        
+        .hero-bg {
+            position: relative;
+            overflow: hidden;
+        }
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
+        .content-z {
+            position: relative;
+            z-index: 1;
+        }
+        /* Base state for scroll animations (now controlled by JS) */
+        .scroll-reveal, .skill-item, .project-card, .timeline-item {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        @keyframes gradient-animation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Typing cursor for hero subtitle */
+        #typing-text::after {
+            content: '|';
+            animation: blink 1s step-end infinite;
+        }
+
+        @keyframes blink {
+            from, to { color: transparent }
+            50% { color: #a78bfa; }
+        }
+
+        /* Animated underline for Nav links */
+        .nav-link {
+            position: relative;
+            transition: color 0.3s;
+        }
+        .nav-link:hover {
+            color: #38bdf8;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #38bdf8;
+            transition: width 0.3s ease-out;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        /* Animated underline for Section headers */
+        .section-underline {
+            transform: scaleX(0);
+            transition: transform 0.6s ease-in-out;
+            transform-origin: center;
+        }
+        .is-visible .section-underline {
+            transform: scaleX(1);
+        }
+
+        /* Timeline styles - now animated by JS */
+        .timeline-item-inner {
+            position: relative;
+            padding-left: 2.5rem;
+            padding-bottom: 2rem;
+            border-left: 2px solid #374151; /* gray-700 */
+        }
+        .timeline-item:last-child .timeline-item-inner {
+            border-left: 2px solid transparent;
+        }
+        .timeline-line-fill {
+            position: absolute;
+            background-color: #38bdf8;
+            width: 2px;
+            top: 4px;
+            left: -2px;
+            height: 100%;
+            transform: scaleY(0);
+            transform-origin: top;
+        }
+        .timeline-dot {
+            position: absolute;
+            left: -9px;
+            top: 4px;
+            height: 1rem;
+            width: 1rem;
+            background-color: #38bdf8;
+            border-radius: 50%;
+            border: 2px solid #030712;
+            transform: scale(0);
+        }
+        
+        /* Hero title letter animation */
+        .hero-title .letter {
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+    </style>
+</head>
+<body class="text-gray-200">
+
+    <!-- Header / Navbar -->
+    <header class="bg-gray-900/80 backdrop-blur-sm sticky top-0 z-50 border-b border-gray-800">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-black gradient-text">R4Z0R-LK</a>
+            <div class="hidden md:flex space-x-8 items-center text-sm font-medium">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-inset focus:ring-sky-500">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-2">
+            <a href="#about" class="block hover:text-sky-400 transition-colors duration-300 py-2">About</a>
+            <a href="#skills" class="block hover:text-sky-400 transition-colors duration-300 py-2">Skills</a>
+            <a href="#experience" class="block hover:text-sky-400 transition-colors duration-300 py-2">Experience</a>
+            <a href="#projects" class="block hover:text-sky-400 transition-colors duration-300 py-2">Projects</a>
+            <a href="#contact" class="block hover:text-sky-400 transition-colors duration-300 py-2">Contact</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="min-h-screen flex items-center justify-center text-center hero-bg">
+            <div id="particles-js"></div>
+            <div class="container mx-auto px-6 content-z">
+                <h1 class="hero-title text-5xl md:text-7xl lg:text-8xl font-black text-white mb-4">
+                    <span class="gradient-text text-glow">R4Z0R-LK</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto h-14 opacity-0" id="hero-subtitle">
+                    <span id="typing-text"></span>
+                </p>
+                <a href="#projects" id="hero-cta" class="opacity-0 bg-sky-500 text-white font-bold py-3 px-8 rounded-full hover:bg-sky-600 transition-all duration-300 text-lg transform hover:scale-105 shadow-lg shadow-sky-500/30">
+                    View My Work
+                </a>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-24 bg-gray-900/50">
+            <div class="container mx-auto px-6 text-center scroll-reveal">
+                <h2 class="text-4xl font-bold mb-4 text-white">About Me</h2>
+                <div class="w-24 h-1 bg-sky-500 mx-auto mb-12 section-underline"></div>
+                <div class="max-w-4xl mx-auto text-lg text-gray-300 space-y-6 text-left md:text-center">
+                    <p>
+                        Hello! I'm a self-driven developer with a strong passion for building clean, efficient, and user-friendly applications. My journey into the world of code started with a curiosity for how things work, and it has evolved into a full-fledged passion for creating impactful technology.
+                    </p>
+                    <p>
+                        I specialize in front-end development but am always eager to dive into new technologies and expand my skillset. I believe in the power of collaboration and continuous learning to solve complex problems and deliver high-quality results. When I'm not coding, I enjoy exploring the latest tech trends and contributing to open-source projects.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="py-24">
+            <div class="container mx-auto px-6 text-center scroll-reveal">
+                <h2 class="text-4xl font-bold text-white mb-4">My Skills</h2>
+                <div class="w-24 h-1 bg-sky-500 mx-auto mb-12 section-underline"></div>
+                <div id="skills-grid" class="max-w-4xl mx-auto grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-8">
+                    <div class="skill-item flex flex-col items-center justify-center p-4 transition-transform duration-300 hover:scale-110 group">
+                        <img src="https://www.vectorlogo.zone/logos/w3_html5/w3_html5-icon.svg" alt="HTML5" class="h-16 w-16 mb-2 group-hover:[filter:drop-shadow(0_0_8px_#f472b6)] transition-all duration-300">
+                        <p class="text-sm font-medium">HTML5</p>
+                    </div>
+                    <div class="skill-item flex flex-col items-center justify-center p-4 transition-transform duration-300 hover:scale-110 group">
+                        <img src="https://www.vectorlogo.zone/logos/w3_css/w3_css-icon.svg" alt="CSS3" class="h-16 w-16 mb-2 group-hover:[filter:drop-shadow(0_0_8px_#38bdf8)] transition-all duration-300">
+                        <p class="text-sm font-medium">CSS3</p>
+                    </div>
+                    <div class="skill-item flex flex-col items-center justify-center p-4 transition-transform duration-300 hover:scale-110 group">
+                        <img src="https://www.vectorlogo.zone/logos/javascript/javascript-icon.svg" alt="JavaScript" class="h-16 w-16 mb-2 group-hover:[filter:drop-shadow(0_0_8px_#facc15)] transition-all duration-300">
+                        <p class="text-sm font-medium">JavaScript</p>
+                    </div>
+                    <div class="skill-item flex flex-col items-center justify-center p-4 transition-transform duration-300 hover:scale-110 group">
+                        <img src="https://www.vectorlogo.zone/logos/reactjs/reactjs-icon.svg" alt="React" class="h-16 w-16 mb-2 group-hover:[filter:drop-shadow(0_0_8px_#60a5fa)] transition-all duration-300">
+                        <p class="text-sm font-medium">React</p>
+                    </div>
+                    <div class="skill-item flex flex-col items-center justify-center p-4 transition-transform duration-300 hover:scale-110 group">
+                        <img src="https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg" alt="Tailwind CSS" class="h-16 w-16 mb-2 group-hover:[filter:drop-shadow(0_0_8px_#38bdf8)] transition-all duration-300">
+                        <p class="text-sm font-medium">Tailwind CSS</p>
+                    </div>
+                     <div class="skill-item flex flex-col items-center justify-center p-4 transition-transform duration-300 hover:scale-110 group">
+                        <img src="https://www.vectorlogo.zone/logos/nodejs/nodejs-icon.svg" alt="Node.js" class="h-16 w-16 mb-2 group-hover:[filter:drop-shadow(0_0_8px_#86efac)] transition-all duration-300">
+                        <p class="text-sm font-medium">Node.js</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Timeline Section -->
+        <section id="experience" class="py-24 bg-gray-900/50">
+            <div class="container mx-auto px-6 scroll-reveal">
+                <h2 class="text-4xl font-bold text-center mb-4 text-white">My Journey</h2>
+                <div class="w-24 h-1 bg-sky-500 mx-auto mb-12 section-underline"></div>
+                <div id="timeline" class="max-w-2xl mx-auto">
+                    <div class="timeline-item">
+                        <div class="timeline-item-inner">
+                            <div class="timeline-line-fill"></div>
+                            <div class="timeline-dot"></div>
+                            <h3 class="text-xl font-bold text-white mb-1">Started my Coding Journey</h3>
+                            <p class="text-sm text-gray-400 mb-2">2020</p>
+                            <p class="text-gray-300">Began exploring the fundamentals of web development with HTML, CSS, and JavaScript, building my first simple websites.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-item-inner">
+                            <div class="timeline-line-fill"></div>
+                            <div class="timeline-dot"></div>
+                            <h3 class="text-xl font-bold text-white mb-1">Diving into Frameworks</h3>
+                            <p class="text-sm text-gray-400 mb-2">2022</p>
+                            <p class="text-gray-300">Fell in love with the component-based architecture of React.js and started building more complex, interactive applications.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-item-inner">
+                            <div class="timeline-line-fill"></div>
+                            <div class="timeline-dot"></div>
+                            <h3 class="text-xl font-bold text-white mb-1">First Open Source Contribution</h3>
+                            <p class="text-sm text-gray-400 mb-2">2024</p>
+                            <p class="text-gray-300">Made my first contribution to a public project on GitHub, learning valuable lessons about collaborative development and code quality.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-24">
+            <div class="container mx-auto px-6 scroll-reveal">
+                <h2 class="text-4xl font-bold text-center mb-4 text-white">My Projects</h2>
+                <div class="w-24 h-1 bg-sky-500 mx-auto mb-12 section-underline"></div>
+                <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                    <!-- Project Cards will be injected here by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-24 bg-gray-900/50">
+            <div class="container mx-auto px-6 text-center scroll-reveal">
+                <h2 class="text-4xl font-bold mb-4 text-white">Get In Touch</h2>
+                <div class="w-24 h-1 bg-sky-500 mx-auto mb-12 section-underline"></div>
+                <p class="max-w-2xl mx-auto text-lg text-gray-300 mb-8">
+                    I'm currently open to new opportunities and collaborations. Whether you have a question or just want to say hi, feel free to reach out. I'll do my best to get back to you!
+                </p>
+                <a href="mailto:contact@example.com" class="bg-sky-500 text-white font-bold py-3 px-8 rounded-full hover:bg-sky-600 transition-all duration-300 text-lg transform hover:scale-105 shadow-lg shadow-sky-500/30">
+                    Say Hello
+                </a>
+                <div class="flex justify-center space-x-6 mt-12">
+                    <a href="https://github.com/R4Z0R-LK" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-transform duration-300 transform hover:scale-110">
+                         <svg class="w-8 h-8" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-900 border-t border-gray-800">
+        <div class="container mx-auto px-6 py-6 text-center text-gray-500">
+            <p>&copy; 2025 R4Z0R-LK. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // --- Mobile Menu Toggle ---
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+            });
+
+            // --- Hero Section Animation ---
+            const heroTitle = document.querySelector('.hero-title span');
+            heroTitle.innerHTML = heroTitle.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+            
+            const heroTimeline = anime.timeline({
+                easing: 'easeOutExpo',
+                duration: 750
+            });
+
+            heroTimeline
+                .add({
+                    targets: '.hero-title .letter',
+                    opacity: [0, 1],
+                    translateY: [20, 0],
+                    delay: anime.stagger(50)
+                })
+                .add({
+                    targets: '#hero-subtitle',
+                    opacity: [0, 1],
+                    translateY: [20, 0],
+                    offset: '-=500', // Start before previous animation ends
+                    complete: () => type() // Start typing animation after subtitle appears
+                })
+                .add({
+                    targets: '#hero-cta',
+                    opacity: [0, 1],
+                    translateY: [20, 0],
+                    offset: '-=600'
+                });
+
+            // --- Typing Animation ---
+            const typingText = document.getElementById('typing-text');
+            const phrases = [
+                "A Passionate Developer...",
+                "A Tech Enthusiast...",
+                "Crafting Modern Web Solutions."
+            ];
+            let phraseIndex = 0, charIndex = 0, isDeleting = false;
+
+            function type() {
+                const fullPhrase = phrases[phraseIndex];
+                let currentPhrase = '';
+                if (isDeleting) {
+                    currentPhrase = fullPhrase.substring(0, charIndex - 1);
+                    charIndex--;
+                } else {
+                    currentPhrase = fullPhrase.substring(0, charIndex + 1);
+                    charIndex++;
+                }
+
+                typingText.textContent = currentPhrase;
+                let typeSpeed = 150;
+                if (isDeleting) typeSpeed /= 2;
+
+                if (!isDeleting && charIndex === fullPhrase.length) {
+                    typeSpeed = 2000;
+                    isDeleting = true;
+                } else if (isDeleting && charIndex === 0) {
+                    isDeleting = false;
+                    phraseIndex = (phraseIndex + 1) % phrases.length;
+                    typeSpeed = 500;
+                }
+                setTimeout(type, typeSpeed);
+            }
+
+            // --- Particles.js Background ---
+            particlesJS('particles-js', { /* config unchanged */
+                "particles":{ "number":{ "value":80,"density":{ "enable":true,"value_area":800 } },"color":{ "value":"#ffffff" },"shape":{ "type":"circle" },"opacity":{ "value":0.5,"random":false },"size":{ "value":3,"random":true },"line_linked":{ "enable":true,"distance":150,"color":"#808080","opacity":0.4,"width":1 },"move":{ "enable":true,"speed":2,"direction":"none","out_mode":"out" } },"interactivity":{ "detect_on":"canvas","events":{ "onhover":{ "enable":true,"mode":"repulse" },"onclick":{ "enable":true,"mode":"push" } },"modes":{ "repulse":{ "distance":100 },"push":{ "particles_nb":4 } } },"retina_detect":true
+            });
+
+            // --- General Scroll Reveal & Stagger Animations ---
+            const scrollObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+
+                        // Stagger animations for specific sections
+                        const targetId = entry.target.id;
+                        if (targetId === 'skills-grid' || targetId === 'projects-grid' || targetId === 'timeline') {
+                            const items = entry.target.querySelectorAll('.skill-item, .project-card, .timeline-item');
+                            anime({
+                                targets: items,
+                                opacity: [0, 1],
+                                translateY: [30, 0],
+                                delay: anime.stagger(100, { start: 100 }),
+                                easing: 'easeOutExpo',
+                                duration: 800
+                            });
+                        }
+                        
+                        // Timeline line fill animation
+                        if (targetId === 'timeline') {
+                             anime({
+                                targets: '.timeline-item .timeline-line-fill',
+                                scaleY: [0, 1],
+                                delay: anime.stagger(200),
+                                easing: 'easeInOutQuad'
+                            });
+                            anime({
+                                targets: '.timeline-item .timeline-dot',
+                                scale: [0, 1],
+                                delay: anime.stagger(200, {start: 300}),
+                                easing: 'easeOutBack'
+                            });
+                        }
+
+                        scrollObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.2 });
+
+            document.querySelectorAll('.scroll-reveal').forEach(el => scrollObserver.observe(el));
+            document.querySelectorAll('#skills-grid, #projects-grid, #timeline').forEach(el => scrollObserver.observe(el));
+
+            // --- Dynamically Create Project Cards ---
+            const projects = [
+                { title: "Portfolio Website", description: "The very site you're on! A responsive personal portfolio built with modern design principles.", tags: ["HTML", "Tailwind CSS", "JavaScript"], image: "https://placehold.co/600x400/030712/38bdf8?text=Portfolio", github: "https://github.com/R4Z0R-LK", color: "sky" },
+                { title: "E-commerce Frontend", description: "A sleek and modern user interface for an online store, focusing on great user experience.", tags: ["React", "Vite", "Tailwind CSS"], image: "https://placehold.co/600x400/030712/a78bfa?text=E-commerce", github: "https://github.com/R4Z0R-LK", color: "purple" },
+                { title: "Data Visualization Dashboard", description: "An interactive dashboard for visualizing complex datasets with charts and graphs.", tags: ["Vue.js", "D3.js", "Node.js"], image: "https://placehold.co/600x400/030712/10b981?text=Dashboard", github: "https://github.com/R4Z0R-LK", color: "emerald" }
+            ];
+
+            const projectContainer = document.getElementById('projects-grid');
+            projectContainer.innerHTML = projects.map(p => `
+                <div class="project-card card-bg rounded-lg overflow-hidden flex flex-col">
+                    <div class="overflow-hidden">
+                        <img src="${p.image}" alt="${p.title}" class="card-image w-full h-48 object-cover">
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-2xl font-bold mb-2 text-white">${p.title}</h3>
+                        <p class="text-gray-400 mb-4 flex-grow">${p.description}</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            ${p.tags.map(tag => `<span class="bg-${p.color}-500/20 text-${p.color}-300 text-xs font-semibold px-2.5 py-0.5 rounded-full">${tag}</span>`).join('')}
+                        </div>
+                        <div class="flex space-x-4 mt-auto">
+                            <a href="${p.github}" class="text-gray-300 hover:text-${p.color}-400 transition-colors" target="_blank" rel="noopener noreferrer">
+                                <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        });
+    </script>
+</body>
 </html>
+
