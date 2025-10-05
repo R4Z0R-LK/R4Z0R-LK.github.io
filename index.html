@@ -25,15 +25,14 @@
                 radial-gradient(circle at 1px 1px, rgba(0, 246, 255, 0.1) 1px, transparent 0),
                 radial-gradient(circle at 1rem 1rem, rgba(0, 246, 255, 0.05) 1px, transparent 0);
             background-size: 2rem 2rem;
-            overflow: hidden;
+            overflow-x: hidden;
             color: #e2e8f0;
             cursor: default;
         }
 
-        #desktop { position: fixed; inset: 0; overflow: hidden; opacity: 0; transition: opacity 0.5s; }
-        #hero-canvas { position: absolute; width: 100%; height: 100%; top: 0; left: 0; z-index: -1; transition: opacity 0.5s; }
+        #desktop-view { position: fixed; inset: 0; overflow: hidden; opacity: 0; transition: opacity 0.5s; }
+        #hero-canvas { position: fixed; width: 100%; height: 100%; top: 0; left: 0; z-index: -1; transition: opacity 0.5s; }
         
-        /* OS Branding */
         #os-branding {
             position: fixed;
             top: 4rem;
@@ -45,7 +44,6 @@
             z-index: 0;
         }
 
-        /* Widgets */
         #widget-container {
             position: fixed;
             top: 10rem;
@@ -69,17 +67,15 @@
         .progress-bar-bg { width: 100%; background: rgba(0,0,0,0.3); border-radius: 99px; height: 8px; }
         .progress-bar-fill { height: 100%; border-radius: 99px; transition: width 0.5s; }
 
-        /* Boot, Shutdown, Enter Overlays */
         .overlay { position: fixed; inset: 0; background: #000; z-index: 10000; font-family: 'Courier New', Courier, monospace; display: flex; flex-direction: column; align-items: center; justify-content: center; opacity: 1; transition: opacity 1s ease-out; color: #39ff14; }
         .overlay.hidden { opacity: 0; pointer-events: none; }
         #boot-log > p, #shutdown-log > p { white-space: pre-wrap; opacity: 0; }
         #boot-log, #shutdown-log { width: 100%; max-width: 800px; padding: 2rem; }
         .cursor::after { content: '█'; animation: boot-blink 1s step-end infinite; }
         @keyframes boot-blink { 50% { opacity: 0; } }
-        #enter-prompt { color: #0f0; font-size: 1.5rem; text-align: center; cursor: pointer; display: none; }
-        #enter-prompt:hover { text-shadow: 0 0 10px #0f0; }
+        #enter-prompt { color: #39ff14; font-size: 1.5rem; text-align: center; cursor: pointer; display: none; }
+        #enter-prompt:hover { text-shadow: 0 0 10px #39ff14; }
 
-        /* Top Menu Bar */
         #menu-bar {
             position: fixed; top: 0; left: 0; right: 0; height: 28px; background: var(--menu-bar-bg);
             backdrop-filter: blur(20px); z-index: 5000; display: flex; align-items: center;
@@ -89,10 +85,8 @@
         #menu-bar > * { margin-right: 1.5rem; }
         .menu-item { font-weight: 500; position: relative; cursor: pointer; padding: 4px 8px; border-radius: 4px; }
         .menu-item:hover { background: rgba(255,255,255,0.2); }
-        #clock, #volume-control { margin-left: auto; margin-right: 0; }
-        #volume-control { cursor: pointer; margin-left: 1rem; }
+        #clock { margin-left: auto; margin-right: 0; }
 
-        /* Dropdown Menu */
         .dropdown-menu {
             position: absolute; top: 28px; left: 0; background: rgba(40, 40, 40, 0.7);
             backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px;
@@ -104,7 +98,6 @@
         .dropdown-item:hover { background: #007aff; }
         .dropdown-divider { height: 1px; background: rgba(255,255,255,0.1); margin: 4px 0; }
         
-        /* Window Styling */
         .window {
             position: absolute; width: 640px; max-width: 90vw; height: 480px; max-height: calc(100vh - 8rem);
             background-color: var(--window-bg); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.1);
@@ -124,7 +117,6 @@
         .window-content::-webkit-scrollbar { width: 8px; }
         .window-content::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.3); border-radius: 4px; }
         
-        /* Dock */
         #dock {
             position: fixed; bottom: 0.5rem; left: 50%; transform: translateX(-50%); display: flex; align-items: flex-end;
             gap: 0.75rem; padding: 0.5rem; height: 80px; background: rgba(20, 20, 20, 0.2);
@@ -134,8 +126,20 @@
         .dock-item { width: 64px; height: 64px; display: flex; align-items: center; justify-content: center;
             border-radius: 0.75rem; cursor: pointer; transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), margin 0.2s; will-change: transform; }
         
-        /* General Styles */
-        .terminal { background: transparent; box-shadow: none; border: none; font-family: 'Courier New', Courier, monospace; }
+        /* Mobile Styles */
+        #mobile-view { overflow-y: auto; scroll-behavior: smooth; }
+        #mobile-header {
+            background: var(--menu-bar-bg);
+            backdrop-filter: blur(20px);
+        }
+        .mobile-section {
+             background: rgba(20, 20, 20, 0.2);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            margin: 1rem;
+        }
     </style>
 </head>
 <body>
@@ -150,7 +154,10 @@
         <div id="shutdown-log" class="flex items-center justify-center h-full text-2xl"></div>
     </div>
     
-    <div id="desktop">
+    <canvas id="hero-canvas"></canvas>
+
+    <!-- Desktop View -->
+    <div id="desktop-view" class="hidden lg:block">
         <div id="os-branding">R4Z0R-OS</div>
         <div id="widget-container">
             <div id="clock-widget" class="widget">
@@ -172,7 +179,6 @@
                 </div>
             </div>
         </div>
-
         <div id="menu-bar">
             <div class="menu-cluster">
                  <div class="menu-item font-bold" data-menu-id="apple-menu">
@@ -206,17 +212,33 @@
                 </div>
             </div>
             <div id="clock"></div>
-             <div id="volume-control">
-                <svg id="volume-on" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M7 3a1 1 0 000 2h6a1 1 0 100-2H7zM4 7a1 1 0 011-1h10a1 1 0 110 2H5a1 1 0 01-1-1zM2 11a2 2 0 012-2h12a2 2 0 012 2v4a2 2 0 01-2 2H4a2 2 0 01-2-2v-4z"></path></svg>
-                <svg id="volume-off" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 hidden" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M9.383 3.076A1 1 0 0110 4v12a1 1 0 01-1.707.707L4.586 13H2a1 1 0 01-1-1V8a1 1 0 011-1h2.586l3.707-3.707a1 1 0 011.09-.217zM12.293 7.293a1 1 0 011.414 0L15 8.586l1.293-1.293a1 1 0 111.414 1.414L16.414 10l1.293 1.293a1 1 0 01-1.414 1.414L15 11.414l-1.293 1.293a1 1 0 01-1.414-1.414L13.586 10l-1.293-1.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-            </div>
         </div>
-
-        <canvas id="hero-canvas"></canvas>
         <div id="window-container"></div>
+        <div id="dock"></div>
     </div>
 
-    <div id="dock"></div>
+    <!-- Mobile View -->
+    <div id="mobile-view" class="hidden lg:hidden h-screen">
+        <header id="mobile-header" class="p-4 flex justify-between items-center sticky top-0 z-50">
+            <h1 class="text-xl font-bold">R4Z0R-OS</h1>
+            <!-- Mobile nav can be added here -->
+        </header>
+        <main>
+            <section id="mobile-profile" class="mobile-section">
+                <h2 class="text-2xl font-bold mb-4 text-cyan-400">System Profile</h2>
+            </section>
+            <section id="mobile-arsenal" class="mobile-section">
+                 <h2 class="text-2xl font-bold mb-4 text-cyan-400">Core Arsenal</h2>
+            </section>
+             <section id="mobile-trajectory" class="mobile-section">
+                 <h2 class="text-2xl font-bold mb-4 text-cyan-400">Career Log</h2>
+            </section>
+            <section id="mobile-deployments" class="mobile-section">
+                 <h2 class="text-2xl font-bold mb-4 text-cyan-400">Deployments</h2>
+            </section>
+        </main>
+    </div>
+
     <div id="window-templates" class="hidden">
         <div id="profile-window-template" class="window">
             <div class="window-header">
@@ -264,20 +286,24 @@
             </div>
         </div>
     </div>
-    <audio id="bg-music" loop src="https://cdn.pixabay.com/download/audio/2022/02/07/audio_35279b29b6.mp3"></audio>
 
     <script>
     document.addEventListener('DOMContentLoaded', () => {
         const bootLoader = document.getElementById('boot-loader');
         const bootLog = document.getElementById('boot-log');
         const enterPrompt = document.getElementById('enter-prompt');
-        const bgMusic = document.getElementById('bg-music');
-
+        
         const bootMessages = [
-            "R4Z0R-LK BIOS v2.5.1 Initializing...", "Checking system memory... 16384MB OK",
-            "Detecting storage devices...", "  - KIOXIA_EXCERIA_PRO_2TB (SYSTEM)", "  - KIOXIA_EXCERIA_PRO_1TB (DATA)",
-            "Initializing GPU... MSI GTX 1080 GAMING X", "Loading particle plexus background...", "Establishing neural link...",
-            "Booting R4Z0R-OS...", "System Initialized."
+            "R4Z0R-LK BIOS v2.5.1 Initializing...",
+            "Checking system memory... 16384MB OK",
+            "Detecting storage devices...",
+            "  - KIOXIA_EXCERIA_PRO_2TB (SYSTEM)",
+            "  - KIOXIA_EXCERIA_PRO_1TB (DATA)",
+            "Initializing GPU... MSI GTX 1080 GAMING X",
+            "Loading particle plexus background...",
+            "Establishing neural link...",
+            "Booting R4Z0R-OS...",
+            "System Initialized."
         ];
         let messageIndex = 0;
         
@@ -299,9 +325,6 @@
         }
 
         enterPrompt.addEventListener('click', () => {
-            bgMusic.volume = 0.2;
-            bgMusic.play().catch(e => console.log("Audio playback failed, user interaction needed."));
-            
             anime({
                 targets: bootLoader,
                 opacity: 0,
@@ -309,29 +332,92 @@
                 easing: 'easeInOutQuad',
                 complete: () => {
                     bootLoader.classList.add('hidden');
-                    document.getElementById('desktop').style.opacity = 1;
-                    initDesktop();
+                    if (window.innerWidth < 1024) {
+                        initMobile();
+                    } else {
+                        initDesktop();
+                    }
                 }
             });
         }, { once: true });
 
         showBootMessage();
+        
+        const canvas = document.getElementById("hero-canvas"),
+            ctx = canvas.getContext("2d");
+        let particlesArray;
+        const mouse = { x: null, y: null, radius: 0 };
+        
+        class Particle {
+            constructor(e, t, n, o, i, a) { this.x = e, this.y = t, this.directionX = n, this.directionY = o, this.size = i, this.color = a }
+            draw() { ctx.beginPath(), ctx.arc(this.x, this.y, this.size, 0, 2 * Math.PI, !1), ctx.fillStyle = "rgba(0,246,255,0.5)", ctx.fill() }
+            update() { this.x > canvas.width || this.x < 0 ? this.directionX = -this.directionX : 0, this.y > canvas.height || this.y < 0 ? this.directionY = -this.directionY : 0;
+                let e = mouse.x - this.x, t = mouse.y - this.y, n = Math.sqrt(e * e + t * t);
+                n < mouse.radius + this.size && (mouse.x < this.x && this.x < canvas.width - 10 * this.size ? this.x += 3 : 0, mouse.x > this.x && this.x > 10 * this.size ? this.x -= 3 : 0, mouse.y < this.y && this.y < canvas.height - 10 * this.size ? this.y += 3 : 0, mouse.y > this.y && this.y > 10 * this.size ? this.y -= 3 : 0), this.x += this.directionX, this.y += this.directionY, this.draw() }
+        }
+
+        function initPlexus() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            mouse.radius = canvas.height / 120 * (canvas.width / 120);
+            particlesArray = [];
+            let e = canvas.height * canvas.width / 9e3;
+            for (let t = 0; t < e; t++) {
+                let e = 2 * Math.random() + 1,
+                    n = Math.random() * (innerWidth - 2 * e - 2 * e) + 2 * e,
+                    o = Math.random() * (innerHeight - 2 * e - 2 * e) + 2 * e,
+                    i = .4 * Math.random() - .2,
+                    a = .4 * Math.random() - .2;
+                particlesArray.push(new Particle(n, o, i, a, e, "rgba(0,246,255,0.8)"))
+            }
+        }
+
+        function connect() {
+            let t = 1;
+            for (let o = 0; o < particlesArray.length; o++)
+                for (let i = o; i < particlesArray.length; i++) {
+                    let e = (particlesArray[o].x - particlesArray[i].x) * (particlesArray[o].x - particlesArray[i].x) + (particlesArray[o].y - particlesArray[i].y) * (particlesArray[o].y - particlesArray[i].y);
+                    e < canvas.width / 7 * (canvas.height / 7) && (t = 1 - e / 2e4, ctx.strokeStyle = `rgba(167,139,250,${t})`, ctx.lineWidth = 1, ctx.beginPath(), ctx.moveTo(particlesArray[o].x, particlesArray[o].y), ctx.lineTo(particlesArray[i].x, particlesArray[i].y), ctx.stroke())
+                }
+        }
+
+        function animatePlexus() { requestAnimationFrame(animatePlexus), ctx.clearRect(0, 0, innerWidth, innerHeight), particlesArray.forEach(e => e.update()), connect() }
+        window.addEventListener("resize", () => { initPlexus() });
+        window.addEventListener("mousemove", e => { mouse.x = e.x, mouse.y = e.y });
+
+        function initMobile() {
+            const mobileView = document.getElementById('mobile-view');
+            mobileView.classList.remove('hidden');
+            anime({ targets: mobileView, opacity: [0, 1], duration: 500 });
+            
+            document.getElementById('mobile-profile').append(...document.querySelector('#profile-window-template .window-content').cloneNode(true).childNodes);
+            
+            const arsenalMobile = document.getElementById('mobile-arsenal');
+            arsenalMobile.append(...document.querySelector('#arsenal-window-template .window-content').cloneNode(true).childNodes);
+            populateArsenal(arsenalMobile);
+
+            const trajectoryMobile = document.getElementById('mobile-trajectory');
+            trajectoryMobile.append(...document.querySelector('#trajectory-window-template .window-content').cloneNode(true).childNodes);
+            populateTrajectory(trajectoryMobile);
+
+            const deploymentsMobile = document.getElementById('mobile-deployments');
+            deploymentsMobile.append(...document.querySelector('#deployments-window-template .window-content').cloneNode(true).childNodes);
+            populateDeployments(deploymentsMobile);
+            
+            initPlexus();
+            animatePlexus();
+        }
 
         function initDesktop() {
+            const desktopView = document.getElementById('desktop-view');
+            desktopView.classList.remove('hidden');
+            anime({ targets: desktopView, opacity: [0, 1], duration: 500 });
+            
             const dock = document.getElementById('dock');
             const menuBar = document.getElementById('menu-bar');
-            const volumeControl = document.getElementById('volume-control');
-            const volOn = document.getElementById('volume-on');
-            const volOff = document.getElementById('volume-off');
             const windowContainer = document.getElementById('window-container');
             let highestZ = 100;
 
-            volumeControl.addEventListener('click', () => {
-                bgMusic.muted = !bgMusic.muted;
-                volOn.classList.toggle('hidden', bgMusic.muted);
-                volOff.classList.toggle('hidden', !bgMusic.muted);
-            });
-            
             const apps = [{id:"profile",title:"System Profile",icon:`<svg xmlns="http://www.w3.org/2000/svg" class="w-full h-full p-2 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>`},{id:"arsenal",title:"Core Arsenal",icon:`<svg xmlns="http://www.w3.org/2000/svg" class="w-full h-full p-2 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>`},{id:"trajectory",title:"Career Trajectory",icon:`<svg xmlns="http://www.w3.org/2000/svg" class="w-full h-full p-2 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg>`},{id:"deployments",title:"Deployments",icon:`<svg xmlns="http://www.w3.org/2000/svg" class="w-full h-full p-2 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" /></svg>`},{id:"comms",title:"Terminal",icon:`<svg xmlns="http://www.w3.org/2000/svg" class="w-full h-full p-2 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 7.5l3 3-3 3" /><path stroke-linecap="round" stroke-linejoin="round" d="M12.75 15h4.5" /></svg>`}];
             dock.innerHTML=apps.map(e=>`<div class="dock-item" data-app-id="${e.id}" title="${e.title}">${e.icon}</div>`).join("");
             const clockEl=document.getElementById("clock"),widgetTime=document.getElementById("widget-time"),widgetDate=document.getElementById("widget-date"),cpuBar=document.getElementById("cpu-bar"),ramBar=document.getElementById("ram-bar");
@@ -340,7 +426,7 @@
             setInterval(updateClock,1e3),setInterval(updateSystemStatus,2e3),updateClock(),updateSystemStatus();
             const menuItems=document.querySelectorAll(".menu-item[data-menu-id]");
             menuItems.forEach(e=>{e.addEventListener("click",t=>{if(t.target.closest("[data-action]"))return;t.stopPropagation();const n=e.classList.contains("active");menuItems.forEach(e=>e.classList.remove("active")),n||e.classList.add("active")})}),document.addEventListener("click",()=>menuItems.forEach(e=>e.classList.remove("active"))),menuBar.addEventListener("click",e=>{const t=e.target.closest("[data-action]");if(!t)return;const n=t.dataset.action;switch(n){case"open-profile":createWindow("profile");break;case"shutdown":shutdownSystem();break;case"toggle-dock":dock.style.opacity="0"===dock.style.opacity?"1":"0";break;case"toggle-particles":document.getElementById("hero-canvas").style.opacity="0"===document.getElementById("hero-canvas").style.opacity?"1":"0";break;case"close-all-windows":document.querySelectorAll(".window").forEach(e=>e.querySelector(".close").click())}menuItems.forEach(e=>e.classList.remove("active"))});
-            function shutdownSystem(){const e=document.getElementById("shutdown-overlay"),t=document.getElementById("shutdown-log");e.classList.remove("hidden"),t.innerHTML='<p class="cursor">R4Z0R-OS is shutting down...</p>',anime({targets:"#desktop > *:not(#shutdown-overlay, #boot-loader)",opacity:0,duration:1e3,easing:"easeInExpo"})}
+            function shutdownSystem(){const e=document.getElementById("shutdown-overlay"),t=document.getElementById("shutdown-log");e.classList.remove("hidden"),t.innerHTML='<p class="cursor">R4Z0R-OS is shutting down...</p>',anime({targets:"#desktop-view > *:not(#shutdown-overlay, #boot-loader)",opacity:0,duration:1e3,easing:"easeInExpo"})}
             function updateOpenWindowsMenu(){const t=document.getElementById("open-windows-list"),e=document.querySelectorAll(".window:not(.minimized)");if(0===e.length)return void(t.innerHTML='<div class="dropdown-item text-gray-500">No Open Windows</div>');t.innerHTML="",e.forEach(n=>{const o=n.querySelector(".window-title").textContent,i=document.createElement("div");i.className="dropdown-item",i.textContent=o,i.onclick=()=>{n.style.zIndex=++highestZ,anime({targets:n,scale:[1.05,1],duration:300})},t.appendChild(i)})}
             dock.addEventListener("click",e=>{const t=e.target.closest(".dock-item");t&&createWindow(t.dataset.appId)});const dockItems=dock.querySelectorAll(".dock-item");
             dock.addEventListener("mousemove",e=>{const t=dock.getBoundingClientRect(),n=e.clientX-t.left;dockItems.forEach(e=>{const o=e.getBoundingClientRect(),i=o.left-t.left+o.width/2,a=Math.abs(n-i),d=Math.max(1,1.8-a/100);e.style.transform=`scale(${d})`,e.style.margin=`0 ${4*d}px`})}),dock.addEventListener("mouseleave",()=>dockItems.forEach(e=>{e.style.transform="scale(1)",e.style.margin="0"}));
@@ -351,12 +437,8 @@
             function populateDeployments(e){const t=[{title:"Project Chimera",description:"This dynamic, single-page application serves as a central hub for my work, utilizing advanced CSS and JavaScript for a futuristic, interactive user experience.",tags:["Anime.js","Tailwind"],color:"cyan"},{title:"Project Nova",description:"A proof-of-concept frontend architecture for a high-traffic retail platform, built with React for modularity and performance.",tags:["React","Scalability"],color:"purple"},{title:"Project Insight",description:"A real-time data visualization interface designed to translate complex datasets into actionable business intelligence. Engineered for clarity and speed.",tags:["Vue.js","Data-Viz"],color:"pink"}];e.querySelector(".window-content").innerHTML=t.map(t=>`<div class="bg-black/20 p-4 rounded-lg border border-gray-700 hover:border-cyan-400 transition-colors"><h3 class="font-bold text-lg text-white mb-2">${t.title}</h3><p class="text-sm text-gray-400 mb-4">${t.description}</p><div class="flex flex-wrap gap-2">${t.tags.map(e=>`<span class="bg-${t.color}-500/20 text-${t.color}-300 text-xs font-semibold px-2.5 py-0.5 rounded-full">${e}</span>`).join("")}</div></div>`).join("")}
             function initTerminal(e){const n=e.querySelector("#terminal-output"),o=e.querySelector("#terminal-input"),t=e.querySelector("#terminal-form");["Welcome. Comms link established.","Type `help` for a list of available commands."," "].forEach((t,e)=>{setTimeout(()=>{const o=document.createElement("p");o.className="terminal-line",o.innerHTML=t.replace(/`([^`]+)`/g,'<span class="text-cyan-400">"$1"</span>'),n.appendChild(o)},100*e)}),t.onsubmit=e=>{e.preventDefault();const t=o.value.trim().toLowerCase();if(!t)return;const a=document.createElement("p");a.innerHTML=`<span class="text-green-400">user@R4Z0R-LK:~$</span> ${t}`,n.appendChild(a),handleCommand(t,n),o.value="",n.scrollTop=n.scrollHeight}}
             function handleCommand(e,t){const n=document.createElement("p");let o="";switch(e){case"help":o='Command List: <br> - <span class="text-cyan-400">\'open profile\'</span><br> - <span class="text-cyan-400">\'open arsenal\'</span><br> - <span class="text-cyan-400">\'open deployments\'</span><br> - <span class="text-cyan-400">\'contact\'</span><br> - <span class="text-cyan-400">\'clear\'</span>';break;case"open profile":o="Opening System Profile...",createWindow("profile");break;case"open arsenal":o="Opening Core Arsenal...",createWindow("arsenal");break;case"open deployments":o="Listing deployments...",createWindow("deployments");break;case"contact":o='Secure comms channel available. Execute <span class="text-cyan-400">\'email\'</span>.';break;case"email":window.location.href="mailto:contact@example.com",o="Initializing mail client...";break;case"clear":return void(t.innerHTML="");default:o=`ERR: Command not found: '${e}'.`}n.innerHTML=o,t.appendChild(n)}
-            const canvas=document.getElementById("hero-canvas"),ctx=canvas.getContext("2d");canvas.width=window.innerWidth,canvas.height=window.innerHeight;let particlesArray;const mouse={x:null,y:null,radius:canvas.height/120*(canvas.width/120)};window.addEventListener("mousemove",e=>{mouse.x=e.x,mouse.y=e.y});
-            class Particle{constructor(e,t,n,o,i,a){this.x=e,this.y=t,this.directionX=n,this.directionY=o,this.size=i,this.color=a}draw(){ctx.beginPath(),ctx.arc(this.x,this.y,this.size,0,2*Math.PI,!1),ctx.fillStyle="rgba(0,246,255,0.5)",ctx.fill()}update(){this.x>canvas.width||this.x<0?this.directionX=-this.directionX:0,this.y>canvas.height||this.y<0?this.directionY=-this.directionY:0;var e=mouse.x-this.x,t=mouse.y-this.y,n=Math.sqrt(e*e+t*t);n<mouse.radius+this.size&&(mouse.x<this.x&&this.x<canvas.width-10*this.size?this.x+=3:0,mouse.x>this.x&&this.x>10*this.size?this.x-=3:0,mouse.y<this.y&&this.y<canvas.height-10*this.size?this.y+=3:0,mouse.y>this.y&&this.y>10*this.size?this.y-=3:0),this.x+=this.directionX,this.y+=this.directionY,this.draw()}}
-            function initPlexus(){particlesArray=[];let e=canvas.height*canvas.width/9e3;for(let t=0;t<e;t++){let e=2*Math.random()+1,n=Math.random()*(innerWidth-2*e-2*e)+2*e,o=Math.random()*(innerHeight-2*e-2*e)+2*e,i=.4*Math.random()-.2,a=.4*Math.random()-.2;particlesArray.push(new Particle(n,o,i,a,e,"rgba(0,246,255,0.8)"))}}
-            function connect(){let t=1;for(let o=0;o<particlesArray.length;o++)for(let i=o;i<particlesArray.length;i++){let e=(particlesArray[o].x-particlesArray[i].x)*(particlesArray[o].x-particlesArray[i].x)+(particlesArray[o].y-particlesArray[i].y)*(particlesArray[o].y-particlesArray[i].y);e<canvas.width/7*(canvas.height/7)&&(t=1-e/2e4,ctx.strokeStyle=`rgba(167,139,250,${t})`,ctx.lineWidth=1,ctx.beginPath(),ctx.moveTo(particlesArray[o].x,particlesArray[o].y),ctx.lineTo(particlesArray[i].x,particlesArray[i].y),ctx.stroke())}}
-            function animatePlexus(){requestAnimationFrame(animatePlexus),ctx.clearRect(0,0,innerWidth,innerHeight),particlesArray.forEach(e=>e.update()),connect()}
-            initPlexus(),animatePlexus(),window.addEventListener("resize",()=>{canvas.width=innerWidth,canvas.height=innerHeight,mouse.radius=canvas.height/120*(canvas.width/120),initPlexus()});
+            initPlexus();
+            animatePlexus();
         }
     });
     </script>
