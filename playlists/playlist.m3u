@@ -7,7 +7,7 @@
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36"}
 https://dash-ott.bia-cf.live.pv-cdn.net/pdx-nitro/live/clients/dash/enc/xtkswns2yn/out/v1/9c348c1bc962495a9420f01ac0964a86/cenc.mpd
-#EXTINF:-1 tvg-id="B0HKJ1QM26" tvg-name="Sep 28 - PTT Ithaca" tvg-logo="https://images-na.ssl-images-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.914af9df-2dc1-4ab4-b4a3-f749766fc641/5/BOXART-16X9/en-US._UR1920,1080_SX624_FMpng_.png" group-title="Prime Video Free Sports",Sep 28 - PTT Ithaca
+#EXTINF:-1 tvg-id="B0HKJ1QM26" tvg-name="Sep 28 - PTT Ithaca" tvg-logo="https://images-na.ssl-images-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.914af9df-2dc1-4ab4-b4a3-f749766fc641/6/BOXART-16X9/en-US._UR1920,1080_SX624_FMpng_.png" group-title="Prime Video Free Sports",Sep 28 - PTT Ithaca
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=1cfe81f9f9945b0d9dd7c9a394f0224a:7671b93cb898cd6de98866fc9f38d38c
