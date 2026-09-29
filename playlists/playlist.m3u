@@ -7,13 +7,6 @@
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36"}
 https://dash-ott.bia-cf.live.pv-cdn.net/pdx-nitro/live/clients/dash/enc/2idyuu2ecl/out/v1/8b521304de804ce5a5ac4ff27eb85eb3/cenc.mpd
-#EXTINF:-1 tvg-id="B0HK4M122L" tvg-name="Sep 28 - PTT Newport Beach" tvg-logo="https://images-na.ssl-images-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.07cc4a97-01ab-49c8-8f0c-67249f46f94f/4/BOXART-16X9/en-US._UR1920,1080_SX624_FMpng_.png" group-title="Prime Video Free Sports",Sep 28 - PTT Newport Beach
-#KODIPROP:inputstream.adaptive.manifest_type=mpd
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=6a99abe3adb5ca21954fb8cec2e5e725:c12d0acfc4c5c09063a39f5ef66025fb
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36"}
-https://a83live-pv-ta-amazon.akamaized.net/$T$2D3RhEOhAQWhBFgkYWY3NDZlZjAtYzM0OC00MGM1LWFjN2UtYTVhZWIzNjhiNjA0WJCnAWpwcmltZXZpZGVvBBpqznI0Bhpququ0A2Zha2FtYWkCeClzc2lkOmU5OTk1ODI3LTQ5NGEtNDcxOC1iNmJjLWUzYjViMjA5ZDVmYhkBOKEFoQJ4My82emJzMGM3amd4L291dC92MS9hZmMxNDBjZTJhN2Q0ZmEwYTM2YjRiNmNiNWE4YTQ5MxkBPIFiVVNYIDa-K1IhxQrRX55VF38vSQ6-kfq8Z4rzb3KiVqbwj1ZW/pdx-nitro/startover/clients/dash/manipulated-manifest-pdx-prod/enc/6zbs0c7jgx/out/v1/afc140ce2a7d4fa0a36b4b6cb5a8a493/37510184-6c45-4659-a2f6-030e91cb6c2d-cenc.mpd
 #EXTINF:-1 tvg-id="B0HJLKT361" tvg-name="Volleyball 18 Men - PHI vs TPE - Pool D" tvg-logo="https://images-na.ssl-images-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.acf14a86-39d6-4e37-8d1a-7354291ac1cf/4/BOXART-16X9/en-US._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/a-f/freewithads/logos/channels-logo-white.png%7C0,0,1920,1080+0,0,1920,1080+1578,847,263,156_kv053498f62d21803ffcbf28da234cfe9f_SX624_FMjpg_.jpg" group-title="Prime Video Free Sports",Volleyball 18 Men - PHI vs TPE - Pool D
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
