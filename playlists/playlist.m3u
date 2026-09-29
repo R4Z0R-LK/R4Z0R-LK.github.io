@@ -1,9 +1,2 @@
 #EXTM3U x-tvg-url=""
 
-#EXTINF:-1 tvg-id="B0HKSFVGW9" tvg-name="Sep 29 - PTT Lincoln" tvg-logo="https://images-na.ssl-images-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.cf5613bf-1755-4053-b0a6-a33515e192cd/7/BOXART-16X9/en-US._UR1920,1080_SX624_FMpng_.png" group-title="Prime Video Free Sports",Sep 29 - PTT Lincoln
-#KODIPROP:inputstream.adaptive.manifest_type=mpd
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=e3a4fe2d55c09f648a8842a920248eed:bd09d4918e5483e5f18b1099692d3a70
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36"}
-https://a68live-pv-ta-amazon.akamaized.net/$T$2D3RhEOhAQWhBFgkYWY3NDZlZjAtYzM0OC00MGM1LWFjN2UtYTVhZWIzNjhiNjA0WJCnAWpwcmltZXZpZGVvBBpqz4RpBhpqu73pA2Zha2FtYWkCeClzc2lkOjRkNjQyNDlkLTUyZGYtNGFlMi05MTY5LTc4MDRmNTU1ZDIyYxkBOKEFoQJ4My9oZXR6enZhb2ljL291dC92MS9jNzJiOWFiMDBjMTM0M2ZjYmQ0ZDhkOWMyZDBkNmIxNhkBPIFiVVNYIBSxAoW-ALr-qGKzrfHBrQYXJ0x9pCuZc5dyEEINqtVE/iad-nitro/startover/clients/dash/manipulated-manifest-iad-prod/enc/hetzzvaoic/out/v1/c72b9ab00c1343fcbd4d8d9c2d0d6b16/959fb37e-819d-48ac-a275-a9169d1889ee-cenc.mpd
