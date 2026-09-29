@@ -7,6 +7,13 @@
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36"}
 https://dash-ott.bia-cf.live.pv-cdn.net/pdx-nitro/live/clients/dash/enc/xtkswns2yn/out/v1/9c348c1bc962495a9420f01ac0964a86/cenc.mpd
+#EXTINF:-1 tvg-id="B0HK4PQS7K" tvg-name="Sep 29 - PTT Ithaca" tvg-logo="https://images-na.ssl-images-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.0b3faf6a-70c7-4907-838b-00fc8aefdc9e/7/BOXART-16X9/en-US._UR1920,1080_SX624_FMpng_.png" group-title="Prime Video Free Sports",Sep 29 - PTT Ithaca
+#KODIPROP:inputstream.adaptive.manifest_type=mpd
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=f3b5e54ce4eb570885f3ef4279dea6c8:0dbf6d6b43a8bf8a9b575d60797e6539
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36"}
+https://live-pv-ta.amazon.fastly-edge.com/$T$2D3RhEOhAQWhBFgkOWE2NWFkMDQtYzk4NS00OTZhLWE4NzQtYTkwMzY2M2FiNzFlWJCnAWpwcmltZXZpZGVvBBpqz9HEBhpqvAtEA2ZmYXN0bHkCeClzc2lkOmRhNTRmNzMxLTY4M2MtNGE0ZS1iOGU2LWZiMjA2ZWFjZWFhORkBOKEFoQJ4My96d3p2ZW16dnFrL291dC92MS9mYTMyNDY1YjA1ZGE0ZjM0OGM3ZDFjMmQ1MzM2MDQyNhkBPIFiVVNYIJmG76TDK88cjGZvCdFf6cSfXSkx3zadVqOK05_BF_Iu/iad-nitro/startover/clients/dash/manipulated-manifest-iad-prod/enc/zwzvemzvqk/out/v1/fa32465b05da4f348c7d1c2d53360426/ec6f4b34-4869-45e9-99fb-8cfc295799c7-cenc.mpd
 #EXTINF:-1 tvg-id="B0HKSFVGW9" tvg-name="Sep 29 - PTT Lincoln" tvg-logo="https://images-na.ssl-images-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.cf5613bf-1755-4053-b0a6-a33515e192cd/7/BOXART-16X9/en-US._UR1920,1080_SX624_FMpng_.png" group-title="Prime Video Free Sports",Sep 29 - PTT Lincoln
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
