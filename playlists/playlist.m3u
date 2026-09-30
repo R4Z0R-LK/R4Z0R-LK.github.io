@@ -7,13 +7,13 @@
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36"}
 https://dash-ott.bia-cf.live.pv-cdn.net/iad-nitro/live/clients/dash/enc/g4ydvmoa9t/out/v1/73c73d5ac64146c2b7b133cac333a24c/cenc.mpd
-#EXTINF:-1 tvg-id="B0HFB14JNY" tvg-name="Sep 29 - PTT Newport Beach" tvg-logo="https://images-na.ssl-images-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.a7774ff3-3e5e-480a-8c25-07c09507971c/6/BOXART-16X9/en-US._UR1920,1080_SX624_FMpng_.png" group-title="Prime Video Free Sports",Sep 29 - PTT Newport Beach
+#EXTINF:-1 tvg-id="B0HLGBKCDL" tvg-name="Softball: Chinese Taipei vs. Thailand" tvg-logo="https://images-na.ssl-images-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.2d139f79-7ffd-44e5-b7d3-b7e1c54b67dc/3/BOXART-16X9/en-US._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/a-f/freewithads/logos/channels-logo-white.png%7C0,0,1920,1080+0,0,1920,1080+1578,847,263,156_kv053498f62d21803ffcbf28da234cfe9f_SX624_FMjpg_.jpg" group-title="Prime Video Free Sports",Softball: Chinese Taipei vs. Thailand
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=22e5dbe51876ba031b6e297c99411612:768efedf2ca11f33e9deff20f0531c72
+#KODIPROP:inputstream.adaptive.license_key=290e09c837da78d5cd961978d390515c:b748836c71e6a4ca68ef5b5652db6247
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36"}
-https://ABEB3GBAAAAAAAAMG6WT6F6D47RMW.ta.bia-cf.live.pv-cdn.net/$T$2D3RhEOhAQWhBFgkYzQ1OWU1YmItZDgxMS00NGM2LTgwYzQtNTNkZDc3NTIwODk5WJSnAWpwcmltZXZpZGVvBBpqz8q7BhpqvAQ7A2pjbG91ZGZyb250Angpc3NpZDpkNmY4YTViNC04N2Q3LTQ4YmQtODk1My1jN2JlMjRiYWRmNDMZATihBaECeDMvYnBkdWNqMXF0ai9vdXQvdjEvZTVlY2ZjNzU2NWNkNDQ5ZGFiYTJkMGU4MDg0ODM4YmYZATyBYlVTWCD8Gd5u1iFT8GFA0XZ4zcQQNgyYHIKFbr0b6zKU8afhbg/pdx-nitro/startover/clients/dash/manipulated-manifest-pdx-prod/enc/bpducj1qtj/out/v1/e5ecfc7565cd449daba2d0e8084838bf/ac8a0bcb-9ac2-4e11-9684-471a015ada66-cenc.mpd
+https://dash-ott.bia-cf.live.pv-cdn.net/pdx-nitro/live/clients/dash/enc/tll6uwepxa/out/v1/a7f67cbb33df46539312956427343886/cenc.mpd
 #EXTINF:-1 tvg-id="B0HHG3WLM4" tvg-name="Tennis Today Live-Beijing-ATP/WTA & Tokyo-ATP 1st Round" tvg-logo="https://images-na.ssl-images-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.af7ee062-a32b-4951-ab7c-8db89aa3e864/3/BOXART-16X9/en-US._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/a-f/freewithads/logos/channels-logo-white.png%7C0,0,1920,1080+0,0,1920,1080+1578,847,263,156_kv053498f62d21803ffcbf28da234cfe9f_SX624_FMjpg_.jpg" group-title="Prime Video Free Sports",Tennis Today Live-Beijing-ATP/WTA & Tokyo-ATP 1st Round
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
