@@ -1,6 +1,20 @@
 #EXTM3U x-tvg-url=""
 
-#EXTINF:-1 tvg-id="B0HFJ3159T" tvg-name="KCAC Southwestern College st Oklahoma Wesleyan University" tvg-logo="https://images-na.ssl-images-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.00f6c145-01cf-4a02-804b-cfd8b28ee65a/3/BOXART-16X9/en-US._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/a-f/freewithads/logos/channels-logo-white.png%7C0,0,1920,1080+0,0,1920,1080+1578,847,263,156_kv053498f62d21803ffcbf28da234cfe9f_SX624_FMjpg_.jpg" group-title="Prime Video Free Sports",KCAC Southwestern College st Oklahoma Wesleyan University
+#EXTINF:-1 tvg-id="B0HL9798SV" tvg-name="Asian Games 2026 - 1st Semi-Final - Pakistan vs Sri Lanka" tvg-logo="https://m.media-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.2f6f8b61-15b2-48df-b66c-7011d1f87238/3/BOXART-16X9/en-US._UR1920,1080_.jpeg" group-title="Willow Cricket Event Info",Asian Games 2026 - 1st Semi-Final - Pakistan vs Sri Lanka
+#KODIPROP:inputstream.adaptive.manifest_type=mpd
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=36f6eab6d209817bce6e16a660d34f5a:3510bcdf47c67cb43da149e42a6a6e72
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36"}
+https://ss-ott.bia-cf.live.pv-cdn.net/iad-nitro/live/clients/dash/enc/k1nzqwiwwv/out/v1/096da8caa4de419592a713862092c252/cenc.mpd
+#EXTINF:-1 tvg-id="B0HL55DJ8K" tvg-name="Beach Volleyball Women - Semifinal" tvg-logo="https://images-na.ssl-images-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.0f59cd69-3622-446c-9b03-bd6c35c546fb/1/BOXART-16X9/en-US._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/a-f/freewithads/logos/channels-logo-white.png%7C0,0,1920,1080+0,0,1920,1080+1578,847,263,156_kv053498f62d21803ffcbf28da234cfe9f_SX624_FMjpg_.jpg" group-title="Prime Video Free Sports",Beach Volleyball Women - Semifinal
+#KODIPROP:inputstream.adaptive.manifest_type=mpd
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=290e09c837da78d5cd961978d390515c:b748836c71e6a4ca68ef5b5652db6247
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36"}
+https://dash-ott.bia-cf.live.pv-cdn.net/iad-nitro/live/clients/dash/enc/0bftapixow/out/v1/a435ed7a00f947deb4369b46d8f2fb70/cenc.mpd
+#EXTINF:-1 tvg-id="B0HFJ3159T" tvg-name="KCAC Southwestern College st Oklahoma Wesleyan University" tvg-logo="https://images-na.ssl-images-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.00f6c145-01cf-4a02-804b-cfd8b28ee65a/4/BOXART-16X9/en-US._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/a-f/freewithads/logos/channels-logo-white.png%7C0,0,1920,1080+0,0,1920,1080+1578,847,263,156_kv053498f62d21803ffcbf28da234cfe9f_SX624_FMjpg_.jpg" group-title="Prime Video Free Sports",KCAC Southwestern College st Oklahoma Wesleyan University
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=6670dbc6eb97a1c7fc6395d952fb00b7:72a3574c534811db5a4804695a184221
