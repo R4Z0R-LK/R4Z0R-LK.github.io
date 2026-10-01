@@ -1,19 +1,5 @@
 #EXTM3U x-tvg-url=""
 
-#EXTINF:-1 tvg-id="B0HKF18NY1" tvg-name="Germany vs. Serbia" tvg-logo="https://images-na.ssl-images-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.d97c521f-864f-4813-899d-9a0b5920f718/3/BOXART-16X9/en-US/1920x1080._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/a-f/freewithads/logos/channels-logo-white.png%7C0,0,1920,1080+0,0,1920,1080+1578,847,263,156_kv053498f62d21803ffcbf28da234cfe9f_SX624_FMpng_.png" group-title="Prime Video Free Sports",Germany vs. Serbia
-#KODIPROP:inputstream.adaptive.manifest_type=mpd
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=fa5e8db5359fc7d1f15207d5de2a3ac4:78a6c0a41972dfdba2145ae0ad4bd681
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36"}
-https://dash-ott.bia-cf.live.pv-cdn.net/iad-nitro/live/clients/dash/enc/y3mtc7phj2/out/v1/a48ab8dfd51c4d1f9a08774b3cd4c49e/cenc.mpd
-#EXTINF:-1 tvg-id="B0GSVVX31S" tvg-name="Manchester City WFC vs. Real Madrid CF" tvg-logo="https://images-na.ssl-images-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.dd82a2c2-cdd5-479a-ba98-bffe99be2ec0/5/BOXART-16X9/en-US._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/a-f/freewithads/logos/channels-logo-white.png%7C0,0,1920,1080+0,0,1920,1080+1578,847,263,156_kv053498f62d21803ffcbf28da234cfe9f_SX624_FMjpg_.jpeg" group-title="Prime Video Free Sports",Manchester City WFC vs. Real Madrid CF
-#KODIPROP:inputstream.adaptive.manifest_type=mpd
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=d9623774ac5c8c351aafe97c5fe70267:5164e6d05164a2d65fa8fcc962aa4861
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36"}
-https://dash-ott.bia-cf.live.pv-cdn.net/pdx-nitro/live/clients/dash/enc/5qz8wmdome/out/v1/b9323e853dce427eac214b77bd48a204/cenc.mpd
 #EXTINF:-1 tvg-id="B0HKFM62XZ" tvg-name="MotoPlayGround Race at Ponca City" tvg-logo="https://images-na.ssl-images-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.0590a6b7-c4ba-45f0-9574-06c7bf7f9073/1/BOXART-16X9/en-US._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/a-f/freewithads/logos/channels-logo-white.png%7C0,0,1920,1080+0,0,1920,1080+1578,847,263,156_kv053498f62d21803ffcbf28da234cfe9f_SX624_FMjpg_.jpg" group-title="Prime Video Free Sports",MotoPlayGround Race at Ponca City
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -28,13 +14,6 @@ https://dash-ott.bia-cf.live.pv-cdn.net/iad-nitro/live/clients/dash/enc/d4bm3wil
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36"}
 https://live-pv-ta-enf.amazon.fastly-edge.com/$T$2D3RhEOhAQWhBFgkOWE2NWFkMDQtYzk4NS00OTZhLWE4NzQtYTkwMzY2M2FiNzFlWImmAWpwcmltZXZpZGVvBBpq0nTJBhpqvq5JA2ZmYXN0bHkCeClzc2lkOmRjNTI2ZTJhLTAwOTAtNDQyMy04MjZiLTRlODMwYjFlZDUxOBkBOKEFoQJ4My96YXdzeW42aGVuL291dC92MS81NDE5NmQ4MTNmZjM0ODAyOWRiNjU5OWIzMTUxMDliNFggBkd3aoK4JHppO1dCDOsnjVMKlKvqS6jIRkkCjO40ph0/pdx-nitro/startover/clients/dash/manipulated-manifest-pdx-prod/enc/zawsyn6hen/out/v1/54196d813ff348029db6599b315109b4/b340daf0-1ea7-4bbc-b1cd-f43b8535949d-cenc.mpd
-#EXTINF:-1 tvg-id="B0HHTKSW6S" tvg-name="Oct 1 - PTT Lincoln" tvg-logo="https://images-na.ssl-images-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.5f84a04c-6916-451d-8f65-f68eb09f9666/7/BOXART-16X9/en-US._UR1920,1080_SX624_FMpng_.png" group-title="Prime Video Free Sports",Oct 1 - PTT Lincoln
-#KODIPROP:inputstream.adaptive.manifest_type=mpd
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=32592ba123e31414b7e54507682b11f7:95aec3846cc6d9df525807e27cffcfe7
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36"}
-https://live-pv-ta.amazon.fastly-edge.com/$T$2D3RhEOhAQWhBFgkOWE2NWFkMDQtYzk4NS00OTZhLWE4NzQtYTkwMzY2M2FiNzFlWJCnAWpwcmltZXZpZGVvBBpq0jWJBhpqvm8JA2ZmYXN0bHkCeClzc2lkOmRmNzg2NTZjLWZhYTktNDBiZC1hOTBiLTExNTBmZGIyNDdmNhkBOKEFoQJ4My9iYnF3em9waGJhL291dC92MS82ZTQ5MDcwYWQxNDc0N2Q3YjQ4YzA1MTJhYTFmYTJhMBkBPIFiVVNYIJqrEB_YhMsQvf8U3MhZM1UKm4OmImg70EbKPnCFNJYI/iad-nitro/startover/clients/dash/manipulated-manifest-iad-prod/enc/bbqwzophba/out/v1/6e49070ad14747d7b48c0512aa1fa2a0/440444c5-6537-4c72-867f-d16db3ad9716-cenc.mpd
 #EXTINF:-1 tvg-id="B0HKMR8H3W" tvg-name="Oct 1 - PTT Newport Beach" tvg-logo="https://images-na.ssl-images-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.0eead24b-7412-4005-b3fe-9bb741621dcc/4/BOXART-16X9/en-US._UR1920,1080_SX624_FMpng_.png" group-title="Prime Video Free Sports",Oct 1 - PTT Newport Beach
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
