@@ -7,6 +7,13 @@
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36"}
 https://dash-ott.bia-cf.live.pv-cdn.net/iad-nitro/live/clients/dash/enc/y3mtc7phj2/out/v1/a48ab8dfd51c4d1f9a08774b3cd4c49e/cenc.mpd
+#EXTINF:-1 tvg-id="B0HK6KBC77" tvg-name="Oct 2 - PTT Ithaca" tvg-logo="https://images-na.ssl-images-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.1f693964-5f4b-4da3-9033-adf889f92641/6/BOXART-16X9/en-US._UR1920,1080_SX624_FMpng_.png" group-title="Prime Video Free Sports",Oct 2 - PTT Ithaca
+#KODIPROP:inputstream.adaptive.manifest_type=mpd
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=98c09bba1b5cc761fdfbb2a845107bed:c7119f1e42030f70345bf10f8376adaf
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36"}
+https://ABIO52PAAAAAAAAMAXLKLBNBBVZPF.ta.bia-cf.live.pv-cdn.net/$T$2D3RhEOhAQWhBFgkYzQ1OWU1YmItZDgxMS00NGM2LTgwYzQtNTNkZDc3NTIwODk5WJSnAWpwcmltZXZpZGVvBBpq07gvBhpqv_GvA2pjbG91ZGZyb250Angpc3NpZDowMjNkZGU3NS02OWRjLTQxOWUtOWI5MC1mMzAyMGZjNzgwMzUZATihBaECeDMvZXJrMGhndXRyai9vdXQvdjEvYWZkMzBkOWMyOGZmNGE3MjhlNGU3Mzc5YTc1MjY4YjEZATyBYlVTWCDvQnxxftUXAU17fHjemjIgR_V58Fj4Xs6arlGWbDlCVQ/pdx-nitro/startover/clients/dash/manipulated-manifest-pdx-prod/enc/erk0hgutrj/out/v1/afd30d9c28ff4a728e4e7379a75268b1/b300fcd6-64d1-4b9a-a40a-707719b94940-cenc.mpd
 #EXTINF:-1 tvg-id="B0H2M1G8ZL" tvg-name="Oct 2 - PTT Lincoln" tvg-logo="https://images-na.ssl-images-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.466e2400-c849-4781-ae85-765c48895ffb/6/BOXART-16X9/en-US._UR1920,1080_SX624_FMpng_.png" group-title="Prime Video Free Sports",Oct 2 - PTT Lincoln
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -14,6 +21,13 @@ https://dash-ott.bia-cf.live.pv-cdn.net/iad-nitro/live/clients/dash/enc/y3mtc7ph
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36"}
 https://a178live-pv-ta-amazon.akamaized.net/$T$2D3RhEOhAQWhBFgkYWY3NDZlZjAtYzM0OC00MGM1LWFjN2UtYTVhZWIzNjhiNjA0WJCnAWpwcmltZXZpZGVvBBpq03jtBhpqv7JtA2Zha2FtYWkCeClzc2lkOjdkODhjMmFhLTJhMWUtNGEwYy1hMDYxLTlmMWU5ZWFjZjM0ZBkBOKEFoQJ4My9yaGtjZnFvdnRzL291dC92MS9iNGRmOTk0MmQwMTE0YTgyOWEwOGI5YTc0YzViN2FlYxkBPIFiVVNYIPfNHjltwhOSxiI01U1-lhtz0ZoS8QrtUcbeiHuBtU_z/pdx-nitro/startover/clients/dash/manipulated-manifest-pdx-prod/enc/rhkcfqovts/out/v1/b4df9942d0114a829a08b9a74c5b7aec/07af92c2-d419-4883-8ed3-a4d75436daa5-cenc.mpd
+#EXTINF:-1 tvg-id="B0HHQZ9JX8" tvg-name="Oct 2 - PTT Newport Beach" tvg-logo="https://images-na.ssl-images-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.70d43cc9-98a6-405c-bb21-5a7d6e0e5d7c/4/BOXART-16X9/en-US._UR1920,1080_SX624_FMpng_.png" group-title="Prime Video Free Sports",Oct 2 - PTT Newport Beach
+#KODIPROP:inputstream.adaptive.manifest_type=mpd
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=e24c980e844647693270ae4bc8722acb:a4aa13088af7074b732b9a30d5b83554
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36"}
+https://a66live-pv-ta-amazon.akamaized.net/$T$2D3RhEOhAQWhBFgkYWY3NDZlZjAtYzM0OC00MGM1LWFjN2UtYTVhZWIzNjhiNjA0WJCnAWpwcmltZXZpZGVvBBpq07gwBhpqv_GwA2Zha2FtYWkCeClzc2lkOjhlZjFmZDdmLTYxYmQtNGI3Yy1hYjZkLTAzODBhNmI3ZjE3NBkBOKEFoQJ4My93dXF1emRnOG5oL291dC92MS9kYzJhNWEwZGRjNWU0ZjMxYTgxYmY5OGIwNzY5NDM0NBkBPIFiVVNYIHKaugRFFX0LbjqovQDoegDQ3PQD3HljLXEnKcMxZs6q/pdx-nitro/startover/clients/dash/manipulated-manifest-pdx-prod/enc/wuquzdg8nh/out/v1/dc2a5a0ddc5e4f31a81bf98b07694344/f794cc98-ddd8-4d7c-8849-eae0dfcf17c6-cenc.mpd
 #EXTINF:-1 tvg-id="B0HJXWCYJ6" tvg-name="Swedish Open, Day 1" tvg-logo="https://images-na.ssl-images-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.e5c87dc4-f0a8-46e4-9a27-5742a02fb86a/6/BOXART-16X9/en-US._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/a-f/freewithads/logos/channels-logo-white.png%7C0,0,1920,1080+0,0,1920,1080+1578,847,263,156_kv053498f62d21803ffcbf28da234cfe9f_SX624_FMjpg_.jpg" group-title="Prime Video Free Sports",Swedish Open, Day 1
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
