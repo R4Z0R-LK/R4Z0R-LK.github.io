@@ -7,6 +7,13 @@
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36"}
 https://dash-ott.bia-cf.live.pv-cdn.net/iad-nitro/live/clients/dash/enc/0bftapixow/out/v1/a435ed7a00f947deb4369b46d8f2fb70/cenc.mpd
+#EXTINF:-1 tvg-id="B0HHG3Y55P" tvg-name="Bahrain: Practice 1 (Sky Sports)" tvg-logo="https://images-na.ssl-images-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.3fd35d8b-f76c-49a9-8189-0d8b0db4fe08/6/BOXART-16X9/en-US._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/a-f/appletvus/logos/channels-logo-white-stacked.png%7C0,0,1920,1080+0,0,1920,1080+1607,885,234,117_kv6e4ed7a60d36179896a92487d4bec652_SX624_FMjpg_.jpeg" group-title="Prime Video Free Sports",Bahrain: Practice 1 (Sky Sports)
+#KODIPROP:inputstream.adaptive.manifest_type=mpd
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=98cf2bf2726d4fad297136301b780cad:05cc56112f26e920d348a1b971ff604e
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36"}
+https://a132live-pv-ta-enf-amazon.akamaized.net/$T$2D3RhEOhAQWhBFgkYWY3NDZlZjAtYzM0OC00MGM1LWFjN2UtYTVhZWIzNjhiNjA0WImmAWpwcmltZXZpZGVvBBpq0vNQBhpqvyzQA2Zha2FtYWkCeClzc2lkOjcwZTk3OGNmLTkzM2EtNGNiOS1hZDYzLTUzYzRkYWY4NjE3ZRkBOKEFoQJ4My9jdjh5dGtqNWh2L291dC92MS9hNzdhNmY4N2RiZWM0NGVmOTBlNDgwMDYwZTAxMWNiZlggL0LjVpKITw9pFLXoY_3D46h4m0ftHvGENW8G_uZ5hWA/pdx-nitro/startover/clients/dash/manipulated-manifest-pdx-prod/enc/cv8ytkj5hv/out/v1/a77a6f87dbec44ef90e480060e011cbf/5385feac-cc9e-4abf-9c72-74105abc5fb3-cenc.mpd
 #EXTINF:-1 tvg-id="B0HL68SQ6N" tvg-name="Motul Grand Prix of Japan, Practice" tvg-logo="https://images-na.ssl-images-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.f9cf4b9a-1bed-4f03-8550-f50d7fe9e4d8/6/BOXART-16X9/en-US._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/a-f/freewithads/logos/channels-logo-white.png%7C0,0,1920,1080+0,0,1920,1080+1578,847,263,156_kv053498f62d21803ffcbf28da234cfe9f_SX624_FMjpg_.jpg" group-title="Prime Video Free Sports",Motul Grand Prix of Japan, Practice
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
