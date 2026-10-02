@@ -1,19 +1,5 @@
 #EXTM3U x-tvg-url=""
 
-#EXTINF:-1 tvg-id="B0HHFJQJWV" tvg-name="Bahrain: Practice 2" tvg-logo="https://images-na.ssl-images-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.a08571f2-49f3-44ff-be88-bb1e1528de6c/5/BOXART-16X9/en-US._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/a-f/appletvus/logos/channels-logo-white-stacked.png%7C0,0,1920,1080+0,0,1920,1080+1607,885,234,117_kv6e4ed7a60d36179896a92487d4bec652_SX624_FMjpg_.jpeg" group-title="Prime Video Free Sports",Bahrain: Practice 2
-#KODIPROP:inputstream.adaptive.manifest_type=mpd
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=6e5cce167de9a03b9ed80398c07e5243:521fbb9292a0e94f25c71007dacab620
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36"}
-https://a120live-pv-ta-amazon.akamaized.net/$T$2D3RhEOhAQWhBFgkYWY3NDZlZjAtYzM0OC00MGM1LWFjN2UtYTVhZWIzNjhiNjA0WJCnAWpwcmltZXZpZGVvBBpq0yuUBhpqv2UUA2Zha2FtYWkCeClzc2lkOjFkYjQ0OTI2LTJmNDMtNDg2OS04OTM1LTJmZTFmZGEyYTA4NRkBOKEFoQJ4My90b3ZvdWt1Z2dmL291dC92MS9iNjg3MWYzMTNjNmU0ZjNmYTg2ZTcwMWM2NDIyOWQzMhkBPIFiVVNYIOmAJfaVvq-MaW6-q7mCFs9mrzUljGQjRUQzSlBBoXHl/iad-nitro/startover/clients/dash/manipulated-manifest-iad-prod/enc/tovoukuggf/out/v1/b6871f313c6e4f3fa86e701c64229d32/a64a4b09-8a1c-41bd-9cfe-590228660fe7-cenc.mpd
-#EXTINF:-1 tvg-id="B0HF52DPKV" tvg-name="Bahrain: Practice 2 (Sky Sports)" tvg-logo="https://images-na.ssl-images-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.34ce4174-edbe-4462-a484-5a605be376f3/4/BOXART-16X9/en-US._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/a-f/appletvus/logos/channels-logo-white-stacked.png%7C0,0,1920,1080+0,0,1920,1080+1607,885,234,117_kv6e4ed7a60d36179896a92487d4bec652_SX624_FMjpg_.jpeg" group-title="Prime Video Free Sports",Bahrain: Practice 2 (Sky Sports)
-#KODIPROP:inputstream.adaptive.manifest_type=mpd
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=c1b52cdc17733740330679d0c3f8d630:4e6789be6be6997c7a3f736f69d31ba7
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36"}
-https://a154live-pv-ta-enf-amazon.akamaized.net/$T$2D3RhEOhAQWhBFgkYWY3NDZlZjAtYzM0OC00MGM1LWFjN2UtYTVhZWIzNjhiNjA0WImmAWpwcmltZXZpZGVvBBpq0yuVBhpqv2UVA2Zha2FtYWkCeClzc2lkOjJjZDViMjExLTIxNzUtNDQzMC1hM2YxLThkNGEwMGY1YTJlNxkBOKEFoQJ4My9tZmh6dndmcHBqL291dC92MS9jNmM3YWRjYTAyYTU0OTE0OTE0NmY5MjU5Y2RlMWNjMFggsMKMyTl2z1bbREAiGjeTHjTihSeCaMR6P_eWXL3iisQ/iad-nitro/startover/clients/dash/manipulated-manifest-iad-prod/enc/mfhzvwfppj/out/v1/c6c7adca02a549149146f9259cde1cc0/3939bfe8-0caa-4ec2-b295-9fd54fa2e89a-cenc.mpd
 #EXTINF:-1 tvg-id="B0HK312369" tvg-name="Predator Pro Billiard Series: Indonesia-2026 Predator Pro Billiard Series: Indonesia" tvg-logo="https://images-na.ssl-images-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.17807db5-4a7d-4133-af1d-83c6c125b0ab/10/BOXART-16X9/en-US._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/a-f/freewithads/logos/channels-logo-white.png%7C0,0,1920,1080+0,0,1920,1080+1578,847,263,156_kv053498f62d21803ffcbf28da234cfe9f_SX624_FMjpg_.jpg" group-title="Prime Video Free Sports",Predator Pro Billiard Series: Indonesia-2026 Predator Pro Billiard Series: Indonesia
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
