@@ -28,13 +28,6 @@ https://a110live-emt-pv-ta-amazon.akamaized.net/$T$2D3RhEOhAQWhBFgkYWY3NDZlZjAtY
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36"}
 https://dash-ott.bia-cf.live.pv-cdn.net/pdx-nitro/live/clients/dash/enc/n0gubjzzdn/out/v1/4a96409cca884f9780798b74a4a90017/cenc.mpd
-#EXTINF:-1 tvg-id="B0HCJVHHVK" tvg-name="Oct 1 - PTT Ithaca" tvg-logo="https://images-na.ssl-images-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.b9ce8cd3-1eb2-4973-a7f7-9ef47c86bc63/7/BOXART-16X9/en-US._UR1920,1080_SX624_FMpng_.png" group-title="Prime Video Free Sports",Oct 1 - PTT Ithaca
-#KODIPROP:inputstream.adaptive.manifest_type=mpd
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=68faede63d1fb96576ab3f841d98cd89:785db00c7a92f7e6e7495e5f46a5bd50
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36"}
-https://live-pv-ta-enf.amazon.fastly-edge.com/$T$2D3RhEOhAQWhBFgkOWE2NWFkMDQtYzk4NS00OTZhLWE4NzQtYTkwMzY2M2FiNzFlWImmAWpwcmltZXZpZGVvBBpq0nTJBhpqvq5JA2ZmYXN0bHkCeClzc2lkOmRjNTI2ZTJhLTAwOTAtNDQyMy04MjZiLTRlODMwYjFlZDUxOBkBOKEFoQJ4My96YXdzeW42aGVuL291dC92MS81NDE5NmQ4MTNmZjM0ODAyOWRiNjU5OWIzMTUxMDliNFggBkd3aoK4JHppO1dCDOsnjVMKlKvqS6jIRkkCjO40ph0/pdx-nitro/startover/clients/dash/manipulated-manifest-pdx-prod/enc/zawsyn6hen/out/v1/54196d813ff348029db6599b315109b4/b340daf0-1ea7-4bbc-b1cd-f43b8535949d-cenc.mpd
 #EXTINF:-1 tvg-id="B0HKMR8H3W" tvg-name="Oct 1 - PTT Newport Beach" tvg-logo="https://images-na.ssl-images-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.0eead24b-7412-4005-b3fe-9bb741621dcc/4/BOXART-16X9/en-US._UR1920,1080_SX624_FMpng_.png" group-title="Prime Video Free Sports",Oct 1 - PTT Newport Beach
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
