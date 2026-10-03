@@ -7,6 +7,13 @@
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36"}
 https://ss-ott.bia-cf.live.pv-cdn.net/iad-nitro/live/clients/dash/enc/cmfpvuwoyv/out/v1/94c214cd527c4b5592de7eb9c9a10028/cenc.mpd
+#EXTINF:-1 tvg-id="B0HGYMYYLG" tvg-name="Bahrain: Qualifying (Sky Sports)" tvg-logo="https://images-na.ssl-images-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.73ab076a-e213-40b8-925a-1328eb7f8648/4/BOXART-16X9/en-US._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/a-f/appletvus/logos/channels-logo-white-stacked.png%7C0,0,1920,1080+0,0,1920,1080+1607,885,234,117_kv6e4ed7a60d36179896a92487d4bec652_SX624_FMjpg_.jpeg" group-title="Prime Video Free Sports",Bahrain: Qualifying (Sky Sports)
+#KODIPROP:inputstream.adaptive.manifest_type=mpd
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=a4a0c5f9ba602acac03c631973dff9dd:43ceff4a62ae4be46cdb8eac2f1967bd
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36"}
+https://live-pv-ta.amazon.fastly-edge.com/$T$2D3RhEOhAQWhBFgkOWE2NWFkMDQtYzk4NS00OTZhLWE4NzQtYTkwMzY2M2FiNzFlWJCnAWpwcmltZXZpZGVvBBpq1G79BhpqwKh9A2ZmYXN0bHkCeClzc2lkOmExZGUxMzU5LWNhNWQtNGU2YS04MjIyLThlNzYzZmMxNWY1NRkBOKEFoQJ4My93ajdodXdndWZtL291dC92MS84OWM5MzgzM2IwMjE0OWUzYTZlYTg3MGIzNDExNGMwNhkBPIFiVVNYIIHdSgUbzQELuYx0x4bskx0-HUjnt8lJBM5Ij2Lvk6qv/iad-nitro/startover/clients/dash/manipulated-manifest-iad-prod/enc/wj7huwgufm/out/v1/89c93833b02149e3a6ea870b34114c06/a26c5680-9b1b-426d-ad27-4b939e493519-cenc.mpd
 #EXTINF:-1 tvg-id="B0HK312369" tvg-name="Predator Pro Billiard Series: Indonesia-2026 Predator Pro Billiard Series: Indonesia" tvg-logo="https://images-na.ssl-images-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.17807db5-4a7d-4133-af1d-83c6c125b0ab/10/BOXART-16X9/en-US._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/a-f/freewithads/logos/channels-logo-white.png%7C0,0,1920,1080+0,0,1920,1080+1578,847,263,156_kv053498f62d21803ffcbf28da234cfe9f_SX624_FMjpg_.jpg" group-title="Prime Video Free Sports",Predator Pro Billiard Series: Indonesia-2026 Predator Pro Billiard Series: Indonesia
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
