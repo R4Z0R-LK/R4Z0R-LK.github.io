@@ -1,5 +1,12 @@
 #EXTM3U x-tvg-url=""
 
+#EXTINF:-1 tvg-id="B0HHJH7R1N" tvg-name="Bahrain: Race" tvg-logo="https://images-na.ssl-images-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.b200743f-d5d0-4f76-a9c1-0723788c2b1a/9/BOXART-16X9/en-US._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/a-f/appletvus/logos/channels-logo-white-stacked.png%7C0,0,1920,1080+0,0,1920,1080+1607,885,234,117_kv6e4ed7a60d36179896a92487d4bec652_SX624_FMjpg_.jpeg" group-title="Prime Video Free Sports",Bahrain: Race
+#KODIPROP:inputstream.adaptive.manifest_type=mpd
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=aa34ab9d10ecd82ae8a5989bb4316a5f:a3df8723e7f68d249a49ceb3ae4353ff
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36"}
+https://live-pv-ta.amazon.fastly-edge.com/$T$2D3RhEOhAQWhBFgkOWE2NWFkMDQtYzk4NS00OTZhLWE4NzQtYTkwMzY2M2FiNzFlWJCnAWpwcmltZXZpZGVvBBpq1bJyBhpqwevyA2ZmYXN0bHkCeClzc2lkOjIxN2NkOTBlLWRhYjUtNDUyOS04MGFkLTg4ZWUxYjVhODI3ZhkBOKEFoQJ4My94bmx4bzZ4bWUzL291dC92MS8zODZmZGM3MTYzYjE0MjM2YjJkOTk1OWFhODE2MGE4NhkBPIFiVVNYIA4YInQzViSU6mXBHm1kHplQlZFtIp4O9P9YAaoBxh65/pdx-nitro/startover/clients/dash/manipulated-manifest-pdx-prod/enc/xnlxo6xme3/out/v1/386fdc7163b14236b2d9959aa8160a86/55bda4ad-6365-415e-a4f0-8186a1c3132d-cenc.mpd
 #EXTINF:-1 tvg-id="B0HGC141DT" tvg-name="Bahrain: Race (Sky Sports)" tvg-logo="https://images-na.ssl-images-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.1b497d09-09c1-46f3-a089-50e998ce13b1/4/BOXART-16X9/en-US._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/a-f/appletvus/logos/channels-logo-white-stacked.png%7C0,0,1920,1080+0,0,1920,1080+1607,885,234,117_kv6e4ed7a60d36179896a92487d4bec652_SX624_FMjpg_.jpeg" group-title="Prime Video Free Sports",Bahrain: Race (Sky Sports)
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
