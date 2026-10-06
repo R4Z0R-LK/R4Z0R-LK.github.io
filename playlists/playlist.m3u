@@ -1,12 +1,19 @@
 #EXTM3U x-tvg-url=""
 
-#EXTINF:-1 tvg-id="B0HH9KHMC7" tvg-name="Round of 16" tvg-logo="https://images-na.ssl-images-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.0b6cd474-8936-4d52-b31e-47a72479e5aa/2/BOXART-16X9/en-US._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/a-f/freewithads/logos/channels-logo-white.png%7C0,0,1920,1080+0,0,1920,1080+1578,847,263,156_kv053498f62d21803ffcbf28da234cfe9f_SX624_FMjpg_.jpg" group-title="Prime Video Free Sports",Round of 16
+#EXTINF:-1 tvg-id="B0HKM9QWSR" tvg-name="Oct 6 - PTT Boca Raton Men" tvg-logo="https://images-na.ssl-images-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.3b6574d9-85d2-40fc-a4c8-5e4fa8a357a2/5/BOXART-16X9/en-US._UR1920,1080_SX624_FMpng_.png" group-title="Prime Video Free Sports",Oct 6 - PTT Boca Raton Men
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=59f50679c9e60963bd0cb6640992aaaa:8685817c4d31f322e08940feeae2855a
+#KODIPROP:inputstream.adaptive.license_key=21e6cf71b83b2de5be8cade3ec719787:05041b367680c7bf26c84cbe5790eb68
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36"}
-https://dash-ott.bia-cf.live.pv-cdn.net/iad-nitro/live/clients/dash/enc/bfigtl960n/out/v1/5ba5484550e84681bff2e8ca994266c1/cenc.mpd
+https://live-pv-ta-enf.amazon.fastly-edge.com/$T$2D3RhEOhAQWhBFgkOWE2NWFkMDQtYzk4NS00OTZhLWE4NzQtYTkwMzY2M2FiNzFlWIimAWpwcmltZXZpZGVvBBpq2LfiBhpqxPFiA2ZmYXN0bHkCeChmaWQ6MDFhMTExNGUtZTgzNy03MGI1LTk3MjEtZGUxZWJhZWExNmZmGQE4oQWhAngzLzUxcWNjYjN4eHEvb3V0L3YxLzY0NmEyOGUxN2I2ODRjZDdhNTNjMWRhZWQzOGI0YWIxWCBaRzBnlODuv5ETB9qLWDfVe8guMEuN1Z-bQqz3eR6u-Q/iad-nitro/startover/clients/dash/manipulated-manifest-iad-prod/enc/51qccb3xxq/out/v1/646a28e17b684cd7a53c1daed38b4ab1/fdf189cf-626d-48c1-8963-4be8b5d01ce8-cenc.mpd
+#EXTINF:-1 tvg-id="B0HK87XH7B" tvg-name="Oct 6 - PTT Cordoba Men" tvg-logo="https://images-na.ssl-images-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.2aae2edb-636e-4d58-8d6a-98553cb546a7/3/BOXART-16X9/en-US._UR1920,1080_SX624_FMpng_.png" group-title="Prime Video Free Sports",Oct 6 - PTT Cordoba Men
+#KODIPROP:inputstream.adaptive.manifest_type=mpd
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=6f8dd65bf14f7a5a12c23aaf0d241417:38a2ab88496520af9b7559974d7559a8
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36"}
+https://a20live-pv-ta-amazon.akamaized.net/$T$2D3RhEOhAQWhBFgkYWY3NDZlZjAtYzM0OC00MGM1LWFjN2UtYTVhZWIzNjhiNjA0WI-nAWpwcmltZXZpZGVvBBpq2LfiBhpqxPFiA2Zha2FtYWkCeChmaWQ6MDFhMTExNGUtZWEwZC03NjRmLWE4NTktZGVkYTQ5OWIxODhiGQE4oQWhAngzL3JqYnI2c3Zpcnovb3V0L3YxL2QzYjgzY2U2ZDdmMjQ1ZDNiMDI5YmE2NzQ2MzJjM2VkGQE8gWJVU1ggkw_l72uufzaEdY1VH9iFPHozy1mfJSqxPCnqwzqdn-g/iad-nitro/startover/clients/dash/manipulated-manifest-iad-prod/enc/rjbr6svirz/out/v1/d3b83ce6d7f245d3b029ba674632c3ed/d6703a05-461a-4afb-9a89-14c9e2918dca-cenc.mpd
 #EXTINF:-1 tvg-id="B0HFVYG92D" tvg-name="The Morning Drive" tvg-logo="https://images-na.ssl-images-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.e8d260b2-5d0f-4bfa-9ed3-02acf7d4e684/2/BOXART-16X9/en-US._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/a-f/freewithads/logos/channels-logo-white.png%7C0,0,1920,1080+0,0,1920,1080+1578,847,263,156_kv053498f62d21803ffcbf28da234cfe9f_SX624_FMjpg_.jpg" group-title="Prime Video Free Sports",The Morning Drive
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
