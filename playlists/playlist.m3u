@@ -1,12 +1,5 @@
 #EXTM3U x-tvg-url=""
 
-#EXTINF:-1 tvg-id="B0HKM9QWSR" tvg-name="Oct 6 - PTT Boca Raton Men" tvg-logo="https://images-na.ssl-images-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.3b6574d9-85d2-40fc-a4c8-5e4fa8a357a2/5/BOXART-16X9/en-US._UR1920,1080_SX624_FMpng_.png" group-title="Prime Video Free Sports",Oct 6 - PTT Boca Raton Men
-#KODIPROP:inputstream.adaptive.manifest_type=mpd
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=21e6cf71b83b2de5be8cade3ec719787:05041b367680c7bf26c84cbe5790eb68
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36"}
-https://live-pv-ta-enf.amazon.fastly-edge.com/$T$2D3RhEOhAQWhBFgkOWE2NWFkMDQtYzk4NS00OTZhLWE4NzQtYTkwMzY2M2FiNzFlWIimAWpwcmltZXZpZGVvBBpq2LfiBhpqxPFiA2ZmYXN0bHkCeChmaWQ6MDFhMTExNGUtZTgzNy03MGI1LTk3MjEtZGUxZWJhZWExNmZmGQE4oQWhAngzLzUxcWNjYjN4eHEvb3V0L3YxLzY0NmEyOGUxN2I2ODRjZDdhNTNjMWRhZWQzOGI0YWIxWCBaRzBnlODuv5ETB9qLWDfVe8guMEuN1Z-bQqz3eR6u-Q/iad-nitro/startover/clients/dash/manipulated-manifest-iad-prod/enc/51qccb3xxq/out/v1/646a28e17b684cd7a53c1daed38b4ab1/fdf189cf-626d-48c1-8963-4be8b5d01ce8-cenc.mpd
 #EXTINF:-1 tvg-id="B0HK87XH7B" tvg-name="Oct 6 - PTT Cordoba Men" tvg-logo="https://images-na.ssl-images-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.2aae2edb-636e-4d58-8d6a-98553cb546a7/3/BOXART-16X9/en-US._UR1920,1080_SX624_FMpng_.png" group-title="Prime Video Free Sports",Oct 6 - PTT Cordoba Men
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
