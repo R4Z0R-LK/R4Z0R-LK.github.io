@@ -7,13 +7,6 @@
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36"}
 https://dash-ott.bia-cf.live.pv-cdn.net/iad-nitro/live/clients/dash/enc/ed2ez0prtb/out/v1/811d58e2ba00485eb2a4d5724a2ba196/cenc.mpd
-#EXTINF:-1 tvg-id="B0HK87XH7B" tvg-name="Oct 6 - PTT Cordoba Men" tvg-logo="https://images-na.ssl-images-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.2aae2edb-636e-4d58-8d6a-98553cb546a7/3/BOXART-16X9/en-US._UR1920,1080_SX624_FMpng_.png" group-title="Prime Video Free Sports",Oct 6 - PTT Cordoba Men
-#KODIPROP:inputstream.adaptive.manifest_type=mpd
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=6f8dd65bf14f7a5a12c23aaf0d241417:38a2ab88496520af9b7559974d7559a8
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36"}
-https://ABAT2QGAAAAAAAAML5M7A6JLXLTFV.ta.bia-cf.live.pv-cdn.net/$T$2D3RhEOhAQWhBFgkYzQ1OWU1YmItZDgxMS00NGM2LTgwYzQtNTNkZDc3NTIwODk5WJOnAWpwcmltZXZpZGVvBBpq2USGBhpqxX4GA2pjbG91ZGZyb250AngoZmlkOjAxYTExMzc0LTRhNGMtNzZlYS04YTQ1LWU3YzdkMmQ4N2JlNBkBOKEFoQJ4My9yamJyNnN2aXJ6L291dC92MS9kM2I4M2NlNmQ3ZjI0NWQzYjAyOWJhNjc0NjMyYzNlZBkBPIFiVVNYIB4J4ZIFO_A1IjBSztXr_NTMSlMyBhGWX_t-dkXgSoVS/iad-nitro/startover/clients/dash/manipulated-manifest-iad-prod/enc/rjbr6svirz/out/v1/d3b83ce6d7f245d3b029ba674632c3ed/d6703a05-461a-4afb-9a89-14c9e2918dca-cenc.mpd
 #EXTINF:-1 tvg-id="B0HKC79MRX" tvg-name="Oct 6 - PTT San Diego" tvg-logo="https://images-na.ssl-images-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.cb524064-bfe6-43cc-b5af-6ec84a13121d/10/BOXART-16X9/en-US._UR1920,1080_SX624_FMpng_.png" group-title="Prime Video Free Sports",Oct 6 - PTT San Diego
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
