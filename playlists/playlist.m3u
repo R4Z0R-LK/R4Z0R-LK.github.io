@@ -7,13 +7,6 @@
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36"}
 https://dash-ott.bia-cf.live.pv-cdn.net/iad-nitro/live/clients/dash/enc/igtio3ifkx/out/v1/3e305fd8d7eb4c489e80a71513206a7d/cenc.mpd
-#EXTINF:-1 tvg-id="B0HL4MMD4N" tvg-name="Oct 8 - PTT Cordoba Men" tvg-logo="https://images-na.ssl-images-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.485ab055-fffb-4cb4-bee4-e77cc93c9989/3/BOXART-16X9/en-US._UR1920,1080_SX624_FMpng_.png" group-title="Prime Video Free Sports",Oct 8 - PTT Cordoba Men
-#KODIPROP:inputstream.adaptive.manifest_type=mpd
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=264a6030daf8fcd23024f416685e1826:00d6db1d8f8a5fd357ec58cd392185e5
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36"}
-https://live-pv-ta.amazon.fastly-edge.com/$T$2D3RhEOhAQWhBFgkOWE2NWFkMDQtYzk4NS00OTZhLWE4NzQtYTkwMzY2M2FiNzFlWI-nAWpwcmltZXZpZGVvBBpq21rlBhpqx5RlA2ZmYXN0bHkCeChmaWQ6MDFhMTFiOWItYWNjYS03MGY4LWIxZWMtMjMyOTdiNDY2MGY1GQE4oQWhAngzL2M3M2lrcjVnZjkvb3V0L3YxLzhhYWFiOGVjZTk3NzQ0YTNhN2NjZGU2NmI3ODI5YTMyGQE8gWJVU1ggpte00bMlf09jyoiU8HCPsWK75guvmAiMfoKtYSyRduI/pdx-nitro/startover/clients/dash/manipulated-manifest-pdx-prod/enc/c73ikr5gf9/out/v1/8aaab8ece97744a3a7ccde66b7829a32/98c0053f-e684-422a-9ea0-d6046a53ca66-cenc.mpd
 #EXTINF:-1 tvg-id="B0HLSG351Q" tvg-name="Oct 8 - UTR PTT San Diego" tvg-logo="https://images-na.ssl-images-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.a19e0268-c13b-4957-a317-216a7b751668/9/BOXART-16X9/en-US._UR1920,1080_SX624_FMpng_.png" group-title="Prime Video Free Sports",Oct 8 - UTR PTT San Diego
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
