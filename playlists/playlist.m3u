@@ -7,13 +7,6 @@
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36"}
 https://dash-ott.bia-cf.live.pv-cdn.net/pdx-nitro/live/clients/dash/enc/3akahygf9y/out/v1/cc0ca029222b46b3a36e610e0a85fe91/cenc.mpd
-#EXTINF:-1 tvg-id="B0HL9NC61K" tvg-name="Oct 8 - PTT Boca Raton Men" tvg-logo="https://images-na.ssl-images-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.3d964e6f-0fab-4503-9ef3-9ec19d4ea109/5/BOXART-16X9/en-US._UR1920,1080_SX624_FMpng_.png" group-title="Prime Video Free Sports",Oct 8 - PTT Boca Raton Men
-#KODIPROP:inputstream.adaptive.manifest_type=mpd
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=9056ef485dbc68c3487aceb9249fc365:c15e6f1a0b5a0f71530242dbae17e6f9
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36"}
-https://a167live-pv-ta-amazon.akamaized.net/$T$2D3RhEOhAQWhBFgkYWY3NDZlZjAtYzM0OC00MGM1LWFjN2UtYTVhZWIzNjhiNjA0WI-nAWpwcmltZXZpZGVvBBpq21rmBhpqx5RmA2Zha2FtYWkCeChmaWQ6MDFhMTFiOWItYjA3ZC03N2I2LWJjNzQtYTg4NmZhYmY1MWZlGQE4oQWhAngzL2lkM2p3Njh0cGYvb3V0L3YxLzg4N2FkMDk3YTE5NzRiYjhiZmUwMDlkZGQ2ODFhYjE1GQE8gWJVU1ggwKEvC2mdIRowWRsZraYyr-5ATPyG1zLW8bu2iA24CRY/iad-nitro/startover/clients/dash/manipulated-manifest-iad-prod/enc/id3jw68tpf/out/v1/887ad097a1974bb8bfe009ddd681ab15/1ccdd0c7-51b5-4b6d-a5f2-a99f322a9b14-cenc.mpd
 #EXTINF:-1 tvg-id="B0HL4MMD4N" tvg-name="Oct 8 - PTT Cordoba Men" tvg-logo="https://images-na.ssl-images-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.485ab055-fffb-4cb4-bee4-e77cc93c9989/3/BOXART-16X9/en-US._UR1920,1080_SX624_FMpng_.png" group-title="Prime Video Free Sports",Oct 8 - PTT Cordoba Men
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
