@@ -7,13 +7,6 @@
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36"}
 https://dash-ott.bia-cf.live.pv-cdn.net/pdx-nitro/live/clients/dash/enc/tll6uwepxa/out/v1/a7f67cbb33df46539312956427343886/cenc.mpd
-#EXTINF:-1 tvg-id="B0HLSG351Q" tvg-name="Oct 8 - UTR PTT San Diego" tvg-logo="https://images-na.ssl-images-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.a19e0268-c13b-4957-a317-216a7b751668/9/BOXART-16X9/en-US._UR1920,1080_SX624_FMpng_.png" group-title="Prime Video Free Sports",Oct 8 - UTR PTT San Diego
-#KODIPROP:inputstream.adaptive.manifest_type=mpd
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=a0a9721da550f6e94cca31b9a16cef2b:e98c809a7eabc2746876fdd0cf3cabd9
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36"}
-https://a114live-pv-ta-enf-amazon.akamaized.net/$T$2D3RhEOhAQWhBFgkYWY3NDZlZjAtYzM0OC00MGM1LWFjN2UtYTVhZWIzNjhiNjA0WIimAWpwcmltZXZpZGVvBBpq25MlBhpqx8ylA2Zha2FtYWkCeChmaWQ6MDFhMTFjNzctNjU3Zi03MjE2LWI4ZWUtOGFhNWRhYWQ4ZDlmGQE4oQWhAngzL3FubXhlc2kyZ3Uvb3V0L3YxL2E1Zjg1ODNhMDMyYzRhZWU4M2U1ZWM5YjZlMWYxMWI2WCA2ikzVbzInkywIldDxCCCCv0nByr8nn-TmViSmrFfffg/pdx-nitro/startover/clients/dash/manipulated-manifest-pdx-prod/enc/qnmxesi2gu/out/v1/a5f8583a032c4aee83e5ec9b6e1f11b6/28fd326c-e6a0-459b-82b0-21945acc051b-cenc.mpd
 #EXTINF:-1 tvg-id="B0HJB83J9H" tvg-name="Singapore: Practice 1" tvg-logo="https://images-na.ssl-images-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.34b44b61-f162-4a65-a8d1-fec6974aa07e/6/BOXART-16X9/en-US._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/a-f/appletvus/logos/channels-logo-white-stacked.png%7C0,0,1920,1080+0,0,1920,1080+1607,885,234,117_kv6e4ed7a60d36179896a92487d4bec652_SX624_FMjpg_.jpeg" group-title="Prime Video Free Sports",Singapore: Practice 1
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
