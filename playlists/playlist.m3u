@@ -63,13 +63,13 @@ https://dash-ott.bia-cf.live.pv-cdn.net/pdx-nitro/live/clients/dash/enc/5qz8wmdo
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36"}
 https://dash-ott.bia-cf.live.pv-cdn.net/pdx-nitro/live/clients/dash/enc/nl9acyq8n3/out/v1/5dc4b6dd4c094ccb8c3c92e03e87cda7/cenc.mpd
-#EXTINF:-1 tvg-id="B0HKFPKJX8" tvg-name="Oct 10 - PTT Boca Raton Men" tvg-logo="https://images-na.ssl-images-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.8efe9bbe-9e4d-4d64-9856-0f7d7b5db4fa/9/BOXART-16X9/en-US._UR1920,1080_SX624_FMpng_.png" group-title="Prime Video Free Sports",Oct 10 - PTT Boca Raton Men
+#EXTINF:-1 tvg-id="B0HLKWL1K7" tvg-name="Oct 10 - PTT Cordoba Men" tvg-logo="https://images-na.ssl-images-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.e1484577-13a0-44c7-9ed1-537db7fbdc98/4/BOXART-16X9/en-US._UR1920,1080_SX624_FMpng_.png" group-title="Prime Video Free Sports",Oct 10 - PTT Cordoba Men
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=896e1a0ee12fea424424213b3d8caecf:53680f4a2b1be4e6219bb6bf0fc6a0b1
+#KODIPROP:inputstream.adaptive.license_key=e342b1fe4260632096eddb19321c0314:bde292c7f161aa53792408c592dc62cb
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36"}
-https://live-pv-ta-enf.amazon.fastly-edge.com/$T$2D3RhEOhAQWhBFgkOWE2NWFkMDQtYzk4NS00OTZhLWE4NzQtYTkwMzY2M2FiNzFlWIimAWpwcmltZXZpZGVvBBpq3e_SBhpqyilSA2ZmYXN0bHkCeChmaWQ6MDFhMTI1YjEtNjllYy03NDIxLWI4MzAtNDVmN2I0NmYwOGYwGQE4oQWhAngzL3dlNm85N2JhcDMvb3V0L3YxLzUyN2M3NWI3MmQ1NzQ1ZjY4YjA3MzgzMmU3NzQzYmFmWCC3Uqt02Q2qGxCOiVOj9_tILHYlKvgzS2p4SQOXsTWMzw/pdx-nitro/startover/clients/dash/manipulated-manifest-pdx-prod/enc/we6o97bap3/out/v1/527c75b72d5745f68b073832e7743baf/475960c8-0701-4903-9e7d-f910799965ed-cenc.mpd
+https://live-pv-ta.amazon.fastly-edge.com/$T$2D3RhEOhAQWhBFgkOWE2NWFkMDQtYzk4NS00OTZhLWE4NzQtYTkwMzY2M2FiNzFlWI-nAWpwcmltZXZpZGVvBBpq3j0rBhpqynarA2ZmYXN0bHkCeChmaWQ6MDFhMTI2ZGYtOGU5Yi03NDIwLThmNGUtYjhkMmVjMDQyZDFhGQE4oQWhAngzLzFpc2J1MGd2cngvb3V0L3YxL2VlYTcwZWQ1MTc2ODQ5MTJhNzgwNDc5Y2Y3NjFmNzZhGQE8gWJVU1ggx95FDxnaQYg6A9_AEt9sy3dm3zHHw-tVKA21xKDiIoQ/pdx-nitro/startover/clients/dash/manipulated-manifest-pdx-prod/enc/1isbu0gvrx/out/v1/eea70ed517684912a780479cf761f76a/57be6598-7596-4ef3-8177-469073c14f7d-cenc.mpd
 #EXTINF:-1 tvg-id="B0HGLV4K14" tvg-name="Oct 10 - UTR PTT San Diego" tvg-logo="https://images-na.ssl-images-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.d7cf10f8-a313-4712-880d-015f3108da7e/11/BOXART-16X9/en-US._UR1920,1080_SX624_FMpng_.png" group-title="Prime Video Free Sports",Oct 10 - UTR PTT San Diego
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
