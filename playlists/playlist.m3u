@@ -1,6 +1,6 @@
 #EXTM3U x-tvg-url=""
 
-#EXTINF:-1 tvg-id="B0HKG3G2R1" tvg-name="AHA Hockey: Royal Military College vs Army" tvg-logo="https://images-na.ssl-images-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.a809c206-961c-4d37-bdce-31bdb52cc0b0/1/BOXART-16X9/en-US._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/a-f/freewithads/logos/channels-logo-white.png%7C0,0,1920,1080+0,0,1920,1080+1578,847,263,156_kv053498f62d21803ffcbf28da234cfe9f_SX624_FMjpg_.jpg" group-title="Prime Video Free Sports",AHA Hockey: Royal Military College vs Army
+#EXTINF:-1 tvg-id="B0HKG3G2R1" tvg-name="AHA Hockey: Royal Military College vs Army" tvg-logo="https://images-na.ssl-images-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.a809c206-961c-4d37-bdce-31bdb52cc0b0/2/BOXART-16X9/en-US._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/a-f/freewithads/logos/channels-logo-white.png%7C0,0,1920,1080+0,0,1920,1080+1578,847,263,156_kv053498f62d21803ffcbf28da234cfe9f_SX624_FMjpg_.jpg" group-title="Prime Video Free Sports",AHA Hockey: Royal Military College vs Army
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=b74568d74a6d7f5d2a07d903f820cdb1:ea92e2f4ec746aa5e64fd9c4fc6ed3e9
@@ -28,13 +28,6 @@ https://ABBJKZFAAAAAAAAMCI6PSHDNECGUX.ta-enf.emt-cf.live.pv-cdn.net/$T$2D3RhEOhA
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36"}
 https://a210live-pv-ta-amazon.akamaized.net/$T$2D3RhEOhAQWhBFgkYWY3NDZlZjAtYzM0OC00MGM1LWFjN2UtYTVhZWIzNjhiNjA0WI-nAWpwcmltZXZpZGVvBBpq36PHBhpqy91HA2Zha2FtYWkCeChmaWQ6MDFhMTJjNTgtNWRlMy03NGJjLTg0Y2MtZjZhNDJkZTkzMTFlGQE4oQWhAngzL2tiaXVpZXZ0amMvb3V0L3YxLzkwMjc2ZDBlYzE4NTRjYmQ4NzkxY2IzOTM2OTA4MDRlGQE8gWJVU1ggeunRZ1t_YEDiDj8YEVcXMx8WClEKWxUlzldudw0XTJU/pdx-nitro/startover/clients/dash/manipulated-manifest-pdx-prod/enc/kbiuievtjc/out/v1/90276d0ec1854cbd8791cb393690804e/8e26d9b8-3c89-404b-a473-509c76450da5-cenc.mpd
-#EXTINF:-1 tvg-id="B0HLW85TNB" tvg-name="PPA Tour Chicago Cup: Championships" tvg-logo="https://images-na.ssl-images-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.91305dfe-df54-4cc5-a367-27853e87b8c6/1/BOXART-16X9/en-US._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/a-f/freewithads/logos/channels-logo-white.png%7C0,0,1920,1080+0,0,1920,1080+1578,847,263,156_kv053498f62d21803ffcbf28da234cfe9f_SX624_FMjpg_.jpg" group-title="Prime Video Free Sports",PPA Tour Chicago Cup: Championships
-#KODIPROP:inputstream.adaptive.manifest_type=mpd
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=2be100252a42be3a17d29c93e28eaacc:07c5e72df3602e9652dd06d839776e72
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36"}
-https://dash-ott.bia-cf.live.pv-cdn.net/iad-nitro/live/clients/dash/enc/can8dnk7we/out/v1/d6c56496531749a6989b78ab18c67557/cenc.mpd
 #EXTINF:-1 tvg-id="B0HJ9CTMLD" tvg-name="Season 2026" tvg-logo="https://images-na.ssl-images-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.4ff6f593-3af0-4d69-8b21-66f2a092928d/2/BOXART-16X9/en-US._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/a-f/freewithads/logos/channels-logo-white.png%7C0,0,1920,1080+0,0,1920,1080+1578,847,263,156_kv053498f62d21803ffcbf28da234cfe9f_SX624_FMjpg_.jpg" group-title="Prime Video Free Sports",Season 2026
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
