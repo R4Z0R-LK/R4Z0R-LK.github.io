@@ -1,5 +1,12 @@
 #EXTM3U x-tvg-url=""
 
+#EXTINF:-1 tvg-id="cfy-13431" tvg-name="WCL World Championship of Legends" tvg-logo="https://m.media-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.d7edc9c9-e9a5-44ea-8be9-de746e38b0b2/3/BOXART-16X9/en-US._UR1920,1080_.jpeg" group-title="CFY Live Cricket",WCL World Championship of Legends
+#KODIPROP:inputstream.adaptive.manifest_type=mpd
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=12cdb08af9c2f9c7667a3c3c58ed9443:1679c9c3398400a552e34e9f5153bc78
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36"}
+https://abfjk4haaaaaaaamkitc5445rybm6.bia-cf.live.pv-cdn.net/iad-nitro/live/clients/dash/enc/2obepsx4jx/out/v1/0fd776498ea149a2893b6ba533f5a7aa/cenc.mpd
 #EXTINF:-1 tvg-id="B0HKG3G2R1" tvg-name="AHA Hockey: Royal Military College vs Army" tvg-logo="https://images-na.ssl-images-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.a809c206-961c-4d37-bdce-31bdb52cc0b0/1/BOXART-16X9/en-US._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/a-f/freewithads/logos/channels-logo-white.png%7C0,0,1920,1080+0,0,1920,1080+1578,847,263,156_kv053498f62d21803ffcbf28da234cfe9f_SX624_FMjpg_.jpg" group-title="Prime Video Free Sports",AHA Hockey: Royal Military College vs Army
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
