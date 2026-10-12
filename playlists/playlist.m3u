@@ -1,12 +1,5 @@
 #EXTM3U x-tvg-url=""
 
-#EXTINF:-1 tvg-id="B0HMD6DZ73" tvg-name="Oct 12 - UTR PTT Concord Men" tvg-logo="https://images-na.ssl-images-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.7d464145-93bd-415a-94a5-2f2f32ae304f/4/BOXART-16X9/en-US._UR1920,1080_SX624_FMpng_.png" group-title="Prime Video Free Sports",Oct 12 - UTR PTT Concord Men
-#KODIPROP:inputstream.adaptive.manifest_type=mpd
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=00667f07b119424b02eafdfb2ce37192:3b1188bee37a94a11a3d0f652fd55d9b
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36"}
-https://live-pv-ta-enf.amazon.fastly-edge.com/$T$2D3RhEOhAQWhBFgkOWE2NWFkMDQtYzk4NS00OTZhLWE4NzQtYTkwMzY2M2FiNzFlWIimAWpwcmltZXZpZGVvBBpq4K71BhpqzOh1A2ZmYXN0bHkCeChmaWQ6MDFhMTMwNmMtMGJhMi03NDg2LTkwMDUtNTdlZmIwNmE3NDkwGQE4oQWhAngzL3VoZ2RjbDNlczEvb3V0L3YxLzQ5NjdmZDNmYjY5MjQwYjViNWJjNjNkNDMwZWY0ZDEwWCBRvsdFT74fxfY7hP9kZP1N9IZlaM1KGvbot7mOOeJfwA/iad-nitro/startover/clients/dash/manipulated-manifest-iad-prod/enc/uhgdcl3es1/out/v1/4967fd3fb69240b5b5bc63d430ef4d10/24b22e71-93b6-461b-aaf2-49d924d725da-cenc.mpd
 #EXTINF:-1 tvg-id="B0HJHKXJH6" tvg-name="Oct 12 - UTR PTT Newport Beach" tvg-logo="https://images-na.ssl-images-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.cb024dea-e7ea-4739-95a1-b8e0cc6cf6f8/5/BOXART-16X9/en-US._UR1920,1080_SX624_FMpng_.png" group-title="Prime Video Free Sports",Oct 12 - UTR PTT Newport Beach
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
