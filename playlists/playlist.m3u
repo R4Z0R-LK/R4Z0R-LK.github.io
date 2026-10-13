@@ -1,2 +1,9 @@
 #EXTM3U x-tvg-url=""
 
+#EXTINF:-1 tvg-id="B0HJHKXJH6" tvg-name="Oct 12 - UTR PTT Newport Beach" tvg-logo="https://images-na.ssl-images-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.cb024dea-e7ea-4739-95a1-b8e0cc6cf6f8/6/BOXART-16X9/en-US._UR1920,1080_SX624_FMpng_.png" group-title="Prime Video Free Sports",Oct 12 - UTR PTT Newport Beach
+#KODIPROP:inputstream.adaptive.manifest_type=mpd
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=244729f0e1d438e92cd70f01f517eaf7:44afd01aa6552d06322a2e8a3edfb901
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36"}
+https://live-pv-ta.amazon.fastly-edge.com/$T$2D3RhEOhAQWhBFgkOWE2NWFkMDQtYzk4NS00OTZhLWE4NzQtYTkwMzY2M2FiNzFlWI-nAWpwcmltZXZpZGVvBBpq4TuOBhpqzXUOA2ZmYXN0bHkCeChmaWQ6MDFhMTMyOTEtNDIzYy03M2M0LTgwMDItNWQ0YTExZTFmMzUxGQE4oQWhAngzL3JteGwwNXV2aW8vb3V0L3YxLzE1NmY0NjZmYTkyMDQxMGI4ODQ0ODU2ZDcxYjA3MmVkGQE8gWJVU1ggbo2HAVRDtptUwYx-P0RrhrCJx3J0pAYX9efcongple0/pdx-nitro/startover/clients/dash/manipulated-manifest-pdx-prod/enc/rmxl05uvio/out/v1/156f466fa920410b8844856d71b072ed/66f0201d-f4f4-47df-a8d2-184939c8792c-cenc.mpd
