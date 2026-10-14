@@ -21,6 +21,13 @@ https://ss-ott.bia-cf.live.pv-cdn.net/iad-nitro/live/clients/dash/enc/fx9eabcx49
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36"}
 https://ss-ott.bia-cf.live.pv-cdn.net/iad-nitro/live/clients/dash/enc/ggndcqlkr1/out/v1/dd887eb17ab74b409d1c8493b0f252c3/cenc.mpd
+#EXTINF:-1 tvg-id="B0HL22XK16" tvg-name="Oct 14 - UTR PTT Concord Men" tvg-logo="https://images-na.ssl-images-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.4b0cd4c2-43c0-4623-918f-c2b2f17c1ebe/4/BOXART-16X9/en-US._UR1920,1080_SX624_FMpng_.png" group-title="Prime Video Free Sports",Oct 14 - UTR PTT Concord Men
+#KODIPROP:inputstream.adaptive.manifest_type=mpd
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=21e8b84fb6279ecfbd2556db3540c7d9:ab7ad7131ede3b7c03770fae48fbf2e5
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36"}
+https://live-pv-ta.amazon.fastly-edge.com/$T$2D3RhEOhAQWhBFgkOWE2NWFkMDQtYzk4NS00OTZhLWE4NzQtYTkwMzY2M2FiNzFlWI-nAWpwcmltZXZpZGVvBBpq4zzfBhpqz3ZfA2ZmYXN0bHkCeChmaWQ6MDFhMTNhNjYtNjY2ZS03MjQzLWJhYWEtYjliNTUyYTlhN2YwGQE4oQWhAngzL3FuazJpc3F1c24vb3V0L3YxLzlmMjg0MjI0ZmRhMzQ0MDNiNWNiZGI4NWNmMjMzMzAwGQE8gWJVU1ggfPw_bllihLTepwZ9Q-JZQb5EoQKAN60Un5xI-3FiKRY/pdx-nitro/startover/clients/dash/manipulated-manifest-pdx-prod/enc/qnk2isqusn/out/v1/9f284224fda34403b5cbdb85cf233300/68441bd2-2a28-41ac-ae15-af9bad31946a-cenc.mpd
 #EXTINF:-1 tvg-id="B0HJSZ1775" tvg-name="The Morning Drive" tvg-logo="https://images-na.ssl-images-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.d00229e4-2f9b-460f-8f52-b6673b5ecc3f/2/BOXART-16X9/en-US._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/a-f/freewithads/logos/channels-logo-white.png%7C0,0,1920,1080+0,0,1920,1080+1578,847,263,156_kv053498f62d21803ffcbf28da234cfe9f_SX624_FMjpg_.jpg" group-title="Prime Video Free Sports",The Morning Drive
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
