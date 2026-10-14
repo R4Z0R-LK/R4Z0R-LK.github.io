@@ -42,6 +42,20 @@ https://ss-ott.bia-cf.live.pv-cdn.net/pdx-nitro/live/clients/dash/enc/faiccv4ljc
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36"}
 https://ss-ott.bia-cf.live.pv-cdn.net/iad-nitro/live/clients/dash/enc/nwajpntln8/out/v1/daef1abdc25841c2bff84edd57973d6c/cenc.mpd
+#EXTINF:-1 tvg-id="B0HLW7T6D1" tvg-name="World Championship of Legends 2026 - 17th Match - Bangladesh Champions vs South Africa Champions" tvg-logo="https://m.media-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.9238c000-24c5-4723-927e-f21e892189af/2/BOXART-16X9/en-US._UR1920,1080_.jpeg" group-title="Willow Cricket Event Info",World Championship of Legends 2026 - 17th Match - Bangladesh Champions vs South Africa Champions
+#KODIPROP:inputstream.adaptive.manifest_type=mpd
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=de134773b445a7d9c41e41aa5c345bbf:b0f546e2413a82fdad302ceac53c0493
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36"}
+https://ss-ott.bia-cf.live.pv-cdn.net/pdx-nitro/live/clients/dash/enc/gn7vodveso/out/v1/f63636d3d10f4b0b9d06b55333f30f14/cenc.mpd
+#EXTINF:-1 tvg-id="B0HG47CJHH" tvg-name="Cricket Highlights-WCL 2026: Bangladesh vs South Africa - 21st Match" tvg-logo="https://images-na.ssl-images-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.c023cf3a-8922-4e16-bca4-426fa876041f/2/BOXART-16X9/en-US._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/a-f/freewithads/logos/channels-logo-white.png%7C0,0,1920,1080+0,0,1920,1080+1578,847,263,156_kv053498f62d21803ffcbf28da234cfe9f_SX624_FMjpg_.jpg" group-title="Prime Video Free Sports",Cricket Highlights-WCL 2026: Bangladesh vs South Africa - 21st Match
+#KODIPROP:inputstream.adaptive.manifest_type=mpd
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=290e09c837da78d5cd961978d390515c:b748836c71e6a4ca68ef5b5652db6247
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36"}
+https://dash-ott.bia-cf.live.pv-cdn.net/iad-nitro/live/clients/dash/enc/0bftapixow/out/v1/a435ed7a00f947deb4369b46d8f2fb70/cenc.mpd
 #EXTINF:-1 tvg-id="B0HL22XK16" tvg-name="Oct 14 - UTR PTT Concord Men" tvg-logo="https://images-na.ssl-images-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.4b0cd4c2-43c0-4623-918f-c2b2f17c1ebe/4/BOXART-16X9/en-US._UR1920,1080_SX624_FMpng_.png" group-title="Prime Video Free Sports",Oct 14 - UTR PTT Concord Men
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -56,10 +70,3 @@ https://live-pv-ta.amazon.fastly-edge.com/$T$2D3RhEOhAQWhBFgkOWE2NWFkMDQtYzk4NS0
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36"}
 https://live-pv-ta-enf.amazon.fastly-edge.com/$T$2D3RhEOhAQWhBFgkOWE2NWFkMDQtYzk4NS00OTZhLWE4NzQtYTkwMzY2M2FiNzFlWIimAWpwcmltZXZpZGVvBBpq41H5Bhpqz4t5A2ZmYXN0bHkCeChmaWQ6MDFhMTNhYjgtZDQ1MC03MjcwLTgzODYtMjI5NjM2OTlkZGI4GQE4oQWhAngzL3dzcDA0b3Q5YWQvb3V0L3YxLzQ5YWNmZjE2ODM1YTQxMzNhOGJlMWJjMTY1MDdhNDFlWCAtH2DFwJzeIZ54dV07nj6DUzKw7Fk-BFVvTKjtOhucVA/iad-nitro/startover/clients/dash/manipulated-manifest-iad-prod/enc/wsp04ot9ad/out/v1/49acff16835a4133a8be1bc16507a41e/67f7e0a9-d25f-472a-8c19-f09a85e80f06-cenc.mpd
-#EXTINF:-1 tvg-id="B0HL9JJVTZ" tvg-name="Wuhan-WTA - Early First Round" tvg-logo="https://images-na.ssl-images-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.1a037ab0-426b-4c29-878d-7d3012f0fb9c/7/BOXART-16X9/en-US._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/a-f/freewithads/logos/channels-logo-white.png%7C0,0,1920,1080+0,0,1920,1080+1578,847,263,156_kv053498f62d21803ffcbf28da234cfe9f_SX624_FMjpg_.jpg" group-title="Prime Video Free Sports",Wuhan-WTA - Early First Round
-#KODIPROP:inputstream.adaptive.manifest_type=mpd
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=59f50679c9e60963bd0cb6640992aaaa:8685817c4d31f322e08940feeae2855a
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36"}
-https://dash-ott.bia-cf.live.pv-cdn.net/pdx-nitro/live/clients/dash/enc/k653vm77p0/out/v1/313a4febbed346d298f7c1c281a00f6d/cenc.mpd
