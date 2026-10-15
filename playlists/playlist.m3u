@@ -1,12 +1,5 @@
 #EXTM3U x-tvg-url=""
 
-#EXTINF:-1 tvg-id="B0H69GX9PR" tvg-name="Oct 14 - UTR PTT Newport Beach" tvg-logo="https://images-na.ssl-images-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.30d96e5d-428b-42a4-b3f9-7739ad8c571d/3/BOXART-16X9/en-US._UR1920,1080_SX624_FMpng_.png" group-title="Prime Video Free Sports",Oct 14 - UTR PTT Newport Beach
-#KODIPROP:inputstream.adaptive.manifest_type=mpd
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=f98f2fd89accf0817edcf77b4bc98bea:cd6aa9c6b9226a0a65a6531e345d4a8e
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36"}
-https://a182live-pv-ta-amazon.akamaized.net/$T$2D3RhEOhAQWhBFgkYWY3NDZlZjAtYzM0OC00MGM1LWFjN2UtYTVhZWIzNjhiNjA0WI-nAWpwcmltZXZpZGVvBBpq44o4Bhpqz8O4A2Zha2FtYWkCeChmaWQ6MDFhMTNiOTQtOGExNC03NzNiLWExYTctOTZmZjhlZWM0YjNlGQE4oQWhAngzL3RkbGhvaTlrd2ovb3V0L3YxLzFkNzEyNGVmMTgxMjQ1YjM5NDY1MTFkNTJkOWY3MzZlGQE8gWJVU1ggFIA5N4STQh5wLtcs9E19d_R5sylk19aJ9TwcskjjMTE/pdx-nitro/startover/clients/dash/manipulated-manifest-pdx-prod/enc/tdlhoi9kwj/out/v1/1d7124ef181245b3946511d52d9f736e/f58ad9cc-1d36-4157-bf78-459267498e3e-cenc.mpd
 #EXTINF:-1 tvg-id="B0HL1TTRWF" tvg-name="Wuhan-WTA - Second Round" tvg-logo="https://images-na.ssl-images-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.e13dc3f0-67db-4d21-b302-c70007747e6d/7/BOXART-16X9/en-US._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/a-f/freewithads/logos/channels-logo-white.png%7C0,0,1920,1080+0,0,1920,1080+1578,847,263,156_kv053498f62d21803ffcbf28da234cfe9f_SX624_FMjpg_.jpg" group-title="Prime Video Free Sports",Wuhan-WTA - Second Round
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
