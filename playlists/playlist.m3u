@@ -21,3 +21,10 @@ https://dash-ott.bia-cf.live.pv-cdn.net/iad-nitro/live/clients/dash/enc/can8dnk7
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36"}
 https://dash-ott.bia-cf.live.pv-cdn.net/iad-nitro/live/clients/dash/enc/kxpg5rl6v6/out/v1/8f60215ae257441e8b1cbe44c31839b1/cenc.mpd
+#EXTINF:-1 tvg-id="B0HC4KGW8L" tvg-name="Unknown Match" tvg-logo="https://m.media-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.bb2dcc85-b2af-4a09-8fea-956c437673e0/4/CAROUSEL-BACKGROUND-8X3/en-US/3840x1440._UR3840,1440_SX2160_FMpng_.png" group-title="Prime Video Free Sports",Unknown Match
+#KODIPROP:inputstream.adaptive.manifest_type=mpd
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=ba90fb46fd87ce7dffc899445711637f:0042223737595d060a2663a547f12d8f
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36"}
+https://a114live-pv-ta-enf-amazon.akamaized.net/$T$2D3RhEOhAQWhBFgkYWY3NDZlZjAtYzM0OC00MGM1LWFjN2UtYTVhZWIzNjhiNjA0WIimAWpwcmltZXZpZGVvBBpq5SkOBhpq0WKOA2Zha2FtYWkCeChmaWQ6MDFhMTQxZTgtZmMyYi03Nzg3LTgyODYtNDY3NWY3YjllOWFlGQE4oQWhAngzL3NxeGx5d2RkcXYvb3V0L3YxL2YwMjcxNjQ3ODYyYjQ5ZjM4YmRkMjUyNTgzYTgyYTZmWCCwMcGZucNfktUn0ofkC6RGq88yEC-86UZ3H6NOURlWGw/pdx-nitro/startover/clients/dash/manipulated-manifest-pdx-prod/enc/sqxlywddqv/out/v1/f0271647862b49f38bdd252583a82a6f/7713fdf9-e3c5-4545-b23d-afc7b2ea40a1-cenc.mpd
