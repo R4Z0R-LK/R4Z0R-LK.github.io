@@ -14,6 +14,13 @@ https://live-pv-ta.amazon.fastly-edge.com/$T$2D3RhEOhAQWhBFgkOWE2NWFkMDQtYzk4NS0
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36"}
 https://ABBIQP5AAAAAAAAMHFTSVMOTS3IUW.ta-enf.bia-cf.live.pv-cdn.net/$T$2D3RhEOhAQWhBFgkYzQ1OWU1YmItZDgxMS00NGM2LTgwYzQtNTNkZDc3NTIwODk5WIymAWpwcmltZXZpZGVvBBpq5nODBhpq0q0DA2pjbG91ZGZyb250AngoZmlkOjAxYTE0NmYzLWQ2ZDctNzYxYi1iZGY0LTgzMTgwYjRjOGFkMhkBOKEFoQJ4My9uZXcwN3hhZ294L291dC92MS83YTg0NjFlMDBlMTU0OWRiOTVmZjcxOWE4ZGRmZTc2MlggVoB4gdnHBz46A2m4HrCLsfwEKJFLjvImh_BUHFxvDOs/pdx-nitro/startover/clients/dash/manipulated-manifest-pdx-prod/enc/new07xagox/out/v1/7a8461e00e1549db95ff719a8ddfe762/158614ae-c8ef-4a30-9d6a-f95f05a3adce-cenc.mpd
+#EXTINF:-1 tvg-id="B0HMFNH3T1" tvg-name="FallNationals" tvg-logo="https://images-na.ssl-images-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.5b609ed4-7d71-41cb-9a2d-681f757f5aa9/3/BOXART-16X9/en-US._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/a-f/freewithads/logos/channels-logo-white.png%7C0,0,1920,1080+0,0,1920,1080+1578,847,263,156_kv053498f62d21803ffcbf28da234cfe9f_SX624_FMjpg_.jpg" group-title="Prime Video Free Sports",FallNationals
+#KODIPROP:inputstream.adaptive.manifest_type=mpd
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=2b5f2f89365bf2c032b8927d0d577653:49d502f7736d6e0406526325957bd8f3
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36"}
+https://dash-ott.bia-cf.live.pv-cdn.net/iad-nitro/live/clients/dash/enc/ygffgt16kp/out/v1/d5a3e6a530f64b62aa6e55418348d917/cenc.mpd
 #EXTINF:-1 tvg-id="B0GZC385M1" tvg-name="Heat vs. Magic" tvg-logo="https://images-na.ssl-images-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.48df697a-ce5f-460a-b87c-dba69e9d14ef/4/BOXART-16X9/en-US/1920x1080._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/channel-id/amzn1-dv-channel-7a36cb2b-40e6-40c7-809f-a6cf9b9f0859/logos/channels-logo-white-stacked.png%7C0,0,1920,1080+0,0,1920,1080+1724,885,117,117_kvf4a9d72da21224c6c99be3e99793d2f3_SX624_FMpng_.png" group-title="Prime Video Free Sports",Heat vs. Magic
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
