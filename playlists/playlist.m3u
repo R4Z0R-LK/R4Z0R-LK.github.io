@@ -1,19 +1,5 @@
 #EXTM3U x-tvg-url=""
 
-#EXTINF:-1 tvg-id="cfy-13431" tvg-name="WCL World Championship of Legends" tvg-logo="https://m.media-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.b1c237f9-9368-4429-b2e7-6f8e767f4ae5/1/BOXART-16X9/en-US._UR1920,1080_.jpeg" group-title="CFY Live Cricket",WCL World Championship of Legends
-#KODIPROP:inputstream.adaptive.manifest_type=mpd
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=0ae4f162eec3e6f2b580a5bf0f4a64d4:03483335db81cba5bbcf51b6d31196d9
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36"}
-https://d1ifzl5cnhi7bu.cloudfront.net/out/v1/45ba30e075ad455a8767d3f33e67ea3d/index.mpd
-#EXTINF:-1 tvg-id="B0HMJGLWX8" tvg-name="World Championship of Legends 2026 - 2nd Semi-Final - Australia Champions vs West Indies Champions" tvg-logo="https://m.media-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.b1c237f9-9368-4429-b2e7-6f8e767f4ae5/1/BOXART-16X9/en-US._UR1920,1080_.jpeg" group-title="Willow Cricket Event Info",World Championship of Legends 2026 - 2nd Semi-Final - Australia Champions vs West Indies Champions
-#KODIPROP:inputstream.adaptive.manifest_type=mpd
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=5a0e73fa4a0c0573476bf83d0e677b37:dcddd039f451b85d8463a35624e42aaf
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36"}
-https://ss-ott.bia-cf.live.pv-cdn.net/pdx-nitro/live/clients/dash/enc/erfohta9mo/out/v1/37c9d4426c814b168257fc9b34551119/cenc.mpd
 #EXTINF:-1 tvg-id="B0HGM5H51J" tvg-name="Burnley vs. Wolverhampton Wanderers" tvg-logo="https://images-na.ssl-images-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.23fc62ef-060c-4074-80aa-7fee15d8d91e/2/BOXART-16X9/en-US._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/a-f/freewithads/logos/channels-logo-white.png%7C0,0,1920,1080+0,0,1920,1080+1578,847,263,156_kv053498f62d21803ffcbf28da234cfe9f_SX624_FMjpg_.jpg" group-title="Prime Video Free Sports",Burnley vs. Wolverhampton Wanderers
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
