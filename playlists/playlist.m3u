@@ -1,12 +1,5 @@
 #EXTM3U x-tvg-url=""
 
-#EXTINF:-1 tvg-id="cfy-13431" tvg-name="WCL World Championship of Legends" tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkZ0c8Wb0slhQCjc_XsPzMuqyX52rG-yapyEgJpdSmSQ&s=10" group-title="CFY Live Cricket",WCL World Championship of Legends
-#KODIPROP:inputstream.adaptive.manifest_type=mpd
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=0ae4f162eec3e6f2b580a5bf0f4a64d4:03483335db81cba5bbcf51b6d31196d9
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36"}
-https://d1ifzl5cnhi7bu.cloudfront.net/out/v1/45ba30e075ad455a8767d3f33e67ea3d/index.mpd
 #EXTINF:-1 tvg-id="B0HMJJZY68" tvg-name="Elite: Midwest Regional 1, Round Robin Match Play" tvg-logo="https://images-na.ssl-images-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.622252cf-e883-46eb-bbeb-4c3902a5709f/6/BOXART-16X9/en-US._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/a-f/freewithads/logos/channels-logo-white.png%7C0,0,1920,1080+0,0,1920,1080+1578,847,263,156_kv053498f62d21803ffcbf28da234cfe9f_SX624_FMjpg_.jpg" group-title="Prime Video Free Sports",Elite: Midwest Regional 1, Round Robin Match Play
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
